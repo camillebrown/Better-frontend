@@ -1,13 +1,44 @@
+import React, { useState } from 'react'
 import { Stack, Input, FormControl, InputLeftElement, Icon, InputGroup, Button, FormHelperText } from '@chakra-ui/react'
-
-// Form Controls allow you to control what is required and what is disabled
-
-// Input Groups allow you to but two things together in the same input field
+import axios from 'axios'
+import Router from "next/router";
 
 const LoginForm = () => {
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const loginUser = (e) => {
+        e.preventDefault()
+        console.log(email)
+        console.log(password)
+        axios.post("http://localhost:8000/api/v1/users/login",
+            {
+                email: email,
+                password: password
+            })
+            .then(() => {
+                Router.push("/profile")
+            })
+            .catch((err) => {
+                console.log("error logging in user", err);
+            });
+    }
+
+    // Store the username in our username state
+    const onChangeEmail = (e) => {
+        const email = e.target.value
+        setEmail(email)
+    }
+
+    // Store the username in our username state
+    const onChangePassword = (e) => {
+        const password = e.target.value
+        setPassword(password)
+    }
+
     return (
-        <form action="submit">
+        <form action="submit" onSubmit={loginUser}>
             <Stack spacing={4}>
 
                 <FormControl isRequired>
@@ -17,6 +48,8 @@ const LoginForm = () => {
                             type="email"
                             placeholder="Email"
                             aria-label="Email"
+                            name="email"
+                            onChange={onChangeEmail}
                         />
                     </InputGroup>
                 </FormControl>
@@ -28,11 +61,14 @@ const LoginForm = () => {
                             type="password"
                             placeholder="Password"
                             aria-label="Password"
+                            name="password"
+                            onChange={onChangePassword}
                         />
                     </InputGroup>
                 </FormControl>
                 <Button
                     type="submit"
+                    onSubmit={loginUser}
                     variant="solid"
                     variantColor="red"
                     boxShadow="sm"
