@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Sleep from '../components/Sleep'
+import Sleep from '../../components/Sleep'
 
 const sleep = () => {
 

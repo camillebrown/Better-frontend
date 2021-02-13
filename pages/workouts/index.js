@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Fitness from '../components/Fitness'
+import Fitness from '../../components/Fitness'
 
 const workouts = () => {
 

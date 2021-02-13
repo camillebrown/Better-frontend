@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Mood from '../components/Mood';
+import Mood from '../../components/Mood';
 
 const moods = () => {
 
