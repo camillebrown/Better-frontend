@@ -2,12 +2,12 @@ import React from 'react';
 import { Box, Text, Button } from '@chakra-ui/react'
 import axios from 'axios'
 
-function MoodList(props) {
-    const moods = props.moods.map((mood) => {
-        // console.log(mood.id)
-        const deleteMood = () => {
-            console.log(mood.id)
-            axios.delete(process.env.REACT_APP_FLASK_API_URL + `/moods/${mood.id}`)
+function Sleep(props) {
+    const sleeps = props.sleeps.map((sleep) => {
+        // console.log(sleep.id)
+        const deleteSleep = () => {
+            console.log(sleep.id)
+            axios.delete(`http://localhost:8000/sleeps/${sleep.id}`)
                 .then((data) => {
                     console.log(data)
                     window.location.reload()
@@ -17,9 +17,9 @@ function MoodList(props) {
                 })
         }
 
-        const editMood = () => {
-            console.log(mood.id)
-            axios.put(process.env.REACT_APP_FLASK_API_URL + `/moods/${mood.id}`)
+        const editSleepLog = () => {
+            console.log(sleep.id)
+            axios.put(`http://localhost:8000/sleeps/${sleep.id}`)
                 .then((data) => {
                     console.log(data)
                     window.location.reload()
@@ -31,24 +31,27 @@ function MoodList(props) {
 
 
         return (
-            <Box key={mood.id}>
+            <Box key={sleep.id}>
                 <Text color="black" fontSize="16px" fontWeight="light">
-                    {mood.date}
+                    {sleep.date}
                 </Text>
                 <Text color="black" fontSize="16px" fontWeight="light">
-                    {mood.rating}
+                    {sleep.start_time}
                 </Text>
-                <Button onClick={deleteMood}>Delete Mood</Button>
-                <Button onClick={editMood}>Edit Mood</Button>
+                <Text color="black" fontSize="16px" fontWeight="light">
+                    {sleep.end_time}
+                </Text>
+                <Button onClick={deleteSleep}>Delete Sleep Log</Button>
+                <Button onClick={editSleepLog}>Update Sleep Log</Button>
             </Box>
         )
     })
 
     return (
         <Box>
-            {moods}
+            {sleeps}
         </Box>
     )
 }
 
-export default MoodList
+export default Sleep

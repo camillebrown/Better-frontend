@@ -7,7 +7,8 @@ const moods = () => {
     const [moods, setMoods] = useState([])
 
     const getMoods = () => {
-        axios(process.env.REACT_APP_FLASK_API_URL + '/moods')
+        // FIGURE OUT WHY PROCESS.ENV IS NOT WORKING!!!!!!
+        axios.get(`http://localhost:8000/moods`)
             .then((res) => {
                 console.log(res.data.data)
                 setMoods(res.data.data)
@@ -22,8 +23,7 @@ const moods = () => {
     },[])
 
     return (
-        <h1>Testing</h1>
-        // <Mood moods={moods} />
+        <Mood moods={moods} />
     )
 }
 
