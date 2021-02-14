@@ -10,8 +10,7 @@ const profile = () => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log(res)
-                // setUser(res.data.data)
+                setUser(res.data.data)
             })
     .catch(err => {
         console.log(err)
@@ -24,7 +23,10 @@ useEffect(() => {
 
 return (
     <div>
-        <h1>testing 1 </h1>
+        <h1>{user.first_name} </h1>
+        <h1>{user.last_name} </h1>
+        <h1>{user.email} </h1>
+        <h1>{user.id} </h1>
     </div>
 )
 }
