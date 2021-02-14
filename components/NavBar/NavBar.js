@@ -75,9 +75,9 @@ const MenuLinks = ({ isOpen }) => {
       >
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/how">How It works </MenuItem>
-        <MenuItem to="/faetures">Features </MenuItem>
+        <MenuItem to="/features">Features </MenuItem>
         <MenuItem to="/pricing">Pricing </MenuItem>
-        <MenuItem to="/signup" isLast>
+        <MenuItem to="/join" isLast>
           <Button
             size="sm"
             rounded="md"
@@ -87,9 +87,7 @@ const MenuLinks = ({ isOpen }) => {
               bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
             }}
           >
-            <Link href='/join'>
 							Join Now!
-						</Link>
           </Button>
         </MenuItem>
       </Stack>

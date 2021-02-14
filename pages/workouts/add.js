@@ -11,7 +11,6 @@ const add = () => {
             p={3}
             boxShadow="sm"
             rounded="lg">
-            <Image src="./security.png" w="80px" mx="auto" my={6}/>
             <Tabs variant="enclosed-colored" isFitted m={4}>
                 <TabList>
                     <Tab>Sign Up</Tab>

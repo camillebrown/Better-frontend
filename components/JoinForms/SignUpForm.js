@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Stack, Input, FormControl, InputLeftElement, Icon, InputGroup, Button, FormHelperText, Divider } from '@chakra-ui/react'
 import axios from 'axios'
-import Router from "next/router";
+//Stack lets you vertically stack things
+//FormControl allows you to control what is required and what is disabled when filling out a form.
+//InputGroups puts icons and input fields together
+import { Stack, Input, FormControl, InputLeftElement, Icon, InputGroup, Button, Divider, FormHelperText } from "@chakra-ui/react"
+import { InfoIcon, EmailIcon, LockIcon } from '@chakra-ui/icons'
 
 const SignUpForm = () => {
 
@@ -10,29 +13,6 @@ const SignUpForm = () => {
     const [username, setUsername] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-
-    const signupUser = (e) => {
-        e.preventDefault()
-        console.log(email)
-        console.log(password)
-        console.log(firstName)
-        console.log(lastName)
-        console.log(username)
-        axios.post("http://localhost:8000/api/v1/users/register",
-            {
-                first_name: firstName,
-                last_name: lastName,
-                username: username,
-                email: email,
-                password: password
-            })
-            .then(() => {
-                Router.push("/profile")
-            })
-            .catch((err) => {
-                console.log("error signing up user", err);
-            });
-    }
 
     const onChangeEmail = (e) => {
         const email = e.target.value
@@ -58,14 +38,31 @@ const SignUpForm = () => {
         const username = e.target.value
         setUsername(username)
     }
+    //axios call here to backend to register
+    const register = (e) => {
+        e.preventDefault()
+        axios.post(
+            'http://localhost:8000' + `/api/v1/user/register`,
+            {
+                first_name: firstName,
+                last_name: lastName,
+                username: username,
+                email: email,
+                password: password
+            }
+        ).then((data) => {
+            console.log(data.data)
+        }).catch((err) => {
+            console.log("error registering user", err)
+        })
+    }
 
     return (
-        <form action="submit" onSubmit={signupUser}>
+        <form action="submit">
             <Stack spacing={4}>
-
                 <FormControl isRequired>
                     <InputGroup>
-                        <InputLeftElement children={<Icon name="info" />} />
+                        <InputLeftElement children={<InfoIcon />} />
                         <Input
                             type="name"
                             placeholder="First Name"
@@ -76,7 +73,7 @@ const SignUpForm = () => {
                 </FormControl>
                 <FormControl isRequired>
                     <InputGroup>
-                        <InputLeftElement children={<Icon name="info" />} />
+                        <InputLeftElement children={<InfoIcon />} />
                         <Input
                             type="name"
                             placeholder="Last Name"
@@ -85,25 +82,26 @@ const SignUpForm = () => {
                         />
                     </InputGroup>
                 </FormControl>
-                <Divider borderColor="gray.300" />
                 <FormControl isRequired>
                     <InputGroup>
-                        <InputLeftElement children={<Icon name="email" />} />
+                        <InputLeftElement children={<InfoIcon />} />
                         <Input
                             type="text"
                             placeholder="Username"
                             aria-label="Username"
+                            value={username}
                             onChange={onChangeUsername}
                         />
                     </InputGroup>
                 </FormControl>
                 <FormControl isRequired>
                     <InputGroup>
-                        <InputLeftElement children={<Icon name="email" />} />
+                        <InputLeftElement children={<EmailIcon />} />
                         <Input
-                            type="email"
+                            type="text"
                             placeholder="Email"
                             aria-label="Email"
+                            value={email}
                             onChange={onChangeEmail}
                         />
                     </InputGroup>
@@ -111,32 +109,31 @@ const SignUpForm = () => {
 
                 <FormControl isRequired>
                     <InputGroup>
-                        <InputLeftElement children={<Icon name="lock" />} />
+                        <InputLeftElement children={<LockIcon />} />
                         <Input
                             type="password"
                             placeholder="Password"
                             aria-label="Password"
+                            value={password}
                             onChange={onChangePassword}
                         />
                     </InputGroup>
                 </FormControl>
-
                 <Button
-                    type="submit"
-                    onSubmit={signupUser}
+                    // type="submit"
                     variant="solid"
-                    variantColor="red"
+                    variantcolor="red"
                     boxShadow="sm"
                     _hover={{ boxShadow: "lg" }}
+                    _active={{ boxShadow: "lg" }}
+                    onClick={register}
                 >
                     Sign Up!
                 </Button>
-
                 <FormHelperText textAlign="center">
                     {/* Control + Command + Space allows you to get emojis!! */}
                     We will never share your email! 🙏
                 </FormHelperText>
-
             </Stack>
         </form>
     )

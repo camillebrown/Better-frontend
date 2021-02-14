@@ -61,7 +61,7 @@ const MealAdd = () => {
                 <Button
                     type="submit"
                     variant="solid"
-                    variantColor="red"
+                    variantcolor="red"
                     boxShadow="sm"
                     _hover={{ boxShadow: "lg" }}
                 >
