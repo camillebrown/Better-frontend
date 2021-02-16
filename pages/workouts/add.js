@@ -1,32 +1,57 @@
-import { Box, Tabs, TabList, Tab, TabPanel, TabPanels, Image } from '@chakra-ui/react'
-import SignUpForm from '../../components/JoinForms/SignUpForm'
-import LoginForm from '../../components/JoinForms/LoginForm'
+import React, { useState, useEffect } from 'react';
+import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
+import FitnessAdd from '../../components/SubmitForms/Fitness/FitnessAdd'
+import FitnessUpdate from '../../components/SubmitForms/Fitness/FitnessUpdate'
+import axios from 'axios'
+import { withRouter } from 'next/router'
 
-// Variant changes the way the tabs behave
 
-const add = () => {
+const add = (props) => {
+    const workout_id = props.router.query.workout
+
+    const [user, setUser] = useState([])
+
+    const getUserInfo = () => {
+        axios.get(`http://localhost:8000/profile/`,
+            { withCredentials: true }
+        )
+            .then((res) => {
+                setUser(res.data.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        getUserInfo()
+    }, [])
+
     return (
-        <Box
-            w="350px"
-            p={3}
-            boxShadow="sm"
-            rounded="lg">
-            <Tabs variant="enclosed-colored" isFitted m={4}>
-                <TabList>
-                    <Tab>Sign Up</Tab>
-                    <Tab>Login</Tab>
-                </TabList>
-                <TabPanels mt={3}>
-                    <TabPanel>
-                        <SignUpForm />
-                    </TabPanel>
-                    <TabPanel>
-                        <LoginForm />
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </Box>
+        <>
+            <h1>Fitness Tracker</h1>
+            <Box
+                w="350px"
+                p={3}
+                boxShadow="sm"
+                rounded="lg">
+                <Tabs variant="enclosed-colored" isFitted m={4}>
+                    <TabList>
+                        <Tab>Add New</Tab>
+                        <Tab>Update Existing</Tab>
+                    </TabList>
+                    <TabPanels mt={3}>
+                        <TabPanel>
+                            <FitnessAdd user={user}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <FitnessUpdate workout={workout_id} user={user}/>
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
+            </Box>
+        </>
     )
 }
 
-export default add
+export default withRouter(add)

@@ -11,7 +11,6 @@ function Meal(props) {
             console.log(meal.id)
             axios.delete(`http://localhost:8000/meals/${meal.id}`)
                 .then((data) => {
-                    console.log(data)
                     window.location.reload()
                 })
                 .catch(err => {

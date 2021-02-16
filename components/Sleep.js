@@ -1,15 +1,17 @@
 import React from 'react';
 import { Box, Text, Button } from '@chakra-ui/react'
 import axios from 'axios'
+import Router from 'next/router'
+
 
 function Sleep(props) {
+
     const sleeps = props.sleeps.map((sleep) => {
-        // console.log(sleep.id)
+        
         const deleteSleep = () => {
-            console.log(sleep.id)
+
             axios.delete(`http://localhost:8000/sleeps/${sleep.id}`)
                 .then((data) => {
-                    console.log(data)
                     window.location.reload()
                 })
                 .catch(err => {
@@ -18,15 +20,10 @@ function Sleep(props) {
         }
 
         const editSleepLog = () => {
-            console.log(sleep.id)
-            axios.put(`http://localhost:8000/sleeps/${sleep.id}`)
-                .then((data) => {
-                    console.log(data)
-                    window.location.reload()
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            Router.push({
+                pathname: '/sleep/add',
+                query: { sleep: sleep.id },
+            })
         }
 
 

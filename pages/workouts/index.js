@@ -7,7 +7,9 @@ const workouts = () => {
     const [workouts, setWorkouts] = useState([])
 
     const getWorkouts = () => {
-        axios.get(`http://localhost:8000/workouts`)
+        axios.get(`http://localhost:8000/workouts/`,
+            { withCredentials: true }
+        )
             .then((res) => {
                 setWorkouts(res.data.data)
             })
@@ -18,7 +20,7 @@ const workouts = () => {
 
     useEffect(() => {
         getWorkouts()
-    },[])
+    }, [])
 
     return (
         <Fitness workouts={workouts} />

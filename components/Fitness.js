@@ -1,14 +1,15 @@
 import React from 'react';
 import { Box, Text, Button } from '@chakra-ui/react'
 import axios from 'axios'
+import Router from 'next/router'
+
 
 function Fitness(props) {
+    
     const workouts = props.workouts.map((workout) => {
         const deleteWorkout = () => {
-            console.log(workout.id)
             axios.delete(`http://localhost:8000/workouts/${workout.id}`)
                 .then((data) => {
-                    console.log(data)
                     window.location.reload()
                 })
                 .catch(err => {
@@ -16,16 +17,12 @@ function Fitness(props) {
                 })
         }
 
-        const editWorkoutLog = () => {
+        const editWorkout = () => {
             console.log(workout.id)
-            axios.put(`http://localhost:8000/workouts/${workout.id}`)
-                .then((data) => {
-                    console.log(data)
-                    window.location.reload()
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            Router.push({
+                pathname: '/workouts/add',
+                query: { workout: workout.id },
+            })
         }
 
 
@@ -53,7 +50,7 @@ function Fitness(props) {
                     {workout.created_at}
                 </Text>
                 <Button onClick={deleteWorkout}>Delete Workout</Button>
-                <Button onClick={editWorkoutLog}>Update Workout Log</Button>
+                <Button onClick={editWorkout}>Update Workout</Button>
             </Box>
         )
     })
