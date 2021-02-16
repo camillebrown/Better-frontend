@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Text, Button } from '@chakra-ui/react'
 import axios from 'axios'
+import Router from 'next/router'
+
 
 function Meal(props) {
+    
     const meals = props.meals.map((meal) => {
         const deleteMeal = () => {
             console.log(meal.id)
@@ -17,15 +20,10 @@ function Meal(props) {
         }
 
         const editMeal = () => {
-            console.log(meal.id)
-            axios.put(`http://localhost:8000/meals/${meal.id}`)
-                .then((data) => {
-                    console.log(data)
-                    window.location.reload()
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            Router.push({
+                pathname: '/meals/add',
+                query: { meal: meal.id },
+            })
         }
 
 

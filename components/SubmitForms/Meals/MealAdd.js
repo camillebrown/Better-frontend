@@ -1,42 +1,47 @@
 import React, { useState } from 'react'
-
+import Router from "next/router";
 import { Stack, Input, FormControl, InputGroup, Button, FormHelperText, InputRightAddon } from '@chakra-ui/react'
 import axios from 'axios'
 
-const MealAdd = () => {
-
-    const [data,setData] = useState(
+const MealAdd = (props) => {
+    const user = props.user
+    const [data, setData] = useState(
         {
-          meal_name:"",
-          protein:"",
-          carbs:"",
-          fat:"",
-          total_calories:""
-          }
-        )
-    
+            meal_name: "",
+            protein: "",
+            carbs: "",
+            fat: "",
+            total_calories: ""
+        }
+    )
+
     const handleAdd = (e) => {
         e.preventDefault()
         console.log(data)
-        axios.post(`http://localhost:8000/meals`, {
-            person_id: 1,
+        axios.post(`http://localhost:8000/meals/`, {
+            person_id: user.id,
             meal_name: data.meal_name,
             protein: data.protein,
             carbs: data.carbs,
             fat: data.fat,
-            total_calories: data.total
-        },{ withCredentials: true })
+            total_calories: data.total_calories
+        }, {
+            headers:
+                { withCredentials: true, crossorigin: true }
+        }
+        )
             .then((res) => {
                 console.log('SENT REQUEST TO BACKEND')
                 console.log('DATA', res.data)
+                Router.push("/meals")
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-    const handleChange = (e) =>{
-        setData({...data,[e.target.name]:e.target.value})
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
     }
 
     return (
@@ -95,7 +100,7 @@ const MealAdd = () => {
                         <Input
                             type="number"
                             placeholder="Total Calories"
-                            name="total"
+                            name="total_calories"
                             onChange={handleChange}
                         />
                         <InputRightAddon children="calories" />

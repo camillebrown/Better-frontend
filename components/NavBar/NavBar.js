@@ -1,9 +1,10 @@
-import React from "react";
-import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
-
+import React, { useState, useEffect } from "react";
+import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react"
 import Logo from "./Logo";
+import axios from 'axios'
 
 const NavBar = (props) => {
+
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -61,6 +62,25 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 const MenuLinks = ({ isOpen }) => {
+  const [user, setUser] = useState([])
+
+  const getUserInfo = () => {
+    axios.get(`http://localhost:8000/profile/`,
+      { withCredentials: true }
+    )
+      .then((res) => {
+        setUser(res.data.data)
+        // console.log(user)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    getUserInfo()
+  }, [])
+
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -73,23 +93,38 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/how">How It works </MenuItem>
-        <MenuItem to="/features">Features </MenuItem>
-        <MenuItem to="/pricing">Pricing </MenuItem>
-        <MenuItem to="/join" isLast>
-          <Button
-            size="sm"
-            rounded="md"
-            color="white"
-            bg="blue"
-            _hover={{
-              bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-            }}
-          >
-							Join Now!
+        (if user) {
+          <>
+            <MenuItem to="/profile">{user.first_name}'s Profile</MenuItem>
+            <Button
+              size="sm"
+              rounded="md"
+              color="white"
+              bg="blue"
+              _hover={{
+                bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
+              }}
+            >
+              Log Out
+            </Button>
+          </>
+        } else {
+          <>
+            <MenuItem to="/join" isLast>
+              <Button
+                size="sm"
+                rounded="md"
+                color="white"
+                bg="blue"
+                _hover={{
+                  bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
+                }}
+              >
+                Join Now!
           </Button>
-        </MenuItem>
+            </MenuItem>
+          </>
+        }
       </Stack>
     </Box>
   );

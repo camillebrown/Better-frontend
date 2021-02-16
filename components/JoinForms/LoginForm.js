@@ -82,7 +82,7 @@ const LoginForm = () => {
           type="submit"
           onSubmit={loginUser}
           variant="solid"
-          variantColor="red"
+          variantcolor="red"
           boxShadow="sm"
           _hover={{ boxShadow: "lg" }}
         >

@@ -7,7 +7,9 @@ const meals = () => {
     const [meals, setMeals] = useState([])
 
     const getMeals = () => {
-        axios.get(`http://localhost:8000/meals`)
+        axios.get(`http://localhost:8000/meals/`,
+            { withCredentials: true }
+        )
             .then((res) => {
                 setMeals(res.data.data)
             })
@@ -18,7 +20,7 @@ const meals = () => {
 
     useEffect(() => {
         getMeals()
-    },[])
+    }, [])
 
     return (
         <Meal meals={meals} />
