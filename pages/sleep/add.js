@@ -9,24 +9,6 @@ import { withRouter } from 'next/router'
 const add = (props) => {
     const sleep_id = props.router.query.sleep
 
-    const [user, setUser] = useState([])
-
-    const getUserInfo = () => {
-        axios.get(`http://localhost:8000/profile/`,
-            { withCredentials: true }
-        )
-            .then((res) => {
-                setUser(res.data.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
-    useEffect(() => {
-        getUserInfo()
-    }, [])
-
     return (
         <>
             <h1>Sleep Tracker</h1>
@@ -42,10 +24,10 @@ const add = (props) => {
                     </TabList>
                     <TabPanels mt={3}>
                         <TabPanel>
-                            <SleepAdd user={user}/>
+                            <SleepAdd/>
                         </TabPanel>
                         <TabPanel>
-                            <SleepUpdate sleep={sleep_id} user={user}/>
+                            <SleepUpdate sleep={sleep_id}/>
                         </TabPanel>
                     </TabPanels>
                 </Tabs>

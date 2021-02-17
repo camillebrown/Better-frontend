@@ -1,0 +1,89 @@
+.container {
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
+    padding-top: 60px;
+    margin: 0 auto;
+    width: 70%
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bolder
+}
+.logo-dot{
+    color:#EA7613;
+    font-weight:bolder;
+    font-size:30px;
+}
+
+.home-grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    height: 500px;
+    margin-top: 50px
+}
+
+.hg1 { 
+    grid-area: 1 / 1 / 6 / 3; 
+    border-radius:20px;
+    overflow:hidden;
+    border: 2px solid #E75F50
+}
+#hg1{
+    background-color:#E75F50;
+}
+
+.hg2 { 
+    grid-area: 1 / 3 / 3 / 5; 
+    border-radius:20px;
+    overflow:hidden;
+    border: 2px solid #89C5CD
+}
+#hg2{
+    background-color:#89C5CD;
+}
+
+.hg3 { 
+    grid-area: 1 / 5 / 2 / 7;
+    border-radius:20px;
+    border: 2px solid papayawhip
+}
+
+#hg3, #hg4{
+    color: black;
+}
+.hg4 { 
+    grid-area: 6 / 1 / 7 / 3;
+    border-radius:20px;
+    border: 2px solid #E75F50;
+}
+.hg5 { 
+    grid-area: 3 / 3 / 7 / 5;
+    border-radius:20px;
+    border: 2px solid #EA7613
+}
+
+#hg5{
+    background-color: #EA7613;
+}
+.hg6 { 
+    grid-area: 2 / 5 / 7 / 7;
+    border-radius:20px;
+}
+
+.hg-header{
+    height:50px;
+    overflow:hidden;
+}
+
+.hg-title{
+    margin-left:7%;
+    padding-top:3%;
+    font-weight: bolder;
+    color: white;
+    font-size:18px
+}
+

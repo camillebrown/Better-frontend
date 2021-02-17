@@ -1,12 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import NavBar from '../components/NavBar/NavBar';
+import '../styles.css'
 
 function MyApp({ Component, pageProps }) {
     return (
-            <ChakraProvider>
-                <NavBar />
+        <ChakraProvider>
+            <NavBar />
+            <div className="container">
                 <Component {...pageProps} />
-            </ChakraProvider>
+            </div>
+        </ChakraProvider >
     );
 }
 // Only uncomment this method if you have blocking data requirements for

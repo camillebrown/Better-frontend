@@ -8,7 +8,9 @@ const moods = () => {
 
     const getMoods = () => {
         // FIGURE OUT WHY PROCESS.ENV IS NOT WORKING!!!!!!
-        axios.get(`http://localhost:8000/moods`)
+        axios.get(`http://localhost:8000/moods/`,
+            { withCredentials: true }
+        )
             .then((res) => {
                 console.log(res.data.data)
                 setMoods(res.data.data)
@@ -20,7 +22,7 @@ const moods = () => {
 
     useEffect(() => {
         getMoods()
-    },[])
+    }, [])
 
     return (
         <Mood moods={moods} />

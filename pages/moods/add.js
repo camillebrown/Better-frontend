@@ -1,32 +1,37 @@
-import { Box, Tabs, TabList, Tab, TabPanel, TabPanels, Image } from '@chakra-ui/react'
-import SignUpForm from '../../components/JoinForms/SignUpForm'
-import LoginForm from '../../components/JoinForms/LoginForm'
+import React, { useState, useEffect } from 'react';
+import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
+import MoodAdd from '../../components/SubmitForms/Mood/MoodAdd'
+import MoodUpdate from '../../components/SubmitForms/Mood/MoodUpdate'
+import { withRouter } from 'next/router'
 
-// Variant changes the way the tabs behave
+const add = (props) => {
+    const mood_id = props.router.query.mood
 
-const join = () => {
     return (
-        <Box
-            w="350px"
-            p={3}
-            boxShadow="sm"
-            rounded="lg">
-            <Tabs variant="enclosed-colored" isFitted m={4}>
-                <TabList>
-                    <Tab>Sign Up</Tab>
-                    <Tab>Login</Tab>
-                </TabList>
-                <TabPanels mt={3}>
-                    <TabPanel>
-                        <SignUpForm />
-                    </TabPanel>
-                    <TabPanel>
-                        <LoginForm />
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </Box>
+        <>
+            <h1>Mood Tracker</h1>
+            <Box
+                w="350px"
+                p={3}
+                boxShadow="sm"
+                rounded="lg">
+                <Tabs variant="enclosed-colored" isFitted m={4}>
+                    <TabList>
+                        <Tab>Add New</Tab>
+                        <Tab>Update Existing</Tab>
+                    </TabList>
+                    <TabPanels mt={3}>
+                        <TabPanel>
+                            <MoodAdd/>
+                        </TabPanel>
+                        <TabPanel>
+                            <MoodUpdate mood={mood_id}/>
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
+            </Box>
+        </>
     )
 }
 
-export default join
+export default withRouter(add)

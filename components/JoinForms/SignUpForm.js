@@ -1,64 +1,41 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-//Stack lets you vertically stack things
-//FormControl allows you to control what is required and what is disabled when filling out a form.
-//InputGroups puts icons and input fields together
-import { Stack, Input, FormControl, InputLeftElement, Icon, InputGroup, Button, Divider, FormHelperText } from "@chakra-ui/react"
+import { Stack, Input, FormControl, InputLeftElement, InputGroup, Button, FormHelperText } from "@chakra-ui/react"
 import { InfoIcon, EmailIcon, LockIcon } from '@chakra-ui/icons'
+import { register } from '../../services/users.service'
+import Router from "next/router";
 
 const SignUpForm = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [username, setUsername] = useState('')
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+    const [signupData, setSignupData] = useState(
+        {
+            firstName: "",
+            lastName: "",
+            username: "",
+            email: "",
+            password: ""
+        }
+    )
 
-    const onChangeEmail = (e) => {
-        const email = e.target.value
-        setEmail(email)
+    const handleChange = (e) => {
+        setSignupData({ ...signupData, [e.target.name]: e.target.value })
     }
 
-    const onChangePassword = (e) => {
-        const password = e.target.value
-        setPassword(password)
-    }
-
-    const onChangeFName = (e) => {
-        const firstName = e.target.value
-        setFirstName(firstName)
-    }
-
-    const onChangeLName = (e) => {
-        const lastName = e.target.value
-        setLastName(lastName)
-    }
-
-    const onChangeUsername = (e) => {
-        const username = e.target.value
-        setUsername(username)
-    }
     //axios call here to backend to register
-    const register = (e) => {
+    const signup = (e) => {
         e.preventDefault()
-        axios.post(
-            'http://localhost:8000' + `/api/v1/user/register`,
-            {
-                first_name: firstName,
-                last_name: lastName,
-                username: username,
-                email: email,
-                password: password
-            }
-        ).then((data) => {
-            console.log(data.data)
-        }).catch((err) => {
-            console.log("error registering user", err)
-        })
+        console.log(signupData.firstName)
+        register(signupData.firstName, signupData.lastName, signupData.username, signupData.email, signupData.password)
+            .then((data) => {
+                let userData = data.data.data;
+                console.log('PULLING FROM THE BACKEND', userData);
+                Router.push("/profile")
+            }).catch((err) => {
+                console.log("error registering user", err)
+            })
     }
 
     return (
-        <form action="submit">
+        <form action="submit" onSubmit={signup}>
             <Stack spacing={4}>
                 <FormControl isRequired>
                     <InputGroup>
@@ -67,7 +44,8 @@ const SignUpForm = () => {
                             type="name"
                             placeholder="First Name"
                             aria-label="First Name"
-                            onChange={onChangeFName}
+                            name="firstName"
+                            onChange={handleChange}
                         />
                     </InputGroup>
                 </FormControl>
@@ -78,7 +56,8 @@ const SignUpForm = () => {
                             type="name"
                             placeholder="Last Name"
                             aria-label="Last Name"
-                            onChange={onChangeLName}
+                            name="lastName"
+                            onChange={handleChange}
                         />
                     </InputGroup>
                 </FormControl>
@@ -89,8 +68,8 @@ const SignUpForm = () => {
                             type="text"
                             placeholder="Username"
                             aria-label="Username"
-                            value={username}
-                            onChange={onChangeUsername}
+                            name="username"
+                            onChange={handleChange}
                         />
                     </InputGroup>
                 </FormControl>
@@ -101,8 +80,8 @@ const SignUpForm = () => {
                             type="text"
                             placeholder="Email"
                             aria-label="Email"
-                            value={email}
-                            onChange={onChangeEmail}
+                            name="email"
+                            onChange={handleChange}
                         />
                     </InputGroup>
                 </FormControl>
@@ -114,8 +93,8 @@ const SignUpForm = () => {
                             type="password"
                             placeholder="Password"
                             aria-label="Password"
-                            value={password}
-                            onChange={onChangePassword}
+                            name="password"
+                            onChange={handleChange}
                         />
                     </InputGroup>
                 </FormControl>
@@ -126,7 +105,7 @@ const SignUpForm = () => {
                     boxShadow="sm"
                     _hover={{ boxShadow: "lg" }}
                     _active={{ boxShadow: "lg" }}
-                    onClick={register}
+                    onClick={signup}
                 >
                     Sign Up!
                 </Button>

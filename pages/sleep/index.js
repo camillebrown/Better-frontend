@@ -7,7 +7,7 @@ const sleep = () => {
     const [sleeps, setSleeps] = useState([])
 
     const getSleeps = () => {
-        axios.get(`http://localhost:8000/sleeps`)
+        axios.get(`http://localhost:8000/sleeps/`)
             .then((res) => {
                 setSleeps(res.data)
             })

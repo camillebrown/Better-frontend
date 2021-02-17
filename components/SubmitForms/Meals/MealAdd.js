@@ -4,7 +4,6 @@ import { Stack, Input, FormControl, InputGroup, Button, FormHelperText, InputRig
 import axios from 'axios'
 
 const MealAdd = (props) => {
-    const user = props.user
     const [data, setData] = useState(
         {
             meal_name: "",
@@ -19,7 +18,6 @@ const MealAdd = (props) => {
         e.preventDefault()
         console.log(data)
         axios.post(`http://localhost:8000/meals/`, {
-            person_id: user.id,
             meal_name: data.meal_name,
             protein: data.protein,
             carbs: data.carbs,

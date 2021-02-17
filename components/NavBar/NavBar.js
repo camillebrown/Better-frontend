@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react"
 import Logo from "./Logo";
 import axios from 'axios'
+import Router from "next/router";
+import { logout } from '../../services/users.service'
 
 const NavBar = (props) => {
 
@@ -13,7 +15,9 @@ const NavBar = (props) => {
     <NavBarContainer {...props}>
       <Logo
         w="100px"
-        color="white"
+        color="1A1847"
+        ml={10}
+        mb={1}
       />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
@@ -81,6 +85,11 @@ const MenuLinks = ({ isOpen }) => {
     getUserInfo()
   }, [])
 
+  const logOut = () => {
+    logout()
+    Router.push('/')
+  }
+
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -92,12 +101,15 @@ const MenuLinks = ({ isOpen }) => {
         justify={["center", "space-between", "flex-end", "flex-end"]}
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
+        mr={10}
+        mb={1}
       >
-        (if user) {
+        if(user){
           <>
             <MenuItem to="/profile">{user.first_name}'s Profile</MenuItem>
             <Button
               size="sm"
+              onClick={logOut}
               rounded="md"
               color="white"
               bg="blue"
@@ -138,9 +150,9 @@ const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={8}
-      p={8}
-      bg="green"
+      h="60px"
+      position="absolute"
+      bg="F3F3F3"
       {...props}
     >
       {children}

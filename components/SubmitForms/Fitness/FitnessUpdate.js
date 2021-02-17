@@ -10,8 +10,6 @@ const FitnessUpdate = (props) => {
         getWorkoutData()
     }, [])
 
-
-    const user = props.user
     const workout_id = props.workout
     const [workout, setWorkout] = useState([])
 
@@ -45,7 +43,6 @@ const FitnessUpdate = (props) => {
         e.preventDefault()
         console.log(data)
         axios.put(`http://localhost:8000/workouts/${workout_id}`, {
-            person_id: user.id,
             exercise_name: data.exercise_name,
             calories: data.calories,
             time_duration: data.time_duration,

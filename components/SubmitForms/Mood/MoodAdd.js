@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import Router from "next/router";
-import { Stack, Input, FormControl, InputGroup, Button, FormHelperText} from '@chakra-ui/react'
+import { Stack, Input, FormControl, InputGroup, Button, FormHelperText, Select } from '@chakra-ui/react'
 import axios from 'axios'
 
-const SleepAdd = (props) => {
+const MoodAdd = (props) => {
     const [data, setData] = useState(
         {
             date: "",
-            start_time: "",
-            end_time: ""
+            rating: ""
         }
     )
 
     const handleAdd = (e) => {
         e.preventDefault()
-        console.log(data)
-        axios.post(`http://localhost:8000/sleeps/`, {
+        axios.post(`http://localhost:8000/moods/`, {
             date: data.date,
-            start_time: data.start_time,
-            end_time: data.end_time
+            rating: data.rating
         }, {
             headers:
                 { withCredentials: true, crossorigin: true }
@@ -27,7 +24,7 @@ const SleepAdd = (props) => {
             .then((res) => {
                 console.log('SENT REQUEST TO BACKEND')
                 console.log('DATA', res.data)
-                Router.push("/sleep")
+                Router.push("/moods")
             })
             .catch(err => {
                 console.log(err)
@@ -53,26 +50,18 @@ const SleepAdd = (props) => {
                     </InputGroup>
                 </FormControl>
                 <FormControl isRequired>
-                    <InputGroup>
-                        <Input
-                            type="time"
-                            placeholder="Start Time"
-                            name="start_time"
-                            onChange={handleChange}
-                        />
-                    </InputGroup>
+                    <Select
+                        placeholder="Select a Mood Rating"
+                        name="rating"
+                        onChange={handleChange}>
+                        <option value="0">Wow, today sucks!</option>
+                        <option value="1">Not good, but I guess it could be worse.</option>
+                        <option value="2">Ya know, I'm alright today.</option>
+                        <option value="3">Today's been kinda great.</option>
+                        <option value="4">This was the most amazing day!</option>
+                        )
+                    </Select>
                 </FormControl>
-                <FormControl isRequired>
-                    <InputGroup>
-                        <Input
-                            type="time"
-                            placeholder="End Time"
-                            name="end_time"
-                            onChange={handleChange}
-                        />
-                    </InputGroup>
-                </FormControl>
-
                 <Button
                     onSubmit={handleAdd}
                     type="submit"
@@ -81,12 +70,12 @@ const SleepAdd = (props) => {
                     boxShadow="sm"
                     _hover={{ boxShadow: "lg" }}
                 >
-                    Save Sleep Log
+                    Save Mood
                 </Button>
 
                 <FormHelperText textAlign="center">
                     {/* Control + Command + Space allows you to get emojis!! */}
-                    Log your time asleep to <br></br>add your sleeping habits 😴
+                    Log your mood to <br></br>keep track of your daily temperament 😊
                 </FormHelperText>
 
             </Stack>
@@ -94,4 +83,4 @@ const SleepAdd = (props) => {
     )
 }
 
-export default SleepAdd
+export default MoodAdd

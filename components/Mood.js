@@ -1,15 +1,17 @@
 import React from 'react';
 import { Box, Text, Button } from '@chakra-ui/react'
 import axios from 'axios'
+import Router from 'next/router'
 
-function MoodList(props) {
+
+function Mood(props) {
+
     const moods = props.moods.map((mood) => {
-        // console.log(mood.id)
+        
         const deleteMood = () => {
-            console.log(mood.id)
-            axios.delete(process.env.REACT_APP_FLASK_API_URL + `/moods/${mood.id}`)
+
+            axios.delete(`http://localhost:8000/moods/${mood.id}`)
                 .then((data) => {
-                    console.log(data)
                     window.location.reload()
                 })
                 .catch(err => {
@@ -18,15 +20,10 @@ function MoodList(props) {
         }
 
         const editMood = () => {
-            console.log(mood.id)
-            axios.put(process.env.REACT_APP_FLASK_API_URL + `/moods/${mood.id}`)
-                .then((data) => {
-                    console.log(data)
-                    window.location.reload()
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            Router.push({
+                pathname: '/moods/add',
+                query: { mood: mood.id },
+            })
         }
 
 
@@ -39,7 +36,7 @@ function MoodList(props) {
                     {mood.rating}
                 </Text>
                 <Button onClick={deleteMood}>Delete Mood</Button>
-                <Button onClick={editMood}>Edit Mood</Button>
+                <Button onClick={editMood}>Update Mood</Button>
             </Box>
         )
     })
@@ -51,4 +48,4 @@ function MoodList(props) {
     )
 }
 
-export default MoodList
+export default Mood

@@ -4,7 +4,6 @@ import { Stack, Input, FormControl, InputGroup, Button, FormHelperText, InputRig
 import axios from 'axios'
 
 const FitnessAdd = (props) => {
-    const user = props.user
     const [data, setData] = useState(
         {
             exercise_name: "",
@@ -20,7 +19,6 @@ const FitnessAdd = (props) => {
         e.preventDefault()
         console.log(data)
         axios.post(`http://localhost:8000/workouts/`, {
-            person_id: user.id,
             exercise_name: data.exercise_name,
             calories: data.calories,
             time_duration: data.time_duration,

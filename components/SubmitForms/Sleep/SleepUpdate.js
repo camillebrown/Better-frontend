@@ -10,8 +10,6 @@ const SleepUpdate = (props) => {
         getSleepData()
     }, [])
 
-
-    const user = props.user
     const sleep_id = props.sleep
     const [sleep, setSleep] = useState([])
 
@@ -41,7 +39,6 @@ const SleepUpdate = (props) => {
     const handleEdit = (e) => {
         e.preventDefault()
         axios.put(`http://localhost:8000/sleeps/${sleep_id}`, {
-            person_id: user.id,
             date: data.date,
             start_time: data.start_time,
             end_time: data.end_time

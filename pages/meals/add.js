@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
 import MealAdd from '../../components/SubmitForms/Meals/MealAdd'
 import MealUpdate from '../../components/SubmitForms/Meals/MealUpdate'
-import axios from 'axios'
 import { withRouter } from 'next/router'
 
 
@@ -10,24 +9,6 @@ import { withRouter } from 'next/router'
 
 const add = (props) => {
     const meal_id = props.router.query.meal
-
-    const [user, setUser] = useState([])
-
-    const getUserInfo = () => {
-        axios.get(`http://localhost:8000/profile/`,
-            { withCredentials: true }
-        )
-            .then((res) => {
-                setUser(res.data.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
-    useEffect(() => {
-        getUserInfo()
-    }, [])
 
     return (
         <>
@@ -44,10 +25,10 @@ const add = (props) => {
                     </TabList>
                     <TabPanels mt={3}>
                         <TabPanel>
-                            <MealAdd user={user}/>
+                            <MealAdd/>
                         </TabPanel>
                         <TabPanel>
-                            <MealUpdate meal={meal_id} user={user}/>
+                            <MealUpdate meal={meal_id}/>
                         </TabPanel>
                     </TabPanels>
                 </Tabs>

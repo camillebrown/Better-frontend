@@ -10,8 +10,6 @@ const MealUpdate = (props) => {
         getMealData()
     }, [])
 
-    
-    const user = props.user
     const meal_id = props.meal
     
     const [meal, setMeal] = useState([])
@@ -44,7 +42,6 @@ const MealUpdate = (props) => {
     const handleEdit = (e) => {
         e.preventDefault()
         axios.put(`http://localhost:8000/meals/${meal_id}`, {
-            person_id: user.id,
             meal_name: data.meal_name,
             protein: data.protein,
             carbs: data.carbs,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { login } from '../../services/users.service'
 import {
   Stack,
   Input,
@@ -12,34 +12,24 @@ import {
 } from "@chakra-ui/react";
 import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 import Router from "next/router";
-import Cookies from "universal-cookie";
 
 const LoginForm = () => {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginData, setLoginData] = useState(
+    {
+      email: "",
+      password: ""
+    }
+  )
 
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
+  const handleChange = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value })
+  }
 
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
 
   const loginUser = (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8000" + `/api/v1/users/login`,
-        {
-          email: email,
-          password: password,
-        },
-        { withCredentials: true }
-      )
+    login(loginData.email, loginData.password)
       .then((data) => {
         let userData = data.data.data;
         console.log('PULLING FROM THE BACKEND', userData);
@@ -62,7 +52,7 @@ const LoginForm = () => {
               placeholder="Email"
               aria-label="Email"
               name="email"
-              onChange={onChangeEmail}
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>
@@ -73,8 +63,8 @@ const LoginForm = () => {
               type="password"
               placeholder="Password"
               aria-label="Password"
-              value={password}
-              onChange={onChangePassword}
+              name="password"
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>
