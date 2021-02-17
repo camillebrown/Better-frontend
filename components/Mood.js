@@ -7,7 +7,7 @@ import Router from 'next/router'
 function Mood(props) {
 
     const moods = props.moods.map((mood) => {
-        
+
         const deleteMood = () => {
 
             axios.delete(`http://localhost:8000/moods/${mood.id}`)
@@ -25,7 +25,6 @@ function Mood(props) {
                 query: { mood: mood.id },
             })
         }
-
 
         return (
             <Box key={mood.id}>
