@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Mood from '../../components/Mood';
+import { Button } from '@chakra-ui/react'
+import Router from 'next/router'
 
 const moods = () => {
 
@@ -24,8 +26,24 @@ const moods = () => {
         getMoods()
     }, [])
 
+    const addMood = () => {
+        Router.push({
+            pathname: '/moods/add'
+        })
+    }
+
     return (
-        <Mood moods={moods} />
+        <div>
+            {moods[0] == null ? (
+                <div>
+                    <p>You don't have any mood logs added yet. Let's get one added!</p>
+                    <Button onClick={addMood}>Add a New Mood</Button>
+                </div>
+            ) : (
+                    <Mood moods={moods} />
+                )}
+        </div>
+
     )
 }
 
