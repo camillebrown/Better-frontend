@@ -1,4 +1,4 @@
-import { Box, Tabs, TabList, Tab, TabPanel, TabPanels, Image } from '@chakra-ui/react'
+import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
 import SignUpForm from '../components/JoinForms/SignUpForm'
 import LoginForm from '../components/JoinForms/LoginForm'
 

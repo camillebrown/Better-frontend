@@ -6,11 +6,13 @@ import '../styles.css'
 function MyApp({ Component, pageProps }) {
     return (
         <ChakraProvider>
-            <NavBar />
-            <div className="container">
-                <Component {...pageProps} />
+            <div className="body">
+                <NavBar />
+                <div className="container">
+                    <Component {...pageProps} />
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </ChakraProvider >
     );
 }

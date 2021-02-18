@@ -151,7 +151,7 @@ const NavBarContainer = ({ children, ...props }) => {
       w="100%"
       h="60px"
       position="absolute"
-      bg="F3F3F3"
+      bg="rgb(248, 248, 248)"
       {...props}
     >
       {children}
