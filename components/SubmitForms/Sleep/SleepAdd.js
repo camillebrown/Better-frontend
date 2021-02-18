@@ -20,8 +20,7 @@ const SleepAdd = (props) => {
             start_time: data.start_time,
             end_time: data.end_time
         }, {
-            headers:
-                { withCredentials: true, crossorigin: true }
+            withCredentials: true
         }
         )
             .then((res) => {

@@ -7,10 +7,11 @@ import Router from 'next/router'
 function Sleep(props) {
 
     const sleeps = props.sleeps.map((sleep) => {
-        
+
         const deleteSleep = () => {
 
-            axios.delete(`http://localhost:8000/sleeps/${sleep.id}`)
+            axios.delete(`http://localhost:8000/sleeps/${sleep.id}`,
+                { withCredentials: true })
                 .then((data) => {
                     window.location.reload()
                 })
