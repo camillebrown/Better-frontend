@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button } from '@chakra-ui/react'
 import Sleep from '../../components/Sleep'
+import { Button } from '@chakra-ui/react'
 import Router from 'next/router'
 
 const sleep = () => {
@@ -34,7 +34,7 @@ const sleep = () => {
             {sleeps[0] == null ? (
                 <div>
                     <p>You don't have any sleep logs yet. Let's get some added!</p>
-                    <Button onClick={addSleep}>Add a Sleep Log Meal</Button>
+                    <Button onClick={addSleep}>Add a Sleep Log </Button>
                 </div>
             ) : (
                     <Sleep sleeps={sleeps} />

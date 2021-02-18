@@ -24,8 +24,7 @@ const MealAdd = (props) => {
             fat: data.fat,
             total_calories: data.total_calories
         }, {
-            headers:
-                { withCredentials: true, crossorigin: true }
+            withCredentials: true
         }
         )
             .then((res) => {
