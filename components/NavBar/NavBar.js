@@ -40,7 +40,7 @@ const MenuIcon = () => (
     width="24px"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
-    fill="white"
+    fill="EA7613"
   >
     <title>Menu</title>
     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -74,7 +74,6 @@ const MenuLinks = ({ isOpen }) => {
     )
       .then((res) => {
         setUser(res.data.data)
-        // console.log(user)
       })
       .catch(err => {
         console.log(err)
@@ -104,7 +103,7 @@ const MenuLinks = ({ isOpen }) => {
         mr={10}
         mb={1}
       >
-        if(user){
+        { user ? (
           <>
             <MenuItem to="/profile">{user.first_name}'s Profile</MenuItem>
             <Button
@@ -120,7 +119,7 @@ const MenuLinks = ({ isOpen }) => {
               Log Out
             </Button>
           </>
-        } else {
+        ) : (
           <>
             <MenuItem to="/join" isLast>
               <Button
@@ -136,7 +135,7 @@ const MenuLinks = ({ isOpen }) => {
           </Button>
             </MenuItem>
           </>
-        }
+        )}
       </Stack>
     </Box>
   );

@@ -1,9 +1,29 @@
-import { Grid, GridItem } from "@chakra-ui/react"
-import { Box, Image, Text, Badge, Button, Flex, Spacer } from '@chakra-ui/react'
-import { StarIcon } from "@chakra-ui/icons"
+import { Grid, GridItem, HStack, Box, Text, StackDivider } from "@chakra-ui/react"
+import axios from "axios"
+import React, { useState, useEffect } from "react";
+import { ImQuotesLeft } from "react-icons/im";
 
 function Home() {
+
+  const [quote, setQuote] = useState()
+
+  const getQuote = () => {
+    axios.get('https://zenquotes.io/api/today')
+      .then((data) => {
+        console.log(data.data[0].q)
+        setQuote(data.data[0].q)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    getQuote()
+  }, [])
+
   return (
+
     <>
       <div>
         <img src="https://i.ibb.co/44gPmn2/Artboard-1.jpg" alt="Artboard-1" border="0" />
@@ -64,16 +84,21 @@ function Home() {
             </Box>
           </GridItem>
           <GridItem className="hg4">
-          <Box>
-              <Box>
-                <div className="hg-header">
-                  <h2 className="hg-title" id="hg4">Quote Here</h2>
-                </div>
-              </Box>
-            </Box>
+            <div margin-top="2px">
+              <HStack spacing="10px" verticalAlign="middle" divider={<StackDivider borderColor="gray.200" />}>
+                <Box m={3}>
+                  <ImQuotesLeft fontSize="30px" />
+                </Box>
+                <Box>
+                  <div className="hg-header">
+                    <h2 id="hg4">{quote}</h2>
+                  </div>
+                </Box>
+              </HStack>
+            </div>
           </GridItem>
           <GridItem className="hg5">
-          <Box>
+            <Box>
               <Box id="hg5">
                 <div className="hg-header">
                   <h2 className="hg-title">Meals</h2>
@@ -92,8 +117,26 @@ function Home() {
               </Box>
             </Box>
           </GridItem>
-          <GridItem className="hg6" bg="#8A90DB" />
-
+          <GridItem className="hg6">
+            <Box>
+              <Box id="hg6">
+                <div className="hg-header">
+                  <h2 className="hg-title">Moods</h2>
+                </div>
+              </Box>
+              <Box>
+                <Box>
+                  Introduction to chakra-ui
+                </Box>
+                <Text color="black" fontWeight="light">
+                  Adipisicing ea pariatur ullamco deserunt amet
+                  consequat reprehenderit in duis est velit tempor.
+                  Ipsum ea ad duis sint aliquip in ullamco in dolor
+                  reprehenderit duis ullamco. Irure tempor ullamco...
+                </Text>
+              </Box>
+            </Box>
+          </GridItem>
         </Grid>
       </div>
     </>

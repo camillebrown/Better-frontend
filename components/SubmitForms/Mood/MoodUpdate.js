@@ -41,8 +41,7 @@ const MoodUpdate = (props) => {
             date: data.date,
             rating: data.rating
         }, {
-            headers:
-                { withCredentials: true, crossorigin: true }
+             withCredentials: true
         }
         )
             .then((res) => {

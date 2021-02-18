@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, Link } from "@chakra-ui/react";
 
-export default function Logo(props) {
+export default function Footer() {
   return (
-    <Box {...props}>
+    <div>
       <Link href='/' textDecoration="none" className="logo">
         better<span className="logo-dot">.</span>
       </Link>
-    </Box>
+    </div>
   )
 }
