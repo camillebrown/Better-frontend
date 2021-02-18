@@ -50,8 +50,7 @@ const FitnessUpdate = (props) => {
             sets: data.sets,
             weight: data.weight
         }, {
-            headers:
-                { withCredentials: true, crossorigin: true }
+            withCredentials: true
         }
         )
             .then((res) => {

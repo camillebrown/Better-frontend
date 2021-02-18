@@ -8,7 +8,8 @@ function Fitness(props) {
     
     const workouts = props.workouts.map((workout) => {
         const deleteWorkout = () => {
-            axios.delete(`http://localhost:8000/workouts/${workout.id}`)
+            axios.delete(`http://localhost:8000/workouts/${workout.id}`,
+            {withCredentials:true})
                 .then((data) => {
                     window.location.reload()
                 })

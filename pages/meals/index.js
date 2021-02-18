@@ -34,7 +34,7 @@ const meals = () => {
         <div>
             {meals[0] == null ? (
                 <div>
-                    <p>You don't have any meals added yet. Let's get some added!</p>
+                    <p>You don't have any meals added yet. Let's get one added!</p>
                     <Button onClick={addMeal}>Add a New Meal</Button>
                 </div>
             ) : (

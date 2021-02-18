@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Fitness from '../../components/Fitness'
+import { Button } from '@chakra-ui/react'
+import Router from 'next/router'
 
 const workouts = () => {
 
@@ -22,8 +24,23 @@ const workouts = () => {
         getWorkouts()
     }, [])
 
+    const addWorkout = () => {
+        Router.push({
+            pathname: '/workouts/add'
+        })
+    }
+
     return (
-        <Fitness workouts={workouts} />
+        <div>
+            {workouts[0] == null ? (
+                <div>
+                    <p>You don't have any workouts added yet. Let's get one added!</p>
+                    <Button onClick={addWorkout}>Add a New Workout</Button>
+                </div>
+            ) : (
+                    <Fitness workouts={workouts} />
+                )}
+        </div>
     )
 }
 
