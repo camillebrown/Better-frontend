@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Box, Text, StackDivider, Divider } from "@chakra-ui/react"
+import { Grid, GridItem, HStack, Stack, Box, Text, StackDivider, Divider, Center } from "@chakra-ui/react"
 import axios from "axios"
 import React, { useState, useEffect } from "react";
 import { ImQuotesLeft } from "react-icons/im";
@@ -6,12 +6,28 @@ import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
 
 function Home() {
 
+  useEffect(() => {
+    getWeather()
+    getQuote()
+  }, [])
+
+  const getWeather = () => {
+    axios.get('https://api.openweathermap.org/data/2.5/weather?zip=90045,us&appid=f4a5477638ec2bad03e7ef91172e8f5d')
+      .then((res) => {
+        setWeather(res.data)
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   const [quote, setQuote] = useState()
+  const [weather, setWeather] = useState({ main: { temp_max: 90, temp_min: 75 } })
 
   const getQuote = () => {
     axios.get('https://zenquotes.io/api/today')
       .then((data) => {
-        console.log(data.data[0].q)
         setQuote(data.data[0].q)
       })
       .catch(err => {
@@ -19,10 +35,8 @@ function Home() {
       })
   }
 
-  useEffect(() => {
-    getQuote()
-  }, [])
-
+  let highFahrenheit = Math.round(((weather.main.temp_max - 273.15) * 9 / 5 + 32) * 10) / 10
+  let lowFahrenheit = Math.round(((weather.main.temp_min - 273.15) * 9 / 5 + 32) * 10) / 10
 
   const donutData = {
     labels: [
@@ -107,7 +121,7 @@ function Home() {
                 <Box>
                   <Divider width="80%" borderColor="#ee9288" margin="auto" />
                   <Text textAlign="center" mt={3} mx={5} fontWeight="light">
-                    Track your daily nutrients to manage your macronutrients and meet your fitness goals. We'll help you stay consistent!
+                    Track your daily meals to manage your macronutrients and meet your fitness goals. We'll help you stay consistent!
                   </Text>
                 </Box>
               </Box>
@@ -130,7 +144,7 @@ function Home() {
             </Box>
           </GridItem>
           <GridItem className="hg4">
-            <HStack mt={1} spacing="10px" verticalAlign="middle" divider={<StackDivider borderColor="gray.200" />}>
+            <HStack mt={1} spacing="10px" verticalAlign="middle" divider={<StackDivider height="50px" borderColor="gray.200" />}>
               <Box m={3}>
                 <ImQuotesLeft fontSize="30px" />
               </Box>
@@ -143,36 +157,47 @@ function Home() {
             </HStack>
           </GridItem>
           <GridItem className="hg3">
-            <HStack mt={0.5} spacing="10px" verticalAlign="middle" divider={<StackDivider borderColor="gray.200"/>}>
-              <Box m={3}>
-                <img src="https://i.ibb.co/Zh02jPQ/weather.png" alt="weather" border="0" width={55} height={55}/>
+            <HStack mt={0.5} spacing="10px" verticalAlign="middle" divider={<Center><StackDivider height="50px" borderColor="gray.200" /></Center>}>
+              <Box ml="20px" mt="3px" mb="3px">
+                <img src="https://i.ibb.co/Zh02jPQ/weather.png" alt="weather" border="0" width={55} height={55} />
               </Box>
               <Box>
                 <div className="hg-header">
-                  <h3 id="quote-text">Weather</h3>
-                  <h2 id="hg4">{quote}</h2>
+                  <h3 id="wtext">Weather in {weather.name}</h3>
+                  <h2><span className="high-temp">{highFahrenheit}°F </span> / <span className="low-temp">{lowFahrenheit}°F </span></h2>
                 </div>
               </Box>
             </HStack>
           </GridItem>
-          <GridItem className="hg5">
+          <GridItem className="hg5" position="relative">
             <Box>
               <Box id="hg5">
                 <div className="hg-header">
                   <h2 className="hg-title">Sleep</h2>
                 </div>
               </Box>
-              <Box overflow="hidden" backgroundColor="white">
-                <Box
-                  fontWeight="semibold"
-                  lineHeight="short"
-                >
-                  Introduction to chakra-ui
-                </Box>
-                <Text color="black" fontWeight="light">
-                  Adipisicing ea pariatur ullamco deserunt amet
-                </Text>
-              </Box>
+              <Stack direction="row" >
+                <Grid className="sgrid">
+                  <GridItem className="sg1">
+                    <Box>
+                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" />
+                    </Box>
+                  </GridItem>
+                  <GridItem className="sg2">
+                    <Center height="150px">
+                      <Divider orientation="vertical" />
+                    </Center>
+                  </GridItem>
+                  <GridItem className="sg3">
+                    <Box>
+                      <Text color="black" fontWeight="light">
+                        Are you sleeping enough each night? Could sleeping more make you feel <span className="logo">
+                          better<span className="logo-dot">?</span></span>
+                      </Text>
+                    </Box>
+                  </GridItem>
+                </Grid>
+              </Stack>
             </Box>
           </GridItem>
           <GridItem className="hg6">

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button } from "@chakra-ui/react"
 import Router from "next/router";
+import Daily from '../components/Dashboard/Daily'
+import Charts from '../components/Dashboard/Charts'
 
 const profile = () => {
 
@@ -94,6 +96,8 @@ const profile = () => {
             >
                 Moods
             </Button>
+            <Daily />
+            <Charts />
         </div>
     )
 }

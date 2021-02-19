@@ -20,7 +20,7 @@
 
 
 .body{
-    min-height: 175vh;
+    min-height: 200vh;
     position: relative;
 }
 
@@ -39,14 +39,17 @@
     font-family: 'Boing';
 }
 
-.logo:hover{
-    text-decoration: none;
-}
-
 .logo-dot{
     color:#EA7613;
     font-weight:bolder;
     font-size:30px;
+}
+.cal-dot{
+    color:#EA7613;
+    font-weight:bolder;
+    font-size:15px;
+    padding-left:3px;
+    padding-right:2px;
 }
 
 .footer {
@@ -198,4 +201,176 @@
     padding-top:3px;
     color:red;
     font-size:small;
+}
+
+.high-temp{
+    color: #ffbe30;
+    font-weight: bold;
+}
+
+.low-temp{
+    color: lightblue;
+    font-weight: bold;
+}
+
+#wtext{
+    font-size: 1.0vw;
+    word-wrap: break-word;
+    font-weight: 900;
+    margin-top:3px
+}
+
+.sgrid{
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    
+}
+
+.sg1 { 
+    grid-area: 1 / 1 / 4 / 2; 
+    margin: 20px;
+
+}
+.sg2 { 
+    grid-area: 1 / 2 / 4 / 3;
+    margin: auto;
+}
+.sg3 { 
+    grid-area: 1 / 3 / 4 / 4;
+    margin: auto;
+    margin-left: 5%;
+}
+
+.dash-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    height: 1000px;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    width:90%;
+}
+
+.dg1 { 
+    grid-area: 1 / 1 / 5 / 3;
+    border-radius:13px;
+    overflow:hidden;
+    border: 1px solid #76cdd8
+}
+
+.dg2 { grid-area: 5 / 1 / 9 / 3;
+    border-radius:13px;
+    overflow:hidden;
+    border: 1px solid #FF9B20;
+}
+
+.dg3 { 
+    grid-area: 9 / 1 / 11 / 3;
+    border-radius:13px;
+    overflow:hidden;
+    border: 1px solid #f85c4a
+}
+
+.dg4 { 
+    grid-area: 11 / 1 / 13 / 3;
+    border-radius:13px;
+    overflow:hidden;
+    border: 1px solid #36A2EB
+}
+
+#dg4{
+    background-color:#36A2EB
+}
+
+.dg5 { 
+    grid-area: 1 / 3 / 7 / 5;
+    border-radius:13px;
+    overflow:hidden;
+    border: 1px solid #f85c4a
+}
+
+.dg6 { 
+    grid-area: 7 / 3 / 13 / 5;
+    border-radius:13px;
+    overflow:hidden;
+    border: 1px solid #8A90DB
+}
+
+.daily-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr .1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 20px;
+}
+
+.daily1{
+    grid-area: 1 / 1 / 2 / 2;
+    border: 1px solid #8A90DB
+}
+.daily2{
+    grid-area: 1 / 2 / 2 / 3;
+    border: 1px solid #8A90DB
+}
+.daily3{
+    grid-area: 3 / 1 / 4 / 2;
+    border: 1px solid #8A90DB
+}
+.daily4{
+    grid-area: 3 / 2 / 4 / 3;
+    border: 1px solid #8A90DB
+}
+.daily5{
+    grid-area: 2 / 1 / 3 / 3;
+    color: black;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.meal-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr .1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.m1{
+    grid-area: 1 / 1 / 2 / 2;
+}
+.m2{
+    grid-area: 1 / 2 / 2 / 3;
+}
+.m3{
+    grid-area: 1 / 3 / 2 / 4;
+}
+.m4{
+    grid-area: 2 / 1 / 3 / 4;
+    color: black;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.m5{
+    grid-area: 3 / 1 / 4 / 4;
+}
+
+.dash-quote{
+    font-size: 1vw;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+.dq-title{
+    font-family: 'Boing';
+    font-weight: bolder;
 }

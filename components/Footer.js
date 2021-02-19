@@ -9,7 +9,7 @@ export default function Footer() {
       <Text fontFamily='Boing' className="logo">
         b<span className="logo-dot">.</span>
       </Text>
-      <p lineHeight="1.2">
+      <p lineheight="1.2">
         © Better. Copyright 2021 <br></br>Made with love by Camille Brown in Los Angeles, CA.
       </p>
     </div>

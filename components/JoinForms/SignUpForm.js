@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Stack, Input, FormControl, InputLeftElement, InputGroup, Button, FormHelperText } from "@chakra-ui/react"
 import { InfoIcon, EmailIcon, LockIcon } from '@chakra-ui/icons'
 import { register } from '../../services/users.service'
-import Router from "next/router";
 
 const SignUpForm = () => {
 
@@ -28,7 +27,7 @@ const SignUpForm = () => {
             .then((data) => {
                 let userData = data.data.data;
                 console.log('PULLING FROM THE BACKEND', userData);
-                Router.push("/profile")
+                window.location.replace('/setup')
             }).catch((err) => {
                 console.log("error registering user", err)
             })

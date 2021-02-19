@@ -66,7 +66,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 const MenuLinks = ({ isOpen }) => {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState()
 
   const getUserInfo = () => {
     axios.get(`http://localhost:8000/profile/`,
@@ -86,7 +86,7 @@ const MenuLinks = ({ isOpen }) => {
 
   const logOut = () => {
     logout()
-    Router.push('/')
+    window.location.replace('/')
   }
 
   return (

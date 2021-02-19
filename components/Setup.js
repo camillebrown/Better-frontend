@@ -29,7 +29,7 @@ const setup = () => {
             .then((res) => {
                 console.log('SENT REQUEST TO BACKEND')
                 console.log('DATA', res.data)
-                // Router.push("/moods")
+                // Router.push("/profile")
             })
             .catch(err => {
                 console.log(err)

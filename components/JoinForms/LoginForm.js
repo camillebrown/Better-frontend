@@ -11,7 +11,6 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 import { EmailIcon, LockIcon } from "@chakra-ui/icons";
-import Router from "next/router";
 
 const LoginForm = () => {
 
@@ -33,7 +32,7 @@ const LoginForm = () => {
       .then((data) => {
         let userData = data.data.data;
         console.log('PULLING FROM THE BACKEND', userData);
-        Router.push("/profile")
+        window.location.replace('/setup')
       })
       .catch((err) => {
         console.log("error logging in user", err);
