@@ -32,7 +32,7 @@ const LoginForm = () => {
       .then((data) => {
         let userData = data.data.data;
         console.log('PULLING FROM THE BACKEND', userData);
-        window.location.replace('/setup')
+        window.location.replace('/profile')
       })
       .catch((err) => {
         console.log("error logging in user", err);

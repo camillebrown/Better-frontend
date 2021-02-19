@@ -1,91 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Grid, GridItem, HStack, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Box, Text, StackDivider, Divider, Center, TableCaption
+    Grid, GridItem, HStack, Table, Thead, Tbody, Tr, Th, Td, Box, Text, StackDivider, Divider, Center
 } from "@chakra-ui/react"
 import axios from 'axios'
 import { ImQuotesLeft } from "react-icons/im";
 import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
-var moment = require('moment');
 
-const Charts = () => {
+const Charts = (props) => {
+
+    setTimeout(() => {
+        getWeather()
+    }, 3000);
+
     useEffect(() => {
-        getMoods(),
-            getMeals(),
-            getQuote(),
-            getSleeps()
+        getQuote()
     }, [])
 
     const [quote, setQuote] = useState("")
-    const [moods, setMoods] = useState()
-    const [meals, setMeals] = useState([])
-    const [sleeps, setSleeps] = useState([
-        { start_time: "21:30:00", end_time: "06:30:00" },
-        { start_time: "21:30:00", end_time: "06:30:00" },
-        { start_time: "21:30:00", end_time: "06:30:00" }
-    ])
-    const [avgCalories, setAvgCalories] = useState("")
-    let numRatings = [0, 0, 0, 0, 0, 0, 5]
-    let avgMacros = [0, 0, 0]
+    const [weather, setWeather] = useState()
+    const [highFahrenheit, setHighFahrenheit] = useState()
+    const [lowFahrenheit, setLowFahrenheit] = useState()
 
-    const getMoods = () => {
-        axios.get(`http://localhost:8000/moods/`,
-            { withCredentials: true }
-        )
+    const getWeather = () => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${props.settings.zip_code},us&appid=f4a5477638ec2bad03e7ef91172e8f5d`)
             .then((res) => {
-                let ratings = res.data.ratings
-                for (let i = 0; i < ratings.length; i++) {
-                    if (ratings[i] === "Wow, today sucks!") {
-                        numRatings[0] += 1
-                    } else if (ratings[i] === "Not good, but I guess it could be worse.") {
-                        numRatings[1] += 1
-                    } else if (ratings[i] === "Ya know, I'm alright today.") {
-                        numRatings[2] += 1
-                    } else if (ratings[i] === "Today's been kinda great.") {
-                        numRatings[3] += 1
-                    } else if (ratings[i] === "This was the most amazing day!") {
-                        numRatings[4] += 1
-                    }
-                }
-                setMoods(numRatings)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
-    const getMeals = () => {
-        axios.get(`http://localhost:8000/meals/`,
-            { withCredentials: true }
-        )
-            .then((res) => {
-                var fatTotal = 0;
-                var carbTotal = 0;
-                var proteinTotal = 0;
-                var calTotal = 0;
-                for (var i = 0; i < res.data.fats.length; i++) {
-                    fatTotal += res.data.fats[i];
-                }
-                var avgFats = Math.round((fatTotal / res.data.fats.length) * 10) / 10;
-                avgMacros[2] = avgFats
-                // ======================================= //
-                for (var i = 0; i < res.data.proteins.length; i++) {
-                    proteinTotal += res.data.proteins[i];
-                }
-                var avgProtein = Math.round((proteinTotal / res.data.proteins.length) * 10) / 10;
-                avgMacros[0] = avgProtein
-                // ======================================= //
-                for (var i = 0; i < res.data.carbs.length; i++) {
-                    carbTotal += res.data.carbs[i];
-                }
-                var avgCarbs = Math.round((carbTotal / res.data.carbs.length) * 10) / 10;
-                avgMacros[1] = avgCarbs
-                // ======================================= //
-                for (var i = 0; i < res.data.calories.length; i++) {
-                    calTotal += res.data.calories[i];
-                }
-                var avgCals = Math.round((calTotal / res.data.calories.length) * 10) / 10;
-                setAvgCalories(avgCals)
-                setMeals(avgMacros)
+                console.log(res.data)
+                setWeather(res.data)
+                let highFahrenheit = Math.round(((weather.main.temp_max - 273.15) * 9 / 5 + 32) * 10) / 10
+                let lowFahrenheit = Math.round(((weather.main.temp_min - 273.15) * 9 / 5 + 32) * 10) / 10
+                setLowFahrenheit(lowFahrenheit)
+                setHighFahrenheit(highFahrenheit)
             })
             .catch(err => {
                 console.log(err)
@@ -102,34 +46,20 @@ const Charts = () => {
             })
     }
 
-    const getSleeps = () => {
-        axios.get(`http://localhost:8000/sleeps/`,
-            { withCredentials: true })
-            .then((res) => {
-                let latestSleeps = res.data.slice(Math.max(res.data.length - 3, 0))
-                setSleeps(latestSleeps)
-                for (let sleep in latestSleeps) {
-                    let iSleep = latestSleeps[sleep]
-                    sleeps[sleep].date = moment(iSleep.date).format("MMM Do")
-                    sleeps[sleep].start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
-                    sleeps[sleep].end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
-                }
-                setSleeps(sleeps)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
     const moodChart = {
         labels: ['Why?😫', 'Not Good😔', 'Meh🙂', 'Good😄', 'Amazing!🤩'],
         datasets: [
             {
                 label: 'Daily Moods',
+                legend:{
+                    labels:{
+                        fontFamily:'Poppins',
+                    }
+                },
                 backgroundColor: '#ffbe30',
                 borderWidth: 1,
                 hoverBackgroundColor: 'rgba(255,0,54,0.4)',
-                data: moods
+                data: props.moods,
             }
         ]
     };
@@ -141,7 +71,7 @@ const Charts = () => {
             'Fat'
         ],
         datasets: [{
-            data: meals,
+            data: props.meals,
             backgroundColor: [
                 '#f85c4a',
                 '#36A2EB',
@@ -153,6 +83,33 @@ const Charts = () => {
                 '#FFCE56'
             ]
         }]
+    };
+
+    const fitData = {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [
+            {
+                label: 'Daily Calories',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: '#1a34c8',
+                borderColor: '#1a34c8',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: 'rgba(75,192,192,1)',
+                pointBackgroundColor: '#fff',
+                pointBorderWidth: 5,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: props.workouts
+            }
+        ]
     };
 
     return (
@@ -169,6 +126,24 @@ const Charts = () => {
                                     </div>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
+                                <Center>
+                                        <Box
+                                            height="28vh"
+                                            width="30vw">
+                                        <Line
+                                            data={fitData}
+                                        />
+                                    </Box>
+                                    </Center>
+                                    <Center>
+                                        <Text
+                                            fontSize="small"
+                                            fontFamily="Boing" fontWeight="medium"
+                                            textAlign="center"
+                                            width="90%"
+                                        >Looks like you're most active during the middle of the week. <br />Keep up the good work!
+                                    </Text>
+                                    </Center>
                                 </Box>
                             </Box>
                         </GridItem>
@@ -202,6 +177,33 @@ const Charts = () => {
                             </Box>
                         </GridItem>
                         <GridItem className="dg3">
+                            {!weather && <Center>Weather is loading!</Center>}
+                            {weather && (
+
+                                <HStack
+                                    divider={
+                                        <Center>
+                                            <StackDivider
+                                                height="100px"
+                                                borderColor="gray.200"
+                                                spacing="10px"
+                                                px={4}
+                                            />
+                                        </Center>
+                                    }>
+                                    <Box p={6}>
+                                        <Center>
+                                            <img src="https://i.ibb.co/Zh02jPQ/weather.png" alt="weather" border="0" width={105} height={105} />
+                                        </Center>
+                                    </Box>
+                                    <Box>
+                                        <div>
+                                            <h1 className="dw-title">Weather in {weather.name}</h1>
+                                            <h2 className="dw-title" ><span className="dw-high-temp">{highFahrenheit}°F </span> / <span className="dw-low-temp">{lowFahrenheit}°F </span></h2>
+                                        </div>
+                                    </Box>
+                                </HStack>
+                            )}
                         </GridItem>
                         <GridItem className="dg4">
                             <Box>
@@ -244,19 +246,19 @@ const Charts = () => {
                                         <GridItem className="m1" textAlign="center">
                                             <Text fontFamily="Boing" fontWeight="bolder">
                                                 <span className="logo">
-                                                    {meals[0]}<span className="logo-dot">g</span> </span> Protein
+                                                    {props.meals[0]}<span className="logo-dot">g</span> </span> Protein
                                                 </Text>
                                         </GridItem>
                                         <GridItem className="m2" textAlign="center">
                                             <Text fontFamily="Boing" fontWeight="bolder">
                                                 <span className="logo">
-                                                    {meals[1]}<span className="logo-dot">g</span> </span> Carbs
+                                                    {props.meals[1]}<span className="logo-dot">g</span> </span> Carbs
                                                 </Text>
                                         </GridItem>
                                         <GridItem className="m3" textAlign="center">
                                             <Text fontFamily="Boing" fontWeight="bolder">
                                                 <span className="logo">
-                                                    {meals[2]}<span className="logo-dot">g</span> </span> Fat
+                                                    {props.meals[2]}<span className="logo-dot">g</span> </span> Fat
                                                 </Text>
                                         </GridItem>
                                         <GridItem className="m5">
@@ -268,7 +270,7 @@ const Charts = () => {
                                                     width="90%"
                                                 >You have an average of <span
                                                     className="cal-dot"
-                                                >{avgCalories} </span>with each meal. <br />You might need a few more to hit your goals.
+                                                >{props.avgCalories} </span>with each meal. <br />You might need a few more to hit your goals.
                                                 </Text>
                                             </Center>
                                         </GridItem>
@@ -300,32 +302,54 @@ const Charts = () => {
                                             </Thead>
                                             <Tbody>
                                                 <Tr>
-                                                    <Td>{sleeps[0].date}</Td>
-                                                    <Td>{sleeps[0].start_time}</Td>
-                                                    <Td>{sleeps[0].end_time}</Td>
+                                                    <Td>{props.sleeps[0].date}</Td>
+                                                    <Td>{props.sleeps[0].start_time}</Td>
+                                                    <Td>{props.sleeps[0].end_time}</Td>
                                                 </Tr>
                                                 <Tr>
-                                                    <Td>{sleeps[1].date}</Td>
-                                                    <Td>{sleeps[1].start_time}</Td>
-                                                    <Td>{sleeps[1].end_time}</Td>
+                                                    <Td>{props.sleeps[1].date}</Td>
+                                                    <Td>{props.sleeps[1].start_time}</Td>
+                                                    <Td>{props.sleeps[1].end_time}</Td>
                                                 </Tr>
                                                 <Tr>
-                                                    <Td>{sleeps[2].date}</Td>
-                                                    <Td>{sleeps[2].start_time}</Td>
-                                                    <Td>{sleeps[2].end_time}</Td>
+                                                    <Td>{props.sleeps[2].date}</Td>
+                                                    <Td>{props.sleeps[2].start_time}</Td>
+                                                    <Td>{props.sleeps[2].end_time}</Td>
                                                 </Tr>
                                             </Tbody>
                                         </Table>
                                         <Box>
-                                            <Center>
-                                                <Text
-                                                    marginTop="50px"
-                                                    fontFamily="Boing" fontWeight="medium"
-                                                    textAlign="center"
-                                                    width="90%"
-                                                >It looks like you sleep <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
-                                    </Text>
-                                            </Center>
+                                            <Grid className="s-container" mt={10}>
+                                                <GridItem className="s1">
+                                                    <Box>
+                                                        <Center>
+                                                            <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" width="50%"
+                                                            />
+                                                        </Center>
+                                                    </Box>
+                                                </GridItem>
+                                                <GridItem className="s2">
+                                                    <Center>
+                                                        <Divider orientation="vertical"
+                                                            height="150px" borderColor="gray.200"
+                                                            margin="auto"
+                                                        />
+                                                    </Center>
+                                                </GridItem>
+                                                <GridItem className="s3">
+                                                    <Box>
+                                                        <Center>
+                                                            <Text
+                                                                fontFamily="Boing" fontWeight="medium"
+                                                                textAlign="center"
+                                                                width="90%"
+                                                                fontSize="1.1vw"
+                                                            >It looks like you sleep and average of<br /> <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
+                                                            </Text>
+                                                        </Center>
+                                                    </Box>
+                                                </GridItem>
+                                            </Grid>
                                         </Box>
                                     </Box>
                                 </div>

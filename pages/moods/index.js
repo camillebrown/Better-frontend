@@ -34,6 +34,7 @@ const moods = () => {
 
     return (
         <div>
+            <img src="https://i.ibb.co/DrzMfr4/MOOD.png" alt="MOOD" border="0" />
             {moods[0] == null ? (
                 <div>
                     <p>You don't have any mood logs added yet. Let's get one added!</p>

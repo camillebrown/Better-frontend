@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Router from "next/router";
-import { Stack, Text, Input, FormControl, InputGroup, Button, Radio, RadioGroup } from '@chakra-ui/react'
+import { Stack, Text, Input, FormControl, InputGroup, Button, Select } from '@chakra-ui/react'
 import axios from 'axios'
 
 const setup = () => {
@@ -16,6 +16,7 @@ const setup = () => {
         console.log(settings)
     }
 
+
     const handleSave = (e) => {
         e.preventDefault()
         axios.post(`http://localhost:8000/profile/`, {
@@ -29,7 +30,7 @@ const setup = () => {
             .then((res) => {
                 console.log('SENT REQUEST TO BACKEND')
                 console.log('DATA', res.data)
-                // Router.push("/profile")
+                Router.push("/profile")
             })
             .catch(err => {
                 console.log(err)
@@ -46,7 +47,7 @@ const setup = () => {
                         <InputGroup>
                             <Input
                                 type="text"
-                                pattern="\d{5}-?(\d{4})"
+                                pattern="[0-9]{5}"
                                 placeholder="Zip Code"
                                 aria-label="Zip Code"
                                 name="zip_code"
@@ -59,31 +60,27 @@ const setup = () => {
                     <Text ml={1} fontWeight="bolder">Active Status<span
                         className="asterisk">*</span></Text>
                     <FormControl isRequired mb="10px">
-                        <RadioGroup
+                        <Select
                             placeholder="How Active Are You?"
                             name="active_status"
                             onChange={handleChange}>
-                            <Stack>
-                                <Radio value="0">Mostly sedatary (less than 2 hrs a week)</Radio>
-                                <Radio value="1">Moderate (2-4 hrs a week)</Radio>
-                                <Radio value="2">Mostly active (more than 4 hrs a week)</Radio>
-                            </Stack>
-                        </RadioGroup>
+                            <option value="0">Mostly sedatary (less than 2 hrs a week)</option>
+                            <option value="1">Moderate (2-4 hrs a week)</option>
+                            <option value="2">Mostly active (more than 4 hrs a week)</option>
+                        </Select>
                     </FormControl>
                     <Text ml={1} fontWeight="bolder">Personal Goals<span
                         className="asterisk">*</span></Text>
                     <FormControl isRequired mb="20px">
-                        <RadioGroup
-                            placeholder="What is your Primary Goal?"
+                    <Select
+                            placeholder="How Active Are You?"
                             name="goal"
                             onChange={handleChange}>
-                            <Stack>
-                                <Radio value="0">Feel More Rested😴🌙(Sleep Focused)</Radio>
-                                <Radio value="1">Feel Happier😊🌟(Mood Focused)</Radio>
-                                <Radio value="2">Feel Healthier🤗💪(Fitness/Diet Focused)</Radio>
-                                <Radio value="3">Feel Better🤩✨🏆(All of the Above)</Radio>
-                            </Stack>
-                        </RadioGroup>
+                            <option value="0">Feel More Rested😴🌙(Sleep Focused)</option>
+                            <option value="1">Feel Happier😊🌟(Mood Focused)</option>
+                            <option value="2">Feel Healthier🤗💪(Fitness/Diet Focused)</option>
+                            <option value="3">Feel Better🤩✨🏆(All of the Above)</option>
+                        </Select>
                     </FormControl>
                     <Button
                         type="submit"

@@ -32,6 +32,7 @@ const meals = () => {
 
     return (
         <div>
+            <img src="https://i.ibb.co/w4c2BCS/DIET.png" alt="DIET" border="0" />
             {meals[0] == null ? (
                 <div>
                     <p>You don't have any meals added yet. Let's get one added!</p>

@@ -31,6 +31,7 @@ const sleep = () => {
 
     return (
         <div>
+            <img src="https://i.ibb.co/VwXGsn8/SLEEP-1.png" alt="SLEEP-1" border="0" />
             {sleeps[0] == null ? (
                 <div>
                     <p>You don't have any sleep logs yet. Let's get some added!</p>

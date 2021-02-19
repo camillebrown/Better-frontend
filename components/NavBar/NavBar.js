@@ -69,7 +69,7 @@ const MenuLinks = ({ isOpen }) => {
   const [user, setUser] = useState()
 
   const getUserInfo = () => {
-    axios.get(`http://localhost:8000/profile/`,
+    axios.get(`http://localhost:8000/api/v1/users/`,
       { withCredentials: true }
     )
       .then((res) => {
