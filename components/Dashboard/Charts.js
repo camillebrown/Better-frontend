@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, GridItem, HStack, Table, Thead, Tbody, Tr, Th, Td, chakra, Box, Text, StackDivider, Divider, Center } from "@chakra-ui/react"
+import {
+    Grid, GridItem, HStack, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Box, Text, StackDivider, Divider, Center, TableCaption
+} from "@chakra-ui/react"
 import axios from 'axios'
 import { ImQuotesLeft } from "react-icons/im";
 import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
-import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons"
-import { useTable, useSortBy } from "react-table"
+var moment = require('moment');
 
 const Charts = () => {
     useEffect(() => {
         getMoods(),
             getMeals(),
-            getQuote()
+            getQuote(),
+            getSleeps()
     }, [])
 
     const [quote, setQuote] = useState("")
     const [moods, setMoods] = useState()
     const [meals, setMeals] = useState([])
+    const [sleeps, setSleeps] = useState([
+        { start_time: "21:30:00", end_time: "06:30:00" },
+        { start_time: "21:30:00", end_time: "06:30:00" },
+        { start_time: "21:30:00", end_time: "06:30:00" }
+    ])
     const [avgCalories, setAvgCalories] = useState("")
     let numRatings = [0, 0, 0, 0, 0, 0, 5]
     let avgMacros = [0, 0, 0]
@@ -89,6 +96,25 @@ const Charts = () => {
         axios.get('https://zenquotes.io/api/random')
             .then((data) => {
                 setQuote(data.data[0])
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    const getSleeps = () => {
+        axios.get(`http://localhost:8000/sleeps/`,
+            { withCredentials: true })
+            .then((res) => {
+                let latestSleeps = res.data.slice(Math.max(res.data.length - 3, 0))
+                setSleeps(latestSleeps)
+                for (let sleep in latestSleeps) {
+                    let iSleep = latestSleeps[sleep]
+                    sleeps[sleep].date = moment(iSleep.date).format("MMM Do")
+                    sleeps[sleep].start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
+                    sleeps[sleep].end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
+                }
+                setSleeps(sleeps)
             })
             .catch(err => {
                 console.log(err)
@@ -184,7 +210,7 @@ const Charts = () => {
                                         <h2 className="hg-title"> Quotes for Your Day</h2>
                                     </div>
                                 </Box>
-                                <Center  py={2} px={2}>
+                                <Center py={2} px={2}>
                                     <HStack spacing="25px" height="100%" divider={<Center><StackDivider height="80px" borderColor="gray.200" /></Center>}>
                                         <Box p={4}>
                                             <Center>
@@ -262,6 +288,45 @@ const Charts = () => {
                                         <div className="hg-header">
                                             <h2 className="hg-title">Sleep</h2>
                                         </div>
+                                    </Box>
+                                    <Box px={4} py={4}>
+                                        <Table variant="simple">
+                                            <Thead>
+                                                <Tr>
+                                                    <Th>Date</Th>
+                                                    <Th>Start Time</Th>
+                                                    <Th>End Time</Th>
+                                                </Tr>
+                                            </Thead>
+                                            <Tbody>
+                                                <Tr>
+                                                    <Td>{sleeps[0].date}</Td>
+                                                    <Td>{sleeps[0].start_time}</Td>
+                                                    <Td>{sleeps[0].end_time}</Td>
+                                                </Tr>
+                                                <Tr>
+                                                    <Td>{sleeps[1].date}</Td>
+                                                    <Td>{sleeps[1].start_time}</Td>
+                                                    <Td>{sleeps[1].end_time}</Td>
+                                                </Tr>
+                                                <Tr>
+                                                    <Td>{sleeps[2].date}</Td>
+                                                    <Td>{sleeps[2].start_time}</Td>
+                                                    <Td>{sleeps[2].end_time}</Td>
+                                                </Tr>
+                                            </Tbody>
+                                        </Table>
+                                        <Box>
+                                            <Center>
+                                                <Text
+                                                    marginTop="50px"
+                                                    fontFamily="Boing" fontWeight="medium"
+                                                    textAlign="center"
+                                                    width="90%"
+                                                >It looks like you sleep <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
+                                    </Text>
+                                            </Center>
+                                        </Box>
                                     </Box>
                                 </div>
                             </Box>

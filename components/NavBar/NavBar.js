@@ -105,7 +105,7 @@ const MenuLinks = ({ isOpen }) => {
       >
         { user ? (
           <>
-            <MenuItem to="/profile">{user.first_name}'s Profile</MenuItem>
+            <MenuItem to="/profile">{user.first_name}'s Dashboard</MenuItem>
             <Button
               size="sm"
               onClick={logOut}
