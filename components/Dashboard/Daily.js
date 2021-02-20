@@ -51,13 +51,11 @@ export const Daily = (props) => {
                     if (date === fNow) {
                         let meals = []
                         meals.push(meal)
-                        return meals
+                        setMeals(meals)
                     } else {
                         setMeals(null)
                     }
                 });
-                setMeals(meals)
-                console.log(meals)
             })
             .catch(err => {
                 console.log(err)
@@ -93,8 +91,9 @@ export const Daily = (props) => {
                 var avg = total / res.data.data.length;
                 setAvgCalories(avg)
                 array.forEach(workout => {
-                    let date = dayjs(workout.created_at).format('LL')
-                    if (date === now) {
+                    let date = workout.created_at.substring(0,16)
+                    if (date === fNow) {
+                        let workouts = []
                         workouts.push(workout)
                         setWorkouts(workouts)
                         setNumWork(workouts.length)
@@ -147,7 +146,7 @@ export const Daily = (props) => {
                             ) : (
                                     <Box>
                                         <Text className="daily-text">
-                                            You've logged {numWork} workouts today!
+                                            You've logged {numWork} workout(s) today!
                                     </Text>
                                         <Text className="daily-info">
                                             Throughout all of your workouts today, you've burned an average of {avgCalories} with each workout. Great job!

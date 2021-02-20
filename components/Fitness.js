@@ -10,6 +10,7 @@ dayjs.extend(localizedFormat)
 function Fitness(props) {
 
     const workouts = props.workouts.map((workout) => {
+        console.log(workout)
         let date = dayjs(workout.created_at).format('LL')
         const deleteWorkout = () => {
             axios.delete(`http://localhost:8000/workouts/${workout.id}`,
@@ -32,7 +33,7 @@ function Fitness(props) {
 
 
         return (
-            <WrapItem >
+            <WrapItem key={workout.id}>
                 <Box className="work-divs" key={workout.id}>
                     <Box className="fit-title">
                         <Text color="black" fontSize="28px" textAlign="center">
