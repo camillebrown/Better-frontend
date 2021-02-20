@@ -4,30 +4,33 @@ import {
 } from "@chakra-ui/react"
 import axios from 'axios'
 import { ImQuotesLeft } from "react-icons/im";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
+
+import Router from "next/router";
 
 const Charts = (props) => {
 
-    setTimeout(() => {
-        getWeather()
-    }, 3000);
-
     useEffect(() => {
         getQuote()
+        const getTemp = setTimeout(() => getWeather(), 3000);
+        return () => clearTimeout(getTemp);
+
     }, [])
 
     const [quote, setQuote] = useState("")
     const [weather, setWeather] = useState()
     const [highFahrenheit, setHighFahrenheit] = useState()
     const [lowFahrenheit, setLowFahrenheit] = useState()
-
+    console.log(weather)
     const getWeather = () => {
         axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${props.settings.zip_code},us&appid=f4a5477638ec2bad03e7ef91172e8f5d`)
             .then((res) => {
-                console.log(res.data)
                 setWeather(res.data)
-                let highFahrenheit = Math.round(((weather.main.temp_max - 273.15) * 9 / 5 + 32) * 10) / 10
-                let lowFahrenheit = Math.round(((weather.main.temp_min - 273.15) * 9 / 5 + 32) * 10) / 10
+                console.log(res.data.main.temp_max)
+                let highFahrenheit = Math.round(((res.data.main.temp_max - 273.15) * 9 / 5 + 32) * 10) / 10
+                let lowFahrenheit = Math.round(((res.data.main.temp_min - 273.15) * 9 / 5 + 32) * 10) / 10
                 setLowFahrenheit(lowFahrenheit)
                 setHighFahrenheit(highFahrenheit)
             })
@@ -51,9 +54,9 @@ const Charts = (props) => {
         datasets: [
             {
                 label: 'Daily Moods',
-                legend:{
-                    labels:{
-                        fontFamily:'Poppins',
+                legend: {
+                    labels: {
+                        fontFamily: 'Poppins',
                     }
                 },
                 backgroundColor: '#ffbe30',
@@ -112,6 +115,31 @@ const Charts = (props) => {
         ]
     };
 
+    const seeMoods = () => {
+        Router.push("/moods")
+    }
+    const addMoods = () => {
+        Router.push("/moods/add")
+    }
+    const seeSleep = () => {
+        Router.push("/sleep")
+    }
+    const addSleep = () => {
+        Router.push("/sleep/add")
+    }
+    const seeWorkouts = () => {
+        Router.push("/workouts")
+    }
+    const addWorkouts = () => {
+        Router.push("/workouts/add")
+    }
+    const seeMeals = () => {
+        Router.push("/meals")
+    }
+    const addMeals = () => {
+        Router.push("/meals/add")
+    }
+
     return (
 
         <>
@@ -120,20 +148,34 @@ const Charts = (props) => {
                     <Grid className="dash-grid">
                         <GridItem className="dg1">
                             <Box>
-                                <Box id="hg2">
-                                    <div className="hg-header">
-                                        <h2 className="hg-title">Steps - Fitness Tracking</h2>
-                                    </div>
+                                <Box id="hg2" className="hg-header">
+                                    <HStack px={4} py={2}>
+                                        <Box>
+                                            <AiOutlineInfoCircle
+                                                className="info-icon"
+                                                onClick={seeWorkouts} />
+                                        </Box>
+                                        <Box>
+                                            <IoAddCircleOutline
+                                                className="add-icon"
+                                                onClick={seeWorkouts} />
+                                        </Box>
+                                        <Box px={4}>
+                                            <Box >
+                                                <h2 className="dash-title">Calories Burned - Fitness Tracking</h2>
+                                            </Box>
+                                        </Box>
+                                    </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                <Center>
+                                    <Center>
                                         <Box
                                             height="28vh"
                                             width="30vw">
-                                        <Line
-                                            data={fitData}
-                                        />
-                                    </Box>
+                                            <Line
+                                                data={fitData}
+                                            />
+                                        </Box>
                                     </Center>
                                     <Center>
                                         <Text
@@ -149,10 +191,24 @@ const Charts = (props) => {
                         </GridItem>
                         <GridItem className="dg2">
                             <Box>
-                                <Box id="hg6">
-                                    <div className="hg-header">
-                                        <h2 className="hg-title">Mood</h2>
-                                    </div>
+                                <Box id="hg6" className="hg-header">
+                                    <HStack px={4} py={3}>
+                                        <Box>
+                                            <AiOutlineInfoCircle
+                                                className="info-icon"
+                                                onClick={seeMoods} />
+                                        </Box>
+                                        <Box>
+                                            <IoAddCircleOutline
+                                                className="add-icon"
+                                                onClick={addMoods} />
+                                        </Box>
+                                        <Box px={4}>
+                                            <Box >
+                                                <h2 className="dash-title">Mood Tracking</h2>
+                                            </Box>
+                                        </Box>
+                                    </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
                                     <Center>
@@ -231,10 +287,24 @@ const Charts = (props) => {
                         </GridItem>
                         <GridItem className="dg5" position="relative">
                             <Box>
-                                <Box id="hg1">
-                                    <div className="hg-header">
-                                        <h2 className="hg-title">Macros - Diet Tracking</h2>
-                                    </div>
+                                <Box id="hg1" className="hg-header">
+                                    <HStack px={4} py={3}>
+                                        <Box>
+                                            <AiOutlineInfoCircle
+                                                className="info-icon"
+                                                onClick={seeMeals} />
+                                        </Box>
+                                        <Box>
+                                            <IoAddCircleOutline
+                                                className="add-icon"
+                                                onClick={addMeals} />
+                                        </Box>
+                                        <Box px={4}>
+                                            <Box >
+                                                <h2 className="dash-title">Macros - Diet Tracking</h2>
+                                            </Box>
+                                        </Box>
+                                    </HStack>
                                 </Box>
                                 <Box my={8}>
                                     <Doughnut
@@ -286,10 +356,24 @@ const Charts = (props) => {
                         <GridItem className="dg6">
                             <Box>
                                 <div>
-                                    <Box id="hg5">
-                                        <div className="hg-header">
-                                            <h2 className="hg-title">Sleep</h2>
-                                        </div>
+                                    <Box id="hg5" className="hg-header">
+                                        <HStack px={4} py={3}>
+                                            <Box>
+                                                <AiOutlineInfoCircle
+                                                    className="info-icon"
+                                                    onClick={seeSleep} />
+                                            </Box>
+                                            <Box>
+                                                <IoAddCircleOutline
+                                                    className="add-icon"
+                                                    onClick={addSleep} />
+                                            </Box>
+                                            <Box px={4}>
+                                                <Box >
+                                                    <h2 className="dash-title">Sleep Tracking</h2>
+                                                </Box>
+                                            </Box>
+                                        </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
                                         <Table variant="simple">

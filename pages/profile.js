@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { Text, Box } from "@chakra-ui/react"
 import axios from 'axios';
-import { Button } from "@chakra-ui/react"
-import Router from "next/router";
 import Daily from '../components/Dashboard/Daily'
 import Charts from '../components/Dashboard/Charts'
+var dayjs = require('dayjs')
+var localizedFormat = require('dayjs/plugin/localizedFormat')
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+dayjs.extend(localizedFormat)
 var moment = require('moment');
 
 const profile = () => {
-
+    var now = dayjs().format('LL')
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState([])
     const [settings, setSettings] = useState([])
     const [moods, setMoods] = useState()
     const [meals, setMeals] = useState([])
+    const [todayMacros, setTodayMacros] = useState([])
     const [sleeps, setSleeps] = useState([])
     const [avgCalories, setAvgCalories] = useState("")
     const [workouts, setWorkouts] = useState([])
     let numRatings = [0, 0, 0, 0, 0, 0, 5]
     let avgMacros = [0, 0, 0]
+    let todayCals = []
+    let todayCarbs = []
+    let todayFats = []
+    let todayProtein = []
 
     setTimeout(() => {
         setLoading(false);
@@ -98,10 +107,29 @@ const profile = () => {
                 var avgCals = Math.round((calTotal / res.data.calories.length) * 10) / 10;
                 setAvgCalories(avgCals)
                 setMeals(avgMacros)
+
+                res.data.data.forEach(meal => {
+                    let date = dayjs(meal.created_at).format('LL')
+                    if (date === now) {
+                        todayCals.push(meal.total_calories)
+                        todayFats.push(meal.fat)
+                        todayCarbs.push(meal.carbs)
+                        todayProtein.push(meal.protein)
+
+                        let TCL = todayCals.reduce((a, b) => a + b, 0)
+                        let TF = todayFats.reduce((a, b) => a + b, 0)
+                        let TCB = todayCarbs.reduce((a, b) => a + b, 0)
+                        let TP = todayProtein.reduce((a, b) => a + b, 0)
+                        setTodayMacros([TCL, TF, TCB, TP])
+                    } else {
+                        setTodayMacros(null)
+                    }
+                })
             })
             .catch(err => {
                 console.log(err)
             })
+
         axios.get(`http://localhost:8000/sleeps/`,
             { withCredentials: true })
             .then((res) => {
@@ -122,7 +150,7 @@ const profile = () => {
             { withCredentials: true }
         )
             .then((res) => {
-                let calArray = [0,0]
+                let calArray = [0, 0]
                 res.data.data.forEach(workout => {
                     let calories = workout.calories
                     calArray.push(calories)
@@ -138,81 +166,29 @@ const profile = () => {
         getUserInfo()
     }, [])
 
-    const seeMoods = () => {
-        Router.push("/moods")
-    }
-    const seeSleep = () => {
-        Router.push("/sleep")
-    }
-    const seeWorkouts = () => {
-        Router.push("/workouts")
-    }
-    const seeMeals = () => {
-        Router.push("/meals")
-    }
-
     return (
         <>
-            {loading && <div>Page is loading!</div>}
+            {loading &&
+                <div className="loading">
+                    Page is loading!
+                </div>
+            }
             {!loading && (
                 <div>
-                    <h1>{user.first_name} </h1>
-                    <h1>{user.last_name} </h1>
-                    <h1>{user.email} </h1>
-                    <h1>{user.id} </h1>
-                    {/* 
-            <Button
-                size="sm"
-                onClick={sleep}
-                rounded="md"
-                color="white"
-                bg="blue"
-                _hover={{
-                    bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                }}
-            >
-                Sleep Logs
-            </Button>
-
-            <Button
-                size="sm"
-                onClick={meals}
-                rounded="md"
-                color="white"
-                bg="blue"
-                _hover={{
-                    bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                }}
-            >
-                Meals
-            </Button>
-
-            <Button
-                size="sm"
-                onClick={workouts}
-                rounded="md"
-                color="white"
-                bg="blue"
-                _hover={{
-                    bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                }}
-            >
-                Workouts
-            </Button>
-
-            <Button
-                size="sm"
-                onClick={moods}
-                rounded="md"
-                color="white"
-                bg="blue"
-                _hover={{
-                    bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                }}
-            >
-                Moods
-            </Button> */}
-                    <Daily user={user} avgCalories={avgCalories} moods={moods} sleeps={sleeps} meals={meals} workouts={workouts}/>
+                    <Box mx={4} my={4} textAlign="center">
+                        <h1>
+                            <span className="logo" id="welcome-title">
+                                Welcome!
+                             <span className="logo-dot">
+                                {user.first_name}
+                            </span>
+                            </span>
+                        </h1>
+                        <Text>
+                            Checkout your dashboard below to see your daily insights and your overall stats for meals, workouts, sleep logs, and moods.
+                        </Text>
+                    </Box>
+                    <Daily todayMacros={todayMacros} />
                     <Charts user={user} avgCalories={avgCalories} settings={settings} moods={moods} sleeps={sleeps} meals={meals} workouts={workouts} />
                 </div>
             )}
