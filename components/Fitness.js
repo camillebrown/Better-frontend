@@ -13,7 +13,7 @@ function Fitness(props) {
         console.log(workout)
         let date = dayjs(workout.created_at).format('LL')
         const deleteWorkout = () => {
-            axios.delete(`http://localhost:8000/workouts/${workout.id}`,
+            axios.delete(`${process.env.REACT_APP_BACKEND_URL}/workouts/${workout.id}`,
                 { withCredentials: true })
                 .then((data) => {
                     window.location.reload()

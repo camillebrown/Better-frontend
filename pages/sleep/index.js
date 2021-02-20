@@ -10,7 +10,7 @@ const sleep = () => {
     const [sleeps, setSleeps] = useState([])
 
     const getSleeps = () => {
-        axios.get(`http://localhost:8000/sleeps/`,
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/sleeps/`,
             { withCredentials: true })
             .then((res) => {
                 setSleeps(res.data)

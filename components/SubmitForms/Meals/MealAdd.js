@@ -17,7 +17,7 @@ const MealAdd = (props) => {
     const handleAdd = (e) => {
         e.preventDefault()
         console.log(data)
-        axios.post(`http://localhost:8000/meals/`, {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/meals/`, {
             meal_name: data.meal_name,
             protein: data.protein,
             carbs: data.carbs,

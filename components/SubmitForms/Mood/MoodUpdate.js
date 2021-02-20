@@ -21,7 +21,7 @@ const MoodUpdate = (props) => {
 
     const getMoodData = () => {
 
-        axios.get(`http://localhost:8000/moods/${mood_id}`,
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/moods/${mood_id}`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -37,7 +37,7 @@ const MoodUpdate = (props) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        axios.put(`http://localhost:8000/moods/${mood_id}`, {
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/moods/${mood_id}`, {
             date: data.date,
             rating: data.rating
         }, {
@@ -85,7 +85,6 @@ const MoodUpdate = (props) => {
                         <option value="2">Ya know, I'm alright today.</option>
                         <option value="3">Today's been kinda great.</option>
                         <option value="4">This was the most amazing day!</option>
-                        )
                     </Select>
                 </FormControl>
 

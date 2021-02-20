@@ -18,7 +18,7 @@ const FitnessAdd = (props) => {
     const handleAdd = (e) => {
         e.preventDefault()
         console.log(data)
-        axios.post(`http://localhost:8000/workouts/`, {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/workouts/`, {
             exercise_name: data.exercise_name,
             calories: data.calories,
             time_duration: data.time_duration,

@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = 'http://localhost:8000/api/v1/users'
+const API_URL = '${process.env.REACT_APP_BACKEND_URL}/api/v1/users'
 
 // SIGN UP
 export const register = (firstName, lastName, username, email, password) => {

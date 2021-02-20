@@ -11,7 +11,7 @@ const meals = () => {
     const [meals, setMeals] = useState([])
 
     const getMeals = () => {
-        axios.get(`http://localhost:8000/meals/`,
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/`,
             { withCredentials: true }
         )
             .then((res) => {

@@ -26,7 +26,7 @@ function Sleep(props) {
 
         const deleteSleep = () => {
 
-            axios.delete(`http://localhost:8000/sleeps/${sleep.id}`,
+            axios.delete(`${process.env.REACT_APP_BACKEND_URL}/sleeps/${sleep.id}`,
                 { withCredentials: true })
                 .then((data) => {
                     window.location.reload()

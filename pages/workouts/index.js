@@ -10,7 +10,7 @@ const workouts = () => {
     const [workouts, setWorkouts] = useState([])
 
     const getWorkouts = () => {
-        axios.get(`http://localhost:8000/workouts/`,
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/workouts/`,
             { withCredentials: true }
         )
             .then((res) => {

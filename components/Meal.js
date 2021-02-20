@@ -13,7 +13,7 @@ function Meal(props) {
         let date = dayjs(meal.created_at).format('LL')
 
         const deleteMeal = () => {
-            axios.delete(`http://localhost:8000/meals/${meal.id}`)
+            axios.delete(`${process.env.REACT_APP_BACKEND_URL}/meals/${meal.id}`)
                 .then((data) => {
                     window.location.reload()
                 })

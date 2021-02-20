@@ -12,7 +12,7 @@ const moods = () => {
 
     const getMoods = () => {
         // FIGURE OUT WHY PROCESS.ENV IS NOT WORKING!!!!!!
-        axios.get(`http://localhost:8000/moods/`,
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/moods/`,
             { withCredentials: true }
         )
             .then((res) => {

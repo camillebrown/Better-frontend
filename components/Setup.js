@@ -19,7 +19,7 @@ const setup = () => {
 
     const handleSave = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/profile/`, {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/profile/`, {
             active_status: settings.active_status,
             goal: settings.goal,
             zip_code: settings.zip_code
