@@ -22,11 +22,14 @@ Better. App allows user to track their daily fitness activity, moods, sleep patt
 * Flask / Peewee
 * Next.js
 * React
+
+## Resources Used:
 * Chakra UI
 * FontAwesome
 * Axios
 * Day.js
 * Chart.js
+* [FreePik Icons](https://www.freepik.com/)
 * [Open Weather API](https://openweathermap.org/api)
 * [Zen Quotes API](https://zenquotes.io/#docs)
 
