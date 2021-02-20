@@ -1,9 +1,11 @@
 import axios from "axios";
 // https://get-better-app.herokuapp.com/
 
+let API_URL = process.env.REACT_APP_BACKEND_URL
+
 // SIGN UP
 export const register = (firstName, lastName, username, email, password) => {
-    return axios.post(process.env.REACT_APP_BACKEND_URL + '/api/v1/users/register', {
+    return axios.post(API_URL + '/api/v1/users/register', {
         first_name: firstName,
         last_name: lastName,
         username: username,
@@ -15,7 +17,7 @@ export const register = (firstName, lastName, username, email, password) => {
 }
 // LOG IN
 export const login = (email, password) => {
-    return axios.post(process.env.REACT_APP_BACKEND_URL + '/api/v1/users/login', {
+    return axios.post(API_URL + '/api/v1/users/login', {
         email, password
     },
         { withCredentials: true }
@@ -23,5 +25,5 @@ export const login = (email, password) => {
 }
 // LOG OUT
 export const logout = () => {
-    return axios.get(process.env.REACT_APP_BACKEND_URL + '/api/v1/users/logout', { withCredentials: true })
+    return axios.get(API_URL + '/api/v1/users/logout', { withCredentials: true })
 }
