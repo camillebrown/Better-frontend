@@ -28,5 +28,8 @@
     "react-router-dom": "^5.2.0",
     "react-table": "^7.6.3",
     "universal-cookie": "^4.0.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.23.0"
   }
 }

@@ -32,7 +32,8 @@ const workouts = () => {
 
     return (
         <div>
-            <img src="https://i.ibb.co/BB3M3kk/FITNESS.png" alt="FITNESS" border="0" />
+            <div className="img-fit">
+            </div>
             {workouts[0] == null ? (
                 <div>
                     <p>You don't have any workouts added yet. Let's get one added!</p>

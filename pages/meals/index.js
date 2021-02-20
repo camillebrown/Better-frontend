@@ -32,11 +32,10 @@ const meals = () => {
 
     return (
         <div>
-            <div className="img-cont">
-                <img src="https://i.ibb.co/w4c2BCS/DIET.png" alt="DIET" border="0" objectFit="fill"/>
+            <div className="img-meal">
             </div>
             {meals[0] == null ? (
-                <div>
+                <div className="loading">
                     <p>You don't have any meals added yet. Let's get one added!</p>
                     <Button onClick={addMeal}>Add a New Meal</Button>
                 </div>

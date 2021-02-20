@@ -489,7 +489,94 @@
     margin-top:1.5%
 }
 
-.img-cont{
-    width: 100%;
-    height:200px
+.img-meal{
+    background-image: url('pages/meals/diet.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40vh;
+}
+.img-fit{
+    background-image: url('pages/workouts/fitness.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40vh;
+}
+.img-mood{
+    background-image: url('pages/moods/mood.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40vh;
+}
+.img-sleep{
+    background-image: url('pages/sleep/sleep.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40vh;
+}
+
+.divs{
+    margin-left:10px;
+    margin-bottom:10px;
+    padding: 15px;
+    border: 1px solid #d1d1d1;
+    border-radius:13px;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+}
+
+.div-box{
+    margin-top: 30px;
+}
+
+.div-title{
+    margin-bottom: 50px;
+}
+.fit-title{
+    margin-bottom: 25px;
+}
+
+hr.rounded {
+    border-top: 4px solid #f85c4a;
+    border-radius: 5px;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.sleep-rounded{
+    border-top: 4px solid #abaaea;
+    border-radius: 5px;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.work-divs{
+    margin-left:5px;
+    margin-bottom:10px;
+    padding: 15px;
+    border: 1px solid #d1d1d1;
+    border-radius:13px;
+    width: 400px;
+    height: 325px;
+    text-align: center;
+}
+
+.fit-logo{
+    font-size:30px;
+    font-weight:bolder;
+    text-decoration: none;
+    font-family: 'Boing';
+    color:#EA7613;
+}
+
+.mood-logo{
+    font-size:60px;
+    font-weight:bolder;
+    text-decoration: none;
+    font-family: 'Boing';
+    color:#EA7613
 }

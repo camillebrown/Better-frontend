@@ -7,6 +7,7 @@ import Router from 'next/router'
 const moods = () => {
 
     const [moods, setMoods] = useState([])
+    const [ratings, setRatings] = useState([])
 
     const getMoods = () => {
         // FIGURE OUT WHY PROCESS.ENV IS NOT WORKING!!!!!!
@@ -14,8 +15,8 @@ const moods = () => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log(res.data.data)
                 setMoods(res.data.data)
+                setRatings(res.data.ratings)
             })
             .catch(err => {
                 console.log(err)
@@ -34,14 +35,15 @@ const moods = () => {
 
     return (
         <div>
-            <img src="https://i.ibb.co/DrzMfr4/MOOD.png" alt="MOOD" border="0" />
+            <div className="img-mood">
+            </div>
             {moods[0] == null ? (
-                <div>
+                <div className="loading">
                     <p>You don't have any mood logs added yet. Let's get one added!</p>
                     <Button onClick={addMood}>Add a New Mood</Button>
                 </div>
             ) : (
-                    <Mood moods={moods} />
+                    <Mood moods={moods} ratings={ratings} />
                 )}
         </div>
 
