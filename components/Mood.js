@@ -29,7 +29,7 @@ function Mood(props) {
 
         const deleteMood = () => {
 
-            axios.delete(`${process.env.REACT_APP_BACKEND_URL}/moods/${mood.id}`, {
+            axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/${mood.id}`, {
                 withCredentials: true
             })
                 .then((data) => {

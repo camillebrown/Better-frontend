@@ -13,7 +13,7 @@ const MoodAdd = (props) => {
 
     const handleAdd = (e) => {
         e.preventDefault()
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/moods/`, {
+        axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/`, {
             date: data.date,
             rating: data.rating
         }, {

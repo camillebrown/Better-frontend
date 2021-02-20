@@ -23,7 +23,7 @@ export const Daily = (props) => {
     const [workouts, setWorkouts] = useState([])
 
     const getTodayStats = () => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/moods/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -42,7 +42,7 @@ export const Daily = (props) => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -60,7 +60,7 @@ export const Daily = (props) => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/sleeps/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`,
             { withCredentials: true })
             .then((res) => {
                 res.data.forEach(sleep => {
@@ -79,7 +79,7 @@ export const Daily = (props) => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/workouts/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
             { withCredentials: true }
         )
             .then((res) => {

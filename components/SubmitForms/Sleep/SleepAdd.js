@@ -15,7 +15,7 @@ const SleepAdd = (props) => {
     const handleAdd = (e) => {
         e.preventDefault()
         console.log(data)
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/sleeps/`, {
+        axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`, {
             date: data.date,
             start_time: data.start_time,
             end_time: data.end_time

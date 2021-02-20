@@ -15,7 +15,7 @@ const FitnessUpdate = (props) => {
 
     const getWorkoutData = () => {
 
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/workouts/${workout_id}`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/${workout_id}`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -42,7 +42,7 @@ const FitnessUpdate = (props) => {
     const handleEdit = (e) => {
         e.preventDefault()
         console.log(data)
-        axios.put(`${process.env.REACT_APP_BACKEND_URL}/workouts/${workout_id}`, {
+        axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/${workout_id}`, {
             exercise_name: data.exercise_name,
             calories: data.calories,
             time_duration: data.time_duration,

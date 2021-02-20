@@ -35,7 +35,7 @@ const profile = () => {
     }, 2000);
 
     const getUserInfo = () => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/users/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -44,7 +44,7 @@ const profile = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/profile/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -53,7 +53,7 @@ const profile = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/moods/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -76,7 +76,7 @@ const profile = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -131,7 +131,7 @@ const profile = () => {
                 console.log(err)
             })
 
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/sleeps/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`,
             { withCredentials: true })
             .then((res) => {
                 let latestSleeps = res.data.slice(Math.max(res.data.length - 3, 0))
@@ -147,7 +147,7 @@ const profile = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/workouts/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
             { withCredentials: true }
         )
             .then((res) => {

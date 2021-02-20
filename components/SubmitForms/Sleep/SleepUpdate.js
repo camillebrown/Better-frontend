@@ -15,7 +15,7 @@ const SleepUpdate = (props) => {
 
     const getSleepData = () => {
 
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/sleeps/${sleep_id}`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/${sleep_id}`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -38,7 +38,7 @@ const SleepUpdate = (props) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        axios.put(`${process.env.REACT_APP_BACKEND_URL}/sleeps/${sleep_id}`, {
+        axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/${sleep_id}`, {
             date: data.date,
             start_time: data.start_time,
             end_time: data.end_time

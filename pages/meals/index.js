@@ -11,7 +11,7 @@ const meals = () => {
     const [meals, setMeals] = useState([])
 
     const getMeals = () => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
             { withCredentials: true }
         )
             .then((res) => {

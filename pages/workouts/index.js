@@ -10,7 +10,7 @@ const workouts = () => {
     const [workouts, setWorkouts] = useState([])
 
     const getWorkouts = () => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/workouts/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
             { withCredentials: true }
         )
             .then((res) => {

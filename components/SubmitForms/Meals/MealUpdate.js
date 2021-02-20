@@ -16,7 +16,7 @@ const MealUpdate = (props) => {
 
     const getMealData = () => {
         
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/meals/${meal_id}`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/${meal_id}`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -41,7 +41,7 @@ const MealUpdate = (props) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        axios.put(`${process.env.REACT_APP_BACKEND_URL}/meals/${meal_id}`, {
+        axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/${meal_id}`, {
             meal_name: data.meal_name,
             protein: data.protein,
             carbs: data.carbs,

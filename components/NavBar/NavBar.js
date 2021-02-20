@@ -69,7 +69,7 @@ const MenuLinks = ({ isOpen }) => {
   const [user, setUser] = useState()
 
   const getUserInfo = () => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/users/`,
+    axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
       { withCredentials: true }
     )
       .then((res) => {

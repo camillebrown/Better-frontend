@@ -1,7 +1,7 @@
 import axios from "axios";
 // https://get-better-app.herokuapp.com/
 
-let API_URL = process.env.REACT_APP_BACKEND_URL
+let API_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 
 // SIGN UP
 export const register = (firstName, lastName, username, email, password) => {

@@ -21,7 +21,7 @@ const MoodUpdate = (props) => {
 
     const getMoodData = () => {
 
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/moods/${mood_id}`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/${mood_id}`,
             { withCredentials: true }
         )
             .then((res) => {
@@ -37,7 +37,7 @@ const MoodUpdate = (props) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        axios.put(`${process.env.REACT_APP_BACKEND_URL}/moods/${mood_id}`, {
+        axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/${mood_id}`, {
             date: data.date,
             rating: data.rating
         }, {
