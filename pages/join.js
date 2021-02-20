@@ -4,26 +4,29 @@ import LoginForm from '../components/JoinForms/LoginForm'
 
 const join = () => {
     return (
-        <Box
-            w="350px"
-            p={3}
-            boxShadow="sm"
-            rounded="lg">
-            <Tabs variant="enclosed-colored" isFitted m={4}>
-                <TabList>
-                    <Tab>Sign Up</Tab>
-                    <Tab>Login</Tab>
-                </TabList>
-                <TabPanels mt={3}>
-                    <TabPanel>
-                        <SignUpForm />
-                    </TabPanel>
-                    <TabPanel>
-                        <LoginForm />
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
-        </Box>
+        <>
+            <div className="main-img">
+            </div>
+            <Box
+                className="meal-form"
+                boxShadow="lg"
+                rounded="lg">
+                <Tabs variant="enclosed-colored" isFitted m={4}>
+                    <TabList>
+                        <Tab>Sign Up</Tab>
+                        <Tab>Login</Tab>
+                    </TabList>
+                    <TabPanels mt={3}>
+                        <TabPanel>
+                            <SignUpForm />
+                        </TabPanel>
+                        <TabPanel>
+                            <LoginForm />
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
+            </Box>
+        </>
     )
 }
 

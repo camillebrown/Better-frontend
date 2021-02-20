@@ -8,8 +8,10 @@ dayjs.extend(localizedFormat)
 
 
 function Mood(props) {
+    
 
     const moods = props.moods.map((mood) => {
+        console.log(mood)
         let numRating = mood.rating + 1
         let rating = ""
         if (mood.rating === 0) {
@@ -23,7 +25,7 @@ function Mood(props) {
         } else if (mood.rating === 4) {
             rating = "This was the most amazing day!"
         }
-        let date = dayjs(mood.date).format('LL')
+        let date = (mood.date).substring(0,16)
 
         const deleteMood = () => {
 
@@ -48,13 +50,13 @@ function Mood(props) {
 
         return (
 
-            <WrapItem >
+            <WrapItem key={mood.id}>
                 <Box className="divs" key={mood.id}>
                     <Box className="div-title">
                         <Text color="black" fontSize="28px" textAlign="center">
                             {date}
                         </Text>
-                        <hr class="rounded" />
+                        <hr className="mood-rounded" />
                     </Box>
                     <Text fontFamily="Boing" fontWeight="bolder">
                         <span className="mood-logo" >

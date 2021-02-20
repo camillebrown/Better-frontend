@@ -38,7 +38,7 @@ function Fitness(props) {
                         <Text color="black" fontSize="28px" textAlign="center">
                             {workout.exercise_name}
                         </Text>
-                        <hr class="rounded" />
+                        <hr className="fit-rounded" />
                     </Box>
                     <Grid className="meal-container" >
                         <GridItem className="m1" textAlign="center">

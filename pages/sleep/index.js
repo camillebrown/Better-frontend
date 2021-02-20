@@ -3,6 +3,7 @@ import axios from 'axios';
 import Sleep from '../../components/Sleep'
 import { Button } from '@chakra-ui/react'
 import Router from 'next/router'
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const sleep = () => {
 
@@ -28,11 +29,18 @@ const sleep = () => {
             pathname: '/sleep/add'
         })
     }
+    const back = () => {
+        Router.push({
+            pathname: '/profile'
+        })
+    }
 
     return (
         <div>
             <div className="img-sleep">
             </div>
+            <Button onClick={addSleep}>Add Sleep Log</Button>
+            <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4}/>Go Back</Button>
             {sleeps[0] == null ? (
                 <div>
                     <p>You don't have any sleep logs yet. Let's get some added!</p>

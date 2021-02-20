@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import { Box, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
 import SleepAdd from '../../components/SubmitForms/Sleep/SleepAdd'
 import SleepUpdate from '../../components/SubmitForms/Sleep/SleepUpdate'
-import axios from 'axios'
 import { withRouter } from 'next/router'
 
 
@@ -11,11 +9,11 @@ const add = (props) => {
 
     return (
         <>
-            <h1>Sleep Tracker</h1>
+            <div className="img-sleep">
+            </div>
             <Box
-                w="350px"
-                p={3}
-                boxShadow="sm"
+                className="sleep-form"
+                boxShadow="lg"
                 rounded="lg">
                 <Tabs variant="enclosed-colored" isFitted m={4}>
                     <TabList>
@@ -24,10 +22,10 @@ const add = (props) => {
                     </TabList>
                     <TabPanels mt={3}>
                         <TabPanel>
-                            <SleepAdd/>
+                            <SleepAdd />
                         </TabPanel>
                         <TabPanel>
-                            <SleepUpdate sleep={sleep_id}/>
+                            <SleepUpdate sleep={sleep_id} />
                         </TabPanel>
                     </TabPanels>
                 </Tabs>

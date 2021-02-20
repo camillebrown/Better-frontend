@@ -9,8 +9,6 @@ dayjs.extend(localizedFormat)
 
 function Meal(props) {
 
-    
-
     const meals = props.meals.map((meal) => {
         let date = dayjs(meal.created_at).format('LL')
 
@@ -31,15 +29,14 @@ function Meal(props) {
             })
         }
 
-
         return (
-            <WrapItem >
+            <WrapItem key={meal.id} >
                 <Box className="divs" key={meal.id}>
                     <Box className="div-title">
-                    <Text color="black" fontSize="28px" textAlign="center">
-                        {meal.meal_name}
-                    </Text>
-                    <hr class="rounded" />
+                        <Text color="black" fontSize="28px" textAlign="center">
+                            {meal.meal_name}
+                        </Text>
+                        <hr className="rounded" />
                     </Box>
                     <Grid className="meal-container" >
                         <GridItem className="m1" textAlign="center">

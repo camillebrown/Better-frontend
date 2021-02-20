@@ -3,6 +3,7 @@ import axios from 'axios';
 import Mood from '../../components/Mood';
 import { Button } from '@chakra-ui/react'
 import Router from 'next/router'
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const moods = () => {
 
@@ -32,11 +33,18 @@ const moods = () => {
             pathname: '/moods/add'
         })
     }
+    const back = () => {
+        Router.push({
+            pathname: '/profile'
+        })
+    }
 
     return (
         <div>
             <div className="img-mood">
             </div>
+            <Button onClick={addMood}>Add Mood Log</Button>
+            <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4}/>Go Back</Button>
             {moods[0] == null ? (
                 <div className="loading">
                     <p>You don't have any mood logs added yet. Let's get one added!</p>

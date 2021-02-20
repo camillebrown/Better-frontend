@@ -9,11 +9,11 @@ const add = (props) => {
 
     return (
         <>
-            <h1>Mood Tracker</h1>
+            <div className="img-mood">
+            </div>
             <Box
-                w="350px"
-                p={3}
-                boxShadow="sm"
+                className="mood-form"
+                boxShadow="lg"
                 rounded="lg">
                 <Tabs variant="enclosed-colored" isFitted m={4}>
                     <TabList>

@@ -10,11 +10,11 @@ const add = (props) => {
 
     return (
         <>
-            <h1>Fitness Tracker</h1>
+            <div className="img-fit">
+            </div>
             <Box
-                w="350px"
-                p={3}
-                boxShadow="sm"
+                className="fit-form"
+                boxShadow="lg"
                 rounded="lg">
                 <Tabs variant="enclosed-colored" isFitted m={4}>
                     <TabList>

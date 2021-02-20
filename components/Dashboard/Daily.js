@@ -12,9 +12,11 @@ import axios from 'axios'
 export const Daily = (props) => {
     // setTodayMacros([TCL, TF, TCB, TP])
     var now = dayjs().format('LL')
+    var fNow = dayjs().format('ddd, DD MMM YYYY')
+
     const [mood, setMood] = useState()
     const [rating, setRating] = useState()
-    const [meals, setMeals] = useState([])
+    const [meals, setMeals] = useState()
     const [sleep, setSleep] = useState([])
     const [avgCalories, setAvgCalories] = useState("")
     const [numWork, setNumWork] = useState("")
@@ -45,14 +47,17 @@ export const Daily = (props) => {
         )
             .then((res) => {
                 res.data.data.forEach(meal => {
-                    let date = dayjs(meal.created_at).format('LL')
-                    if (date === now) {
+                    let date = (meal.created_at).substring(0,16)
+                    if (date === fNow) {
+                        let meals = []
                         meals.push(meal)
-                        setMeals(meals)
+                        return meals
                     } else {
                         setMeals(null)
                     }
                 });
+                setMeals(meals)
+                console.log(meals)
             })
             .catch(err => {
                 console.log(err)
@@ -191,7 +196,7 @@ export const Daily = (props) => {
                                 icon={faHamburger} />
                         </Box>
                         <Box px={4}>
-                            {!meals ? (
+                            {!meals || !props.todayMacros ? (
                                 <Box>
                                     <Text className="daily-text">
                                         You haven’t logged any meals today
@@ -203,7 +208,7 @@ export const Daily = (props) => {
                             ) : (
                                     <Box>
                                         <Text className="daily-text">
-                                            You've consumed {props.todayMacros[0]} today!
+                                            You've consumed {props.todayMacros[0]} calories today!
                                         </Text>
                                         <Text className="daily-info">
                                             Here's your macrnutrient breakdown:<br />{props.todayMacros[3]}g Protein / {props.todayMacros[1]}g Fat / {props.todayMacros[2]}g Carbohydrates

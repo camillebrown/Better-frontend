@@ -37,7 +37,6 @@ const MoodAdd = (props) => {
     return (
         <form action="submit" onSubmit={handleAdd}>
             <Stack spacing={4}>
-
                 <FormControl >
                     <InputGroup>
                         <Input
@@ -58,7 +57,6 @@ const MoodAdd = (props) => {
                         <option value="2">Ya know, I'm alright today.</option>
                         <option value="3">Today's been kinda great.</option>
                         <option value="4">This was the most amazing day!</option>
-                        )
                     </Select>
                 </FormControl>
                 <Button

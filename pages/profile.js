@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, Box } from "@chakra-ui/react"
+import { Text, Box, Spinner } from "@chakra-ui/react"
 import axios from 'axios';
 import Daily from '../components/Dashboard/Daily'
 import Charts from '../components/Dashboard/Charts'
@@ -12,6 +12,7 @@ var moment = require('moment');
 
 const profile = () => {
     var now = dayjs().format('LL')
+    var fNow = dayjs().format('ddd, DD MMM YYYY')
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState([])
@@ -109,8 +110,8 @@ const profile = () => {
                 setMeals(avgMacros)
 
                 res.data.data.forEach(meal => {
-                    let date = dayjs(meal.created_at).format('LL')
-                    if (date === now) {
+                    let date = (meal.created_at).substring(0,16)
+                    if (date === fNow) {
                         todayCals.push(meal.total_calories)
                         todayFats.push(meal.fat)
                         todayCarbs.push(meal.carbs)
@@ -169,9 +170,15 @@ const profile = () => {
     return (
         <>
             {loading &&
-                <div className="loading">
-                    Page is loading!
-                </div>
+                <Spinner
+                    thickness="6px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    color="blue.500"
+                    size="xl"
+                    my={16}
+                    mx="45%"
+                />
             }
             {!loading && (
                 <div>
@@ -180,15 +187,19 @@ const profile = () => {
                             <span className="logo" id="welcome-title">
                                 Welcome!
                              <span className="logo-dot">
-                                {user.first_name}
-                            </span>
+                                    {user.first_name}
+                                </span>
                             </span>
                         </h1>
                         <Text>
                             Checkout your dashboard below to see your daily insights and your overall stats for meals, workouts, sleep logs, and moods.
                         </Text>
                     </Box>
-                    <Daily todayMacros={todayMacros} />
+                    {!todayMacros ? (
+                        <Daily />
+                    ) : (
+                            <Daily todayMacros={todayMacros} />
+                        )}
                     <Charts user={user} avgCalories={avgCalories} settings={settings} moods={moods} sleeps={sleeps} meals={meals} workouts={workouts} />
                 </div>
             )}

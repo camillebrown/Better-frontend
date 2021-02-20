@@ -12,11 +12,11 @@ const add = (props) => {
 
     return (
         <>
-            <h1>Meal Tracker</h1>
+            <div className="img-meal">
+            </div>
             <Box
-                w="350px"
-                p={3}
-                boxShadow="sm"
+                className="meal-form"
+                boxShadow="lg"
                 rounded="lg">
                 <Tabs variant="enclosed-colored" isFitted m={4}>
                     <TabList>

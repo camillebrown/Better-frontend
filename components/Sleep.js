@@ -11,8 +11,6 @@ dayjs.extend(localizedFormat)
 
 function Sleep(props) {
 
-    const [sleepTime, setSleepTime] = useState("")
-
     const sleeps = props.sleeps.map((sleep) => {
 
         let headerDate = dayjs(sleep.date).format('LL')
@@ -53,7 +51,7 @@ function Sleep(props) {
                         <Text color="black" fontSize="28px" textAlign="center">
                             {headerDate}
                         </Text>
-                        <hr class="sleep-rounded" />
+                        <hr className="sleep-rounded" />
                     </Box>
                     <Grid className="meal-container" >
                         <GridItem className="m1" textAlign="center">

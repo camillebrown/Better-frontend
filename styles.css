@@ -44,6 +44,20 @@
     font-weight:bolder;
     font-size:30px;
 }
+
+.about-dot{
+    color:#EA7613;
+    font-weight:bolder;
+    font-size:30px;
+    margin-right:20px;
+}
+.you-dot{
+    color:#EA7613;
+    font-weight:bolder;
+    font-size:20px;
+    margin-right:20px;
+    margin-left:5px;
+}
 .cal-dot{
     color:#EA7613;
     font-weight:bolder;
@@ -72,8 +86,8 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     height: 500px;
-    margin-top: 150px;
-    margin-bottom: 150px
+    margin-top: 50px;
+    margin-bottom:150px
 }
 
 .hg1 { 
@@ -503,12 +517,21 @@
     background-position: center;
     height: 40vh;
 }
+
+.main-img{
+    background-image: url('header.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40vh;
+}
 .img-mood{
     background-image: url('pages/moods/mood.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     height: 40vh;
+    margin-top:0;
 }
 .img-sleep{
     background-image: url('pages/sleep/sleep.png');
@@ -554,6 +577,19 @@ hr.rounded {
     margin: 5px auto;
 }
 
+.fit-rounded{
+    border-top: 4px solid#94c2ca;
+    border-radius: 5px;
+    width: 80%;
+    margin: 5px auto;
+}
+.mood-rounded{
+    border-top: 4px solid#f29837;
+    border-radius: 5px;
+    width: 80%;
+    margin: 5px auto;
+}
+
 .work-divs{
     margin-left:5px;
     margin-bottom:10px;
@@ -579,4 +615,44 @@ hr.rounded {
     text-decoration: none;
     font-family: 'Boing';
     color:#EA7613
+}
+
+.about{
+    font-size:20px;
+    font-weight:bold;
+    text-decoration: none;
+    font-family: 'Boing';
+}
+
+.mood-form{
+    width:650px;
+    height:450px;
+    padding: 20px;
+    border: 1px solid #FF9B20;
+    margin: auto;
+    margin-top: 30px;
+}
+.meal-form{
+    width:650px;
+    height:550px;
+    padding: 20px;
+    border: 1px solid #f85c4a;
+    margin: auto;
+    margin-top: 30px;
+}
+.fit-form{
+    width:650px;
+    height:600px;
+    padding: 20px;
+    border: 1px solid #76cdd8;
+    margin: auto;
+    margin-top: 30px;
+}
+.sleep-form{
+    width:650px;
+    height:450px;
+    padding: 20px;
+    border: 1px solid #8A90DB;
+    margin: auto;
+    margin-top: 30px;
 }

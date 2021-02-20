@@ -23,12 +23,10 @@ const Charts = (props) => {
     const [weather, setWeather] = useState()
     const [highFahrenheit, setHighFahrenheit] = useState()
     const [lowFahrenheit, setLowFahrenheit] = useState()
-    console.log(weather)
     const getWeather = () => {
         axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${props.settings.zip_code},us&appid=f4a5477638ec2bad03e7ef91172e8f5d`)
             .then((res) => {
                 setWeather(res.data)
-                console.log(res.data.main.temp_max)
                 let highFahrenheit = Math.round(((res.data.main.temp_max - 273.15) * 9 / 5 + 32) * 10) / 10
                 let lowFahrenheit = Math.round(((res.data.main.temp_min - 273.15) * 9 / 5 + 32) * 10) / 10
                 setLowFahrenheit(lowFahrenheit)

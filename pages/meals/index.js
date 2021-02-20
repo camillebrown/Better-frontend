@@ -3,6 +3,8 @@ import axios from 'axios';
 import Meal from '../../components/Meal'
 import { Button } from '@chakra-ui/react'
 import Router from 'next/router'
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 
 const meals = () => {
 
@@ -29,11 +31,18 @@ const meals = () => {
             pathname: '/meals/add'
         })
     }
+    const back = () => {
+        Router.push({
+            pathname: '/profile'
+        })
+    }
 
     return (
         <div>
             <div className="img-meal">
             </div>
+            <Button onClick={addMeal}>Add More Meals</Button>
+            <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4}/>Go Back</Button>
             {meals[0] == null ? (
                 <div className="loading">
                     <p>You don't have any meals added yet. Let's get one added!</p>
