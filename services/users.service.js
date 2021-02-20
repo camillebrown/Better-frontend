@@ -3,7 +3,7 @@ import axios from "axios";
 
 // SIGN UP
 export const register = (firstName, lastName, username, email, password) => {
-    return axios.post(process.env.REACT_APP_BACKEND_URL + '/register', {
+    return axios.post('/api/v1/users/register', {
         first_name: firstName,
         last_name: lastName,
         username: username,
@@ -15,7 +15,7 @@ export const register = (firstName, lastName, username, email, password) => {
 }
 // LOG IN
 export const login = (email, password) => {
-    return axios.post(process.env.REACT_APP_BACKEND_URL + '/login', {
+    return axios.post('/api/v1/users/login', {
         email, password
     },
         { withCredentials: true }
@@ -23,5 +23,5 @@ export const login = (email, password) => {
 }
 // LOG OUT
 export const logout = () => {
-    return axios.get(process.env.REACT_APP_BACKEND_URL + '/logout', { withCredentials: true })
+    return axios.get('/api/v1/users/logout', { withCredentials: true })
 }
