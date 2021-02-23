@@ -166,24 +166,34 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                    <Center>
+                                    {!props.workouts ? (
                                         <Box
                                             height="28vh"
                                             width="30vw">
-                                            <Line
-                                                data={fitData}
-                                            />
+                                            You don't have any workout data added yet. Click the ( + ) sign to get started!
                                         </Box>
-                                    </Center>
-                                    <Center>
-                                        <Text
-                                            fontSize="small"
-                                            fontFamily="Boing" fontWeight="medium"
-                                            textAlign="center"
-                                            width="90%"
-                                        >Looks like you're most active during the middle of the week. <br />Keep up the good work!
-                                    </Text>
-                                    </Center>
+                                    ) : (
+                                            <Box>
+                                                <Center>
+                                                    <Box
+                                                        height="28vh"
+                                                        width="30vw">
+                                                        <Line
+                                                            data={fitData}
+                                                        />
+                                                    </Box>
+                                                </Center>
+                                                <Center>
+                                                    <Text
+                                                        fontSize="small"
+                                                        fontFamily="Boing" fontWeight="medium"
+                                                        textAlign="center"
+                                                        width="90%"
+                                                    >Looks like you're most active during the middle of the week. <br />Keep up the good work!
+                                                    </Text>
+                                                </Center>
+                                            </Box>
+                                        )}
                                 </Box>
                             </Box>
                         </GridItem>
@@ -209,24 +219,34 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                    <Center>
+                                    {!props.moods ? (
                                         <Box
                                             height="28vh"
                                             width="30vw">
-                                            <HorizontalBar
-                                                data={moodChart}
-                                            />
+                                            You don't have any daily moods logged yet. Click the ( + ) sign to get started!
                                         </Box>
-                                    </Center>
-                                    <Center>
-                                        <Text
-                                            fontSize="small"
-                                            fontFamily="Boing" fontWeight="medium"
-                                            textAlign="center"
-                                            width="90%"
-                                        >Based on the chart above, it seems like you haven't been feeling great. <br />Could more sleep help?
-                                    </Text>
-                                    </Center>
+                                    ) : (
+                                            <Box>
+                                                <Center>
+                                                    <Box
+                                                        height="28vh"
+                                                        width="30vw">
+                                                        <HorizontalBar
+                                                            data={moodChart}
+                                                        />
+                                                    </Box>
+                                                </Center>
+                                                <Center>
+                                                    <Text
+                                                        fontSize="small"
+                                                        fontFamily="Boing" fontWeight="medium"
+                                                        textAlign="center"
+                                                        width="90%"
+                                                    >Based on the chart above, it seems like you haven't been feeling great. <br />Could more sleep help?
+                                                </Text>
+                                                </Center>
+                                            </Box>
+                                        )}
                                 </Box>
                             </Box>
                         </GridItem>
@@ -304,51 +324,61 @@ const Charts = (props) => {
                                         </Box>
                                     </HStack>
                                 </Box>
-                                <Box my={8}>
-                                    <Doughnut
-                                        data={donutChart}
-                                    />
-                                </Box>
-                                <Box>
-                                    <Grid className="meal-container">
-                                        <GridItem className="m1" textAlign="center">
-                                            <Text fontFamily="Boing" fontWeight="bolder">
-                                                <span className="logo">
-                                                    {props.meals[0]}<span className="logo-dot">g</span> </span> Protein
+                                {!props.meals ? (
+                                    <Box
+                                        height="28vh"
+                                        width="30vw">
+                                        You don't have any meals added yet. Click the ( + ) sign to get started!
+                                    </Box>
+                                ) : (
+                                        <Box>
+                                            <Box my={8}>
+                                                <Doughnut
+                                                    data={donutChart}
+                                                />
+                                            </Box>
+                                            <Box>
+                                                <Grid className="meal-container">
+                                                    <GridItem className="m1" textAlign="center">
+                                                        <Text fontFamily="Boing" fontWeight="bolder">
+                                                            <span className="logo">
+                                                                {props.meals[0]}<span className="logo-dot">g</span> </span> Protein
                                                 </Text>
-                                        </GridItem>
-                                        <GridItem className="m2" textAlign="center">
-                                            <Text fontFamily="Boing" fontWeight="bolder">
-                                                <span className="logo">
-                                                    {props.meals[1]}<span className="logo-dot">g</span> </span> Carbs
+                                                    </GridItem>
+                                                    <GridItem className="m2" textAlign="center">
+                                                        <Text fontFamily="Boing" fontWeight="bolder">
+                                                            <span className="logo">
+                                                                {props.meals[1]}<span className="logo-dot">g</span> </span> Carbs
                                                 </Text>
-                                        </GridItem>
-                                        <GridItem className="m3" textAlign="center">
-                                            <Text fontFamily="Boing" fontWeight="bolder">
-                                                <span className="logo">
-                                                    {props.meals[2]}<span className="logo-dot">g</span> </span> Fat
-                                                </Text>
-                                        </GridItem>
-                                        <GridItem className="m5">
-                                            <Center>
-                                                <Text
-                                                    fontSize="small"
-                                                    fontFamily="Boing" fontWeight="medium"
-                                                    textAlign="center"
-                                                    width="90%"
-                                                >You have an average of <span
-                                                    className="cal-dot"
-                                                >{props.avgCalories} </span>with each meal. <br />You might need a few more to hit your goals.
-                                                </Text>
-                                            </Center>
-                                        </GridItem>
-                                        <GridItem className="m4">
-                                            <Center>
-                                                <Divider />
-                                            </Center>
-                                        </GridItem>
-                                    </Grid>
-                                </Box>
+                                                    </GridItem>
+                                                    <GridItem className="m3" textAlign="center">
+                                                        <Text fontFamily="Boing" fontWeight="bolder">
+                                                            <span className="logo">
+                                                                {props.meals[2]}<span className="logo-dot">g</span> </span> Fat
+                                                        </Text>
+                                                    </GridItem>
+                                                    <GridItem className="m5">
+                                                        <Center>
+                                                            <Text
+                                                                fontSize="small"
+                                                                fontFamily="Boing" fontWeight="medium"
+                                                                textAlign="center"
+                                                                width="90%"
+                                                            >You have an average of <span
+                                                                className="cal-dot"
+                                                            >{props.avgCalories} </span>with each meal. <br />You might need a few more to hit your goals.
+                                                             </Text>
+                                                        </Center>
+                                                    </GridItem>
+                                                    <GridItem className="m4">
+                                                        <Center>
+                                                            <Divider />
+                                                        </Center>
+                                                    </GridItem>
+                                                </Grid>
+                                            </Box>
+                                        </Box>
+                                    )}
                             </Box>
                         </GridItem>
                         <GridItem className="dg6">
@@ -374,65 +404,75 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        <Table variant="simple">
-                                            <Thead>
-                                                <Tr>
-                                                    <Th>Date</Th>
-                                                    <Th>Start Time</Th>
-                                                    <Th>End Time</Th>
-                                                </Tr>
-                                            </Thead>
-                                            <Tbody>
-                                                <Tr>
-                                                    <Td>{props.sleeps[0].date}</Td>
-                                                    <Td>{props.sleeps[0].start_time}</Td>
-                                                    <Td>{props.sleeps[0].end_time}</Td>
-                                                </Tr>
-                                                <Tr>
-                                                    <Td>{props.sleeps[1].date}</Td>
-                                                    <Td>{props.sleeps[1].start_time}</Td>
-                                                    <Td>{props.sleeps[1].end_time}</Td>
-                                                </Tr>
-                                                <Tr>
-                                                    <Td>{props.sleeps[2].date}</Td>
-                                                    <Td>{props.sleeps[2].start_time}</Td>
-                                                    <Td>{props.sleeps[2].end_time}</Td>
-                                                </Tr>
-                                            </Tbody>
-                                        </Table>
-                                        <Box>
-                                            <Grid className="s-container" mt={10}>
-                                                <GridItem className="s1">
+                                        {!props.sleeps ? (
+                                            <Box
+                                                height="28vh"
+                                                width="30vw">
+                                                You don't have any sleep logs added yet. Click the ( + ) sign to get started!
+                                            </Box>
+                                        ) : (
+                                                <Box>
+                                                    <Table variant="simple">
+                                                        <Thead>
+                                                            <Tr>
+                                                                <Th>Date</Th>
+                                                                <Th>Start Time</Th>
+                                                                <Th>End Time</Th>
+                                                            </Tr>
+                                                        </Thead>
+                                                        <Tbody>
+                                                            <Tr>
+                                                                <Td>{props.sleeps[0].date}</Td>
+                                                                <Td>{props.sleeps[0].start_time}</Td>
+                                                                <Td>{props.sleeps[0].end_time}</Td>
+                                                            </Tr>
+                                                            <Tr>
+                                                                <Td>{props.sleeps[1].date}</Td>
+                                                                <Td>{props.sleeps[1].start_time}</Td>
+                                                                <Td>{props.sleeps[1].end_time}</Td>
+                                                            </Tr>
+                                                            <Tr>
+                                                                <Td>{props.sleeps[2].date}</Td>
+                                                                <Td>{props.sleeps[2].start_time}</Td>
+                                                                <Td>{props.sleeps[2].end_time}</Td>
+                                                            </Tr>
+                                                        </Tbody>
+                                                    </Table>
                                                     <Box>
-                                                        <Center>
-                                                            <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" width="50%"
-                                                            />
-                                                        </Center>
-                                                    </Box>
-                                                </GridItem>
-                                                <GridItem className="s2">
-                                                    <Center>
-                                                        <Divider orientation="vertical"
-                                                            height="150px" borderColor="gray.200"
-                                                            margin="auto"
-                                                        />
-                                                    </Center>
-                                                </GridItem>
-                                                <GridItem className="s3">
-                                                    <Box>
-                                                        <Center>
-                                                            <Text
-                                                                fontFamily="Boing" fontWeight="medium"
-                                                                textAlign="center"
-                                                                width="90%"
-                                                                fontSize="1.1vw"
-                                                            >It looks like you sleep and average of<br /> <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
+                                                        <Grid className="s-container" mt={10}>
+                                                            <GridItem className="s1">
+                                                                <Box>
+                                                                    <Center>
+                                                                        <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" width="50%"
+                                                                        />
+                                                                    </Center>
+                                                                </Box>
+                                                            </GridItem>
+                                                            <GridItem className="s2">
+                                                                <Center>
+                                                                    <Divider orientation="vertical"
+                                                                        height="150px" borderColor="gray.200"
+                                                                        margin="auto"
+                                                                    />
+                                                                </Center>
+                                                            </GridItem>
+                                                            <GridItem className="s3">
+                                                                <Box>
+                                                                    <Center>
+                                                                        <Text
+                                                                            fontFamily="Boing" fontWeight="medium"
+                                                                            textAlign="center"
+                                                                            width="90%"
+                                                                            fontSize="1.1vw"
+                                                                        >It looks like you sleep and average of<br /> <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
                                                             </Text>
-                                                        </Center>
+                                                                    </Center>
+                                                                </Box>
+                                                            </GridItem>
+                                                        </Grid>
                                                     </Box>
-                                                </GridItem>
-                                            </Grid>
-                                        </Box>
+                                                </Box>
+                                            )}
                                     </Box>
                                 </div>
                             </Box>
