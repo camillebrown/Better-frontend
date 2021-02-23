@@ -328,7 +328,7 @@ const Charts = (props) => {
                                     <Box
                                         height="28vh"
                                         width="30vw">
-                                        You don't have any meals added yet. Click the ( + ) sign to get started!
+                                        You don't have any meals added yet. Click the (+) sign to get started!
                                     </Box>
                                 ) : (
                                         <Box>
@@ -408,7 +408,7 @@ const Charts = (props) => {
                                             <Box
                                                 height="28vh"
                                                 width="30vw">
-                                                You don't have any sleep logs added yet. Click the ( + ) sign to get started!
+                                                You don't have any sleep logs added yet. Click the (+) sign to get started!
                                             </Box>
                                         ) : (
                                                 <Box>
@@ -421,7 +421,7 @@ const Charts = (props) => {
                                                             </Tr>
                                                         </Thead>
                                                         <Tbody>
-                                                            {/* <Tr>
+                                                            <Tr>
                                                                 <Td>{props.sleeps[0].date}</Td>
                                                                 <Td>{props.sleeps[0].start_time}</Td>
                                                                 <Td>{props.sleeps[0].end_time}</Td>
@@ -435,7 +435,7 @@ const Charts = (props) => {
                                                                 <Td>{props.sleeps[2].date}</Td>
                                                                 <Td>{props.sleeps[2].start_time}</Td>
                                                                 <Td>{props.sleeps[2].end_time}</Td>
-                                                            </Tr> */}
+                                                            </Tr>
                                                         </Tbody>
                                                     </Table>
                                                     <Box>
