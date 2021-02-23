@@ -11,7 +11,7 @@ import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
 import Router from "next/router";
 
 const Charts = (props) => {
-
+    console.log(props.settings)
     useEffect(() => {
         getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
@@ -167,11 +167,13 @@ const Charts = (props) => {
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
                                     {!props.workouts[0] ? (
-                                        <Box
-                                            height="28vh"
-                                            width="30vw">
-                                            You don't have any workout data added yet. Click the ( + ) sign to get started!
-                                        </Box>
+                                        <Center>
+                                            <Box
+                                                height="28vh"
+                                                width="30vw">
+                                                You don't have any workout data added yet. <br />Click the (+) sign to get started!
+                                            </Box>
+                                        </Center>
                                     ) : (
                                             <Box>
                                                 <Center>
@@ -220,11 +222,13 @@ const Charts = (props) => {
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
                                     {!props.moods[0] ? (
-                                        <Box
-                                            height="28vh"
-                                            width="30vw">
-                                            You don't have any daily moods logged yet. Click the ( + ) sign to get started!
+                                        <Center>
+                                            <Box
+                                                height="28vh"
+                                                width="30vw">
+                                                You don't have any daily moods logged yet. <br />Click the (+) sign to get started!
                                         </Box>
+                                        </Center>
                                     ) : (
                                             <Box>
                                                 <Center>
@@ -325,11 +329,13 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 {!props.meals[0] ? (
-                                    <Box
-                                        height="28vh"
-                                        width="30vw">
-                                        You don't have any meals added yet. Click the (+) sign to get started!
-                                    </Box>
+                                    <Center>
+                                        <Box
+                                            height="28vh"
+                                            width="30vw">
+                                            You don't have any meals added yet. <br />Click the (+) sign to get started!
+                                        </Box>
+                                    </Center>
                                 ) : (
                                         <Box>
                                             <Box my={8}>
@@ -405,11 +411,13 @@ const Charts = (props) => {
                                     </Box>
                                     <Box px={4} py={4}>
                                         {!props.sleeps[0] ? (
-                                            <Box
-                                                height="28vh"
-                                                width="30vw">
-                                                You don't have any sleep logs added yet. Click the (+) sign to get started!
-                                            </Box>
+                                            <Center>
+                                                <Box
+                                                    height="28vh"
+                                                    width="30vw">
+                                                    You don't have any sleep logs added yet. <br />Click the (+) sign to get started!
+                                                </Box>
+                                            </Center>
                                         ) : (
                                                 <Box>
                                                     <Table variant="simple">
@@ -465,7 +473,7 @@ const Charts = (props) => {
                                                                             width="90%"
                                                                             fontSize="1.1vw"
                                                                         >It looks like you sleep and average of<br /> <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
-                                                            </Text>
+                                                                        </Text>
                                                                     </Center>
                                                                 </Box>
                                                             </GridItem>
