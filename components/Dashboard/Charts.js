@@ -166,7 +166,7 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                    {!props.workouts ? (
+                                    {!props.workouts[0] ? (
                                         <Box
                                             height="28vh"
                                             width="30vw">
@@ -219,7 +219,7 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                    {!props.moods ? (
+                                    {!props.moods[0] ? (
                                         <Box
                                             height="28vh"
                                             width="30vw">
@@ -324,7 +324,7 @@ const Charts = (props) => {
                                         </Box>
                                     </HStack>
                                 </Box>
-                                {!props.meals ? (
+                                {!props.meals[0] ? (
                                     <Box
                                         height="28vh"
                                         width="30vw">

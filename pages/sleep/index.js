@@ -44,7 +44,6 @@ const sleep = () => {
             {sleeps[0] == null ? (
                 <div>
                     <p>You don't have any sleep logs yet. Let's get some added!</p>
-                    <Button onClick={addSleep}>Add a Sleep Log </Button>
                 </div>
             ) : (
                     <Sleep sleeps={sleeps} />
