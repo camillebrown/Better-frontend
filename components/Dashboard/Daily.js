@@ -27,7 +27,11 @@ export const Daily = (props) => {
             { withCredentials: true }
         )
             .then((res) => {
+                console.log(res.data)
                 let ratings = res.data.ratings
+                if(!res.data.data){
+                    setMood(null)
+                }
                 res.data.data.forEach((mood, i )=> {
                     let date = mood.date.substring(0, 16)
                     let nowFormat = dayjs().format('ddd, DD MMM YYYY')
@@ -40,7 +44,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log(err)
+                console.log('DAILY JS MOOD LOG ERROR!!!!', err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
             { withCredentials: true }
@@ -58,7 +62,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log(err)
+                console.log('DAILY JS MEALS ERROR!!!!', err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`,
             { withCredentials: true })
@@ -77,7 +81,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log(err)
+                console.log('DAILY JS SLEEP ERROR!!!!', err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
             { withCredentials: true }
@@ -104,7 +108,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log(err)
+                console.log('DAILY JS WORKOUT ERROR!!!!', err)
             })
     }
 
