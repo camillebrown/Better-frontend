@@ -6,11 +6,9 @@ var dayjs = require('dayjs')
 var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)
 
-
 function Fitness(props) {
 
     const workouts = props.workouts.map((workout) => {
-        console.log(workout)
         let date = dayjs(workout.created_at).format('LL')
         const deleteWorkout = () => {
             axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/${workout.id}`,
@@ -24,7 +22,6 @@ function Fitness(props) {
         }
 
         const editWorkout = () => {
-            console.log(workout.id)
             Router.push({
                 pathname: '/workouts/add',
                 query: { workout: workout.id },
