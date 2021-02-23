@@ -404,7 +404,7 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        {!props.sleeps ? (
+                                        {!props.sleeps[0] ? (
                                             <Box
                                                 height="28vh"
                                                 width="30vw">
@@ -421,7 +421,7 @@ const Charts = (props) => {
                                                             </Tr>
                                                         </Thead>
                                                         <Tbody>
-                                                            <Tr>
+                                                            {/* <Tr>
                                                                 <Td>{props.sleeps[0].date}</Td>
                                                                 <Td>{props.sleeps[0].start_time}</Td>
                                                                 <Td>{props.sleeps[0].end_time}</Td>
@@ -435,7 +435,7 @@ const Charts = (props) => {
                                                                 <Td>{props.sleeps[2].date}</Td>
                                                                 <Td>{props.sleeps[2].start_time}</Td>
                                                                 <Td>{props.sleeps[2].end_time}</Td>
-                                                            </Tr>
+                                                            </Tr> */}
                                                         </Tbody>
                                                     </Table>
                                                     <Box>
