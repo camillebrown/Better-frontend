@@ -27,7 +27,6 @@ export const Daily = (props) => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log(res.data)
                 let ratings = res.data.ratings
                 if(!res.data.data){
                     setMood(null)
