@@ -11,7 +11,7 @@ import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
 import Router from "next/router";
 
 const Charts = (props) => {
-    console.log('CHARTS', props)
+    console.log('CHARTS PROPS', props)
 
     useEffect(() => {
         getQuote()

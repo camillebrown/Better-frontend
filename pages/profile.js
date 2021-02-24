@@ -137,16 +137,17 @@ const profile = () => {
             .then((res) => {
                 let latestSleeps = res.data.slice(Math.max(res.data.length - 3, 0))
                 setSleeps(latestSleeps)
-                console.log(sleeps)
                 for (let sleep in latestSleeps) {
-                    console.log(sleep)
                     let iSleep = latestSleeps[sleep]
                     console.log(iSleep)
-                    latestSleeps[sleep].date = moment(iSleep.date).format("MMM Do")
-                    latestSleeps[sleep].start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
-                    latestSleeps[sleep].end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
+                    iSleep.date = moment(iSleep.date).format("MMM Do")
+                    iSleep.start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
+                    iSleep.end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
+                    console.log(iSleep.date)
+                    console.log(iSleep.start_time)
+                    console.log(iSleep.end_time)
                 }
-                console.log(latestSleeps)
+                console.log('LATEST SLEEPS', latestSleeps)
                 setSleeps(latestSleeps)
             })
             .catch(err => {
