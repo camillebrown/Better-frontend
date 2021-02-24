@@ -239,7 +239,7 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                    {!props.moods[0] ? (
+                                    {props.moods===[0, 0, 0, 0, 0, 0, 5] ? (
                                         <Center>
                                             <Box
                                                 height="28vh"
