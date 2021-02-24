@@ -72,20 +72,6 @@ const Charts = (props) => {
             //     setSleep(null)
             // }
         });
-    }
-    setSleeps(res.data)
-                res.data.forEach(sleep => {
-                    let date = dayjs(sleep.date).format('LL')
-                    if (date === now) {
-                        const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
-                        const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
-                        let hours = time1.diff(time2, 'hour')
-                        let sleepTime = hours + 24
-                        setSleep(sleepTime)
-                    } else {
-                        setSleep(null)
-                    }
-                });
 
     const moodChart = {
         labels: ['Why?😫', 'Not Good😔', 'Meh🙂', 'Good😄', 'Amazing!🤩'],
