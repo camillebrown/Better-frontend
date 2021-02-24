@@ -137,8 +137,11 @@ const profile = () => {
             .then((res) => {
                 let latestSleeps = res.data.slice(Math.max(res.data.length - 3, 0))
                 setSleeps(latestSleeps)
+                console.log(sleeps)
                 for (let sleep in latestSleeps) {
+                    console.log(sleep)
                     let iSleep = latestSleeps[sleep]
+                    console.log(iSleep)
                     sleeps[sleep].date = moment(iSleep.date).format("MMM Do")
                     sleeps[sleep].start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
                     sleeps[sleep].end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
