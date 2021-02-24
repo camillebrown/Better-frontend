@@ -44,11 +44,10 @@ const moods = () => {
             <div className="img-mood">
             </div>
             <Button onClick={addMood}>Add Mood Log</Button>
-            <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4}/>Go Back</Button>
+            <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4} />Go Back</Button>
             {moods[0] == null ? (
                 <div className="loading">
                     <p>You don't have any mood logs added yet. Let's get one added!</p>
-                    <Button onClick={addMood}>Add a New Mood</Button>
                 </div>
             ) : (
                     <Mood moods={moods} ratings={ratings} />
