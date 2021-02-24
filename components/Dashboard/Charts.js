@@ -11,6 +11,8 @@ import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
 import Router from "next/router";
 
 const Charts = (props) => {
+    console.log(props)
+    
     useEffect(() => {
         getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
