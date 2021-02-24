@@ -71,7 +71,6 @@ const profile = () => {
                         numRatings[4] += 1
                     }
                 }
-                console.log('NUM RATINGS', numRatings)
                 setMoods(numRatings)
             })
             .catch(err => {
@@ -139,15 +138,10 @@ const profile = () => {
                 setSleeps(latestSleeps)
                 for (let sleep in latestSleeps) {
                     let iSleep = latestSleeps[sleep]
-                    console.log(iSleep)
                     iSleep.date = moment(iSleep.date).format("MMM Do")
                     iSleep.start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
                     iSleep.end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
-                    console.log(iSleep.date)
-                    console.log(iSleep.start_time)
-                    console.log(iSleep.end_time)
                 }
-                console.log('LATEST SLEEPS', latestSleeps)
                 setSleeps(latestSleeps)
             })
             .catch(err => {
