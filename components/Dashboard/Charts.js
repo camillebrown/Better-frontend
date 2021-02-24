@@ -14,6 +14,7 @@ const Charts = (props) => {
     console.log(props.moods)
     console.log(props.sleeps)
 
+
     useEffect(() => {
         getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
@@ -114,6 +115,18 @@ const Charts = (props) => {
             }
         ]
     };
+
+    const Sleeps = (props) => {
+        for (sleep in props.sleepData) {
+            return (
+                <Tr>
+                    <Td>{sleep.date}</Td>
+                    <Td>{sleep.start_time}</Td>
+                    <Td>{sleep.end_time}</Td>
+                </Tr>
+            )
+        }
+    }
 
     const seeMoods = () => {
         Router.push("/moods")
@@ -412,7 +425,7 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        {!props.sleeps[0] ? (
+                                        {props.sleeps[0] == null ? (
                                             <Center>
                                                 <Box
                                                     height="28vh"
@@ -431,10 +444,11 @@ const Charts = (props) => {
                                                             </Tr>
                                                         </Thead>
                                                         <Tbody>
-                                                            <Tr>
-                                                                <Td>{props.sleeps[0].date}</Td>
-                                                                <Td>{props.sleeps[0].start_time}</Td>
-                                                                <Td>{props.sleeps[0].end_time}</Td>
+                                                            <Sleeps sleepData={props.sleeps}/>
+                                                            {/* <Tr>
+                                                                <Td>{sleeps[0].date}</Td>
+                                                                <Td>{sleeps[0].start_time}</Td>
+                                                                <Td>{sleeps[0].end_time}</Td>
                                                             </Tr>
                                                             <Tr>
                                                                 <Td>{props.sleeps[1].date}</Td>
@@ -445,7 +459,7 @@ const Charts = (props) => {
                                                                 <Td>{props.sleeps[2].date}</Td>
                                                                 <Td>{props.sleeps[2].start_time}</Td>
                                                                 <Td>{props.sleeps[2].end_time}</Td>
-                                                            </Tr>
+                                                            </Tr> */}
                                                         </Tbody>
                                                     </Table>
                                                     <Box>
