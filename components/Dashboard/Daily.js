@@ -52,9 +52,12 @@ export const Daily = (props) => {
             .then((res) => {
                 res.data.data.forEach(meal => {
                     let date = (meal.created_at).substring(0,16)
+                    console.log('MEAL DATE', date)
+                    console.log('CURRENT DATE', fNow)
                     if (date === fNow) {
                         let meals = []
                         meals.push(meal)
+                        console.log('MEALS ARRAY', meals)
                         setMeals(meals)
                     } else {
                         setMeals(null)

@@ -7,11 +7,17 @@ import { ImQuotesLeft } from "react-icons/im";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
+var dayjs = require('dayjs')
+var localizedFormat = require('dayjs/plugin/localizedFormat')
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+dayjs.extend(localizedFormat)
 
 import Router from "next/router";
 
 const Charts = (props) => {
 
+    var now = dayjs().format('LL')
     const [sleepTime, setSleepTime] = useState(0)
 
     useEffect(() => {
