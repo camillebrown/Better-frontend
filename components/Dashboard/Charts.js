@@ -16,7 +16,7 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
-    console.log('THESE ARE THE WORKOUTS CHARTS JS', props.workouts)
+    console.log('THESE ARE THE CHARTS JS PROPS', props)
 
     useEffect(() => {
         getQuote()
