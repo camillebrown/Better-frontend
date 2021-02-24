@@ -57,7 +57,6 @@ const profile = () => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log('MOODS', res.data)
                 let ratings = res.data.ratings
                 for (let i = 0; i < ratings.length; i++) {
                     if (ratings[i] === "Wow, today sucks!") {
@@ -72,6 +71,7 @@ const profile = () => {
                         numRatings[4] += 1
                     }
                 }
+                console.log('NUM RATINGS', numRatings)
                 setMoods(numRatings)
             })
             .catch(err => {
@@ -142,11 +142,12 @@ const profile = () => {
                     console.log(sleep)
                     let iSleep = latestSleeps[sleep]
                     console.log(iSleep)
-                    sleeps[sleep].date = moment(iSleep.date).format("MMM Do")
-                    sleeps[sleep].start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
-                    sleeps[sleep].end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
+                    latestSleeps[sleep].date = moment(iSleep.date).format("MMM Do")
+                    latestSleeps[sleep].start_time = moment(iSleep.start_time, 'HH:mm:ss').format('h:mm:ss A')
+                    latestSleeps[sleep].end_time = moment(iSleep.end_time, 'HH:mm:ss').format('h:mm:ss A')
                 }
-                setSleeps(sleeps)
+                console.log(latestSleeps)
+                setSleeps(latestSleeps)
             })
             .catch(err => {
                 console.log(err)
