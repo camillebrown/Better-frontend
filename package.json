@@ -31,5 +31,6 @@
   },
   "devDependencies": {
     "webpack": "^5.23.0"
-  }
+  },
+  "cacheDirectories": [".next/cache"]
 }
