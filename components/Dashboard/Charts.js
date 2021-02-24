@@ -117,6 +117,8 @@ const Charts = (props) => {
     };
 
     const Sleeps = (props) => {
+        console.log(props.sleepData)
+        let sleepData = props.sleepData
         for (sleep in props.sleepData) {
             return (
                 <Tr>
