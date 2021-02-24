@@ -57,6 +57,7 @@ const profile = () => {
             { withCredentials: true }
         )
             .then((res) => {
+                console.log('LOGGING MOODS', res.data)
                 let ratings = res.data.ratings
                 for (let i = 0; i < ratings.length; i++) {
                     if (ratings[i] === "Wow, today sucks!") {
@@ -71,6 +72,7 @@ const profile = () => {
                         numRatings[4] += 1
                     }
                 }
+                console.log('LOGGING MOOD RATINGS', numRatings)
                 setMoods(numRatings)
             })
             .catch(err => {
