@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react"
 import Logo from "./Logo";
 import axios from 'axios'
-import Router from "next/router";
 import { logout } from '../../services/users.service'
 
 const NavBar = (props) => {
@@ -86,7 +85,15 @@ const MenuLinks = ({ isOpen }) => {
 
   const logOut = () => {
     logout()
-    window.location.replace('/')
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setTimeout(() => {
+      window.location.replace("/")
+    }, 500);
   }
 
   return (
@@ -103,7 +110,7 @@ const MenuLinks = ({ isOpen }) => {
         mr={10}
         mb={1}
       >
-        { user ? (
+        {user ? (
           <>
             <MenuItem to="/profile">{user.first_name}'s Dashboard</MenuItem>
             <Button
@@ -120,22 +127,22 @@ const MenuLinks = ({ isOpen }) => {
             </Button>
           </>
         ) : (
-          <>
-            <MenuItem to="/join" isLast>
-              <Button
-                size="sm"
-                rounded="md"
-                color="white"
-                bg="blue"
-                _hover={{
-                  bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                }}
-              >
-                Join Now!
+            <>
+              <MenuItem to="/join" isLast>
+                <Button
+                  size="sm"
+                  rounded="md"
+                  color="white"
+                  bg="blue"
+                  _hover={{
+                    bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
+                  }}
+                >
+                  Join Now!
           </Button>
-            </MenuItem>
-          </>
-        )}
+              </MenuItem>
+            </>
+          )}
       </Stack>
     </Box>
   );
