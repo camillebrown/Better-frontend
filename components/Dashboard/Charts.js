@@ -11,9 +11,6 @@ import { Doughnut, HorizontalBar, Line } from 'react-chartjs-2';
 import Router from "next/router";
 
 const Charts = (props) => {
-    console.log(props.moods)
-    console.log(props.sleeps)
-
 
     useEffect(() => {
         getQuote()
@@ -118,8 +115,7 @@ const Charts = (props) => {
 
     const Sleeps = (props) => {
         console.log(props.sleepData)
-        let sleepData = props.sleepData
-        for (sleep in props.sleepData) {
+        for (let sleep in props.sleepData) {
             return (
                 <Tr>
                     <Td>{sleep.date}</Td>
