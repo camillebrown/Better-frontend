@@ -30,8 +30,9 @@ const Charts = (props) => {
 
     const setSleep = () => {
         props.sleeps.forEach(sleep => {
-            console.log(sleep)
+            console.log('THIS IS THE SLEEP LOG', sleep)
             let date = dayjs(sleep.date).format('LL')
+            console.log('DATE NOW', now)
             console.log('sleep date!!', date)
             if (date === now) {
                 const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
