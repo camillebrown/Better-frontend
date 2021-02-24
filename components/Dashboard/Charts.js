@@ -16,6 +16,7 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
+    console.log('THESE ARE THE WORKOUTS CHARTS JS', props.workouts)
 
     useEffect(() => {
         getQuote()
@@ -447,21 +448,6 @@ const Charts = (props) => {
                                                         </Thead>
                                                         <Tbody>
                                                             <Sleeps sleepData={props.sleeps} />
-                                                            {/* <Tr>
-                                                                <Td>{sleeps[0].date}</Td>
-                                                                <Td>{sleeps[0].start_time}</Td>
-                                                                <Td>{sleeps[0].end_time}</Td>
-                                                            </Tr>
-                                                            <Tr>
-                                                                <Td>{props.sleeps[1].date}</Td>
-                                                                <Td>{props.sleeps[1].start_time}</Td>
-                                                                <Td>{props.sleeps[1].end_time}</Td>
-                                                            </Tr>
-                                                            <Tr>
-                                                                <Td>{props.sleeps[2].date}</Td>
-                                                                <Td>{props.sleeps[2].start_time}</Td>
-                                                                <Td>{props.sleeps[2].end_time}</Td>
-                                                            </Tr> */}
                                                         </Tbody>
                                                     </Table>
                                                     <Box>

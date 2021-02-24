@@ -7,16 +7,12 @@ var localizedFormat = require('dayjs/plugin/localizedFormat')
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 dayjs.extend(localizedFormat)
-var utc = require('dayjs/plugin/utc') // dependent on utc plugin
-var timezone = require('dayjs/plugin/timezone')
-dayjs.extend(utc)
-dayjs.extend(timezone)
 import axios from 'axios'
 
 export const Daily = (props) => {
     // setTodayMacros([TCL, TF, TCB, TP])
     var now = dayjs().format('LL')
-    var fNow = dayjs().tz("America/New_York").format('ddd, DD MMM YYYY')
+    var fNow = dayjs().format('ddd, DD MMM YYYY')
 
     const [mood, setMood] = useState()
     const [rating, setRating] = useState()
@@ -107,6 +103,7 @@ export const Daily = (props) => {
                     if (date === fNow) {
                         let workouts = []
                         workouts.push(workout)
+                        console.log('TRYING TO SEE IF THERE ARE WORKOUTS', workouts)
                         setWorkouts(workouts)
                         setNumWork(workouts.length)
                     } else {
