@@ -184,7 +184,7 @@ const Charts = (props) => {
                                     </HStack>
                                 </Box>
                                 <Box overflow="hidden" backgroundColor="white">
-                                    {!props.workouts[0] ? (
+                                    {!props.workouts ? (
                                         <Center>
                                             <Box
                                                 height="28vh"

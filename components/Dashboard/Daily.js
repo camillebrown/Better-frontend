@@ -100,6 +100,8 @@ export const Daily = (props) => {
                 setAvgCalories(avg)
                 array.forEach(workout => {
                     let date = workout.created_at.substring(0,16)
+                    console.log('WORKOUT DATE', date)
+                    console.log('CURRENT DATE', fNow)
                     if (date === fNow) {
                         let workouts = []
                         workouts.push(workout)
