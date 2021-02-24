@@ -16,10 +16,28 @@ const Charts = (props) => {
 
     useEffect(() => {
         getQuote()
+        setSleep()
         const getTemp = setTimeout(() => getWeather(), 3000);
         return () => clearTimeout(getTemp);
 
     }, [])
+
+    const setSleep = () => {
+        props.sleeps.forEach(sleep => {
+            let date = dayjs(sleep.date).format('LL')
+            console.log('sleep date!!', date)
+            if (date === now) {
+                const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
+                const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
+                let hours = time1.diff(time2, 'hour')
+                let sleepTime = hours + 24
+                console.log('SLEEP TIME', sleepTime)
+                setSleepTime(sleepTime)
+            } else {
+                setSleepTime(0)
+            }
+        });
+    }
 
     const [quote, setQuote] = useState("")
     const [weather, setWeather] = useState()
@@ -116,27 +134,13 @@ const Charts = (props) => {
     };
 
     const Sleeps = (props) => {
-        console.log(props.sleepData)
-
-        // res.data.forEach(sleep => {
-        //     let date = dayjs(sleep.date).format('LL')
-        //     if (date === now) {
-        //         const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
-        //         const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
-        //         let hours = time1.diff(time2, 'hour')
-        //         let sleepTime = hours + 24
-        //         setSleepTime(sleepTime)
-        //     } else {
-        //         setSleepTime(0)
-        //     }
-        // });
         for (let sleep in props.sleepData) {
-            console.log(sleep)
+            console.log(props.sleepData[sleep])
             return (
                 <Tr>
-                    <Td>{sleep.date}</Td>
-                    <Td>{sleep.start_time}</Td>
-                    <Td>{sleep.end_time}</Td>
+                    <Td>{props.sleepData[sleep].date}</Td>
+                    <Td>{props.sleepData[sleep].start_time}</Td>
+                    <Td>{props.sleepData[sleep].end_time}</Td>
                 </Tr>
             )
         }
@@ -458,7 +462,7 @@ const Charts = (props) => {
                                                             </Tr>
                                                         </Thead>
                                                         <Tbody>
-                                                            <Sleeps sleepData={props.sleeps}/>
+                                                            <Sleeps sleepData={props.sleeps} />
                                                             {/* <Tr>
                                                                 <Td>{sleeps[0].date}</Td>
                                                                 <Td>{sleeps[0].start_time}</Td>
