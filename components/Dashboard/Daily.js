@@ -11,8 +11,8 @@ import axios from 'axios'
 
 export const Daily = (props) => {
     // setTodayMacros([TCL, TF, TCB, TP])
-    var now = dayjs().format('LL')
-    var fNow = dayjs().format('ddd, DD MMM YYYY')
+    var now = dayjs.local().format('LL')
+    var fNow = dayjs.local().format('ddd, DD MMM YYYY')
 
     const [mood, setMood] = useState()
     const [rating, setRating] = useState()
@@ -34,7 +34,7 @@ export const Daily = (props) => {
                 }
                 res.data.data.forEach((mood, i )=> {
                     let date = mood.date.substring(0, 16)
-                    let nowFormat = dayjs().format('ddd, DD MMM YYYY')
+                    let nowFormat = dayjs.local().format('ddd, DD MMM YYYY')
                     if (date === nowFormat) {
                         setMood(mood.rating+1)
                         setRating(ratings[i])
@@ -72,10 +72,10 @@ export const Daily = (props) => {
             .then((res) => {
                 setSleeps(res.data)
                 res.data.forEach(sleep => {
-                    let date = dayjs(sleep.date).format('LL')
+                    let date = dayjs.local(sleep.date).format('LL')
                     if (date === now) {
-                        const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
-                        const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
+                        const time1 = dayjs.local().hour(sleep.end_time.substring(0, 2))
+                        const time2 = dayjs.local().hour(sleep.start_time.substring(0, 2))
                         let hours = time1.diff(time2, 'hour')
                         let sleepTime = hours + 24
                         setSleep(sleepTime)

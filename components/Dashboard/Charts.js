@@ -30,6 +30,7 @@ const Charts = (props) => {
 
     const setSleep = () => {
         props.sleeps.forEach(sleep => {
+            console.log(sleep)
             let date = dayjs(sleep.date).format('LL')
             console.log('sleep date!!', date)
             if (date === now) {
@@ -141,7 +142,6 @@ const Charts = (props) => {
 
     const Sleeps = (props) => {
         for (let sleep in props.sleepData) {
-            console.log(props.sleepData[sleep])
             return (
                 <Tr>
                     <Td>{props.sleepData[sleep].date}</Td>
