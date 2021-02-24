@@ -18,6 +18,7 @@ export const Daily = (props) => {
     const [rating, setRating] = useState()
     const [meals, setMeals] = useState()
     const [sleep, setSleep] = useState([])
+    const [sleeps, setSleeps] = useState([])
     const [avgCalories, setAvgCalories] = useState("")
     const [numWork, setNumWork] = useState("")
     const [workouts, setWorkouts] = useState([])
@@ -43,7 +44,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log('DAILY JS MOOD LOG ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
             { withCredentials: true }
@@ -61,11 +62,12 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log('DAILY JS MEALS ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`,
             { withCredentials: true })
             .then((res) => {
+                setSleeps(res.data)
                 res.data.forEach(sleep => {
                     let date = dayjs(sleep.date).format('LL')
                     if (date === now) {
@@ -80,7 +82,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log('DAILY JS SLEEP ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
             { withCredentials: true }
@@ -107,7 +109,7 @@ export const Daily = (props) => {
                 });
             })
             .catch(err => {
-                console.log('DAILY JS WORKOUT ERROR!!!!', err)
+                console.log(err)
             })
     }
 
@@ -168,7 +170,7 @@ export const Daily = (props) => {
                                 icon={faBed} />
                         </Box>
                         <Box px={4}>
-                            {!sleep ? (
+                            {!sleeps[0] ? (
                                 <Box>
                                     <Text className="daily-text">
                                         You haven’t added a sleep log today

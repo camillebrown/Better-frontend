@@ -11,7 +11,6 @@ function Mood(props) {
     
 
     const moods = props.moods.map((mood) => {
-        console.log(mood)
         let numRating = mood.rating + 1
         let rating = ""
         if (mood.rating === 0) {

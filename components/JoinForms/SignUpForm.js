@@ -22,11 +22,9 @@ const SignUpForm = () => {
     //axios call here to backend to register
     const signup = (e) => {
         e.preventDefault()
-        console.log(signupData.firstName)
         register(signupData.firstName, signupData.lastName, signupData.username, signupData.email, signupData.password)
             .then((data) => {
                 let userData = data.data.data;
-                console.log('PULLING FROM THE BACKEND', userData);
                 window.location.replace('/setup')
             }).catch((err) => {
                 console.log("error registering user", err)

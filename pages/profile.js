@@ -42,7 +42,7 @@ const profile = () => {
                 setUser(res.data.data)
             })
             .catch(err => {
-                console.log('PROFILE JS USER ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/`,
             { withCredentials: true }
@@ -51,7 +51,7 @@ const profile = () => {
                 setSettings(res.data.data)
             })
             .catch(err => {
-                console.log('PROFILE JS SETTINGS ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/`,
             { withCredentials: true }
@@ -74,7 +74,7 @@ const profile = () => {
                 setMoods(numRatings)
             })
             .catch(err => {
-                console.log('PROFILE JS MOOD ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
             { withCredentials: true }
@@ -128,7 +128,7 @@ const profile = () => {
                 })
             })
             .catch(err => {
-                console.log('PROFILE JS MEAL ERROR!!!!', err)
+                console.log(err)
             })
 
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`,
@@ -145,7 +145,7 @@ const profile = () => {
                 setSleeps(sleeps)
             })
             .catch(err => {
-                console.log('PROFILE JS SLEEP ERROR!!!!', err)
+                console.log(err)
             })
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
             { withCredentials: true }
@@ -159,7 +159,7 @@ const profile = () => {
                 setWorkouts(calArray)
             })
             .catch(err => {
-                console.log('PROFILE JS WORKOUT ERROR!!!!', err)
+                console.log(err)
             })
     }
 

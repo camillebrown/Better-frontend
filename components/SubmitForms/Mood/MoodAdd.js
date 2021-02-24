@@ -21,8 +21,6 @@ const MoodAdd = (props) => {
         }
         )
             .then((res) => {
-                console.log('SENT REQUEST TO BACKEND')
-                console.log('DATA', res.data)
                 Router.push("/moods")
             })
             .catch(err => {

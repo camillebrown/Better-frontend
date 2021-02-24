@@ -17,7 +17,6 @@ const FitnessAdd = (props) => {
 
     const handleAdd = (e) => {
         e.preventDefault()
-        console.log(data)
         axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`, {
             exercise_name: data.exercise_name,
             calories: data.calories,
@@ -30,8 +29,6 @@ const FitnessAdd = (props) => {
         }
         )
             .then((res) => {
-                console.log('SENT REQUEST TO BACKEND')
-                console.log('DATA', res.data)
                 Router.push("/workouts")
             })
             .catch(err => {

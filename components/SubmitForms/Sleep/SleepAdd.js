@@ -14,7 +14,6 @@ const SleepAdd = (props) => {
 
     const handleAdd = (e) => {
         e.preventDefault()
-        console.log(data)
         axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`, {
             date: data.date,
             start_time: data.start_time,
@@ -24,8 +23,6 @@ const SleepAdd = (props) => {
         }
         )
             .then((res) => {
-                console.log('SENT REQUEST TO BACKEND')
-                console.log('DATA', res.data)
                 Router.push("/sleep")
             })
             .catch(err => {

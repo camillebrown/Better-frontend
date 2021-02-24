@@ -25,7 +25,6 @@ const MoodUpdate = (props) => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log(res.data.data)
                 setMood(res.data.data)
             })
             .catch(err => {

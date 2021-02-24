@@ -15,7 +15,6 @@ function Home() {
     axios.get('https://api.openweathermap.org/data/2.5/weather?zip=90045,us&appid=f4a5477638ec2bad03e7ef91172e8f5d')
       .then((res) => {
         setWeather(res.data)
-        console.log(res.data)
       })
       .catch(err => {
         console.log(err)

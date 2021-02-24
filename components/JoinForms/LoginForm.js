@@ -31,7 +31,6 @@ const LoginForm = () => {
     login(loginData.email, loginData.password)
       .then((data) => {
         let userData = data.data.data;
-        console.log('PULLING FROM THE BACKEND', userData);
         window.location.replace('/profile')
       })
       .catch((err) => {

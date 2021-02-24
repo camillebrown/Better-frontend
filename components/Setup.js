@@ -13,7 +13,6 @@ const setup = () => {
 
     const handleChange = (e) => {
         setSettings({ ...settings, [e.target.name]: e.target.value })
-        console.log(settings)
     }
 
 
@@ -28,8 +27,6 @@ const setup = () => {
         }
         )
             .then((res) => {
-                console.log('SENT REQUEST TO BACKEND')
-                console.log('DATA', res.data)
                 Router.push("/profile")
             })
             .catch(err => {

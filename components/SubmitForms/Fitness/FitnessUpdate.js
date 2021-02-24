@@ -41,7 +41,6 @@ const FitnessUpdate = (props) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        console.log(data)
         axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/${workout_id}`, {
             exercise_name: data.exercise_name,
             calories: data.calories,
