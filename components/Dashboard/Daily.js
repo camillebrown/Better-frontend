@@ -15,9 +15,8 @@ import axios from 'axios'
 
 export const Daily = (props) => {
     // setTodayMacros([TCL, TF, TCB, TP])
-    dayjs.tz.setDefault("America/New_York")
     var now = dayjs().format('LL')
-    var fNow = dayjs().format('ddd, DD MMM YYYY')
+    var fNow = dayjs().tz("America/New_York").format('ddd, DD MMM YYYY')
 
     const [mood, setMood] = useState()
     const [rating, setRating] = useState()

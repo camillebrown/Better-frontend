@@ -17,35 +17,12 @@ import Router from "next/router";
 
 const Charts = (props) => {
 
-    var now = dayjs().format('LL')
-    const [sleepTime, setSleepTime] = useState(0)
-
     useEffect(() => {
         getQuote()
-        setSleep()
         const getTemp = setTimeout(() => getWeather(), 3000);
         return () => clearTimeout(getTemp);
 
     }, [])
-
-    const setSleep = () => {
-        props.sleeps.forEach(sleep => {
-            console.log('THIS IS THE SLEEP LOG', sleep)
-            let date = dayjs(sleep.date).format('LL')
-            console.log('DATE NOW', now)
-            console.log('sleep date!!', date)
-            if (date === now) {
-                const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
-                const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
-                let hours = time1.diff(time2, 'hour')
-                let sleepTime = hours + 24
-                console.log('SLEEP TIME', sleepTime)
-                setSleepTime(sleepTime)
-            } else {
-                setSleepTime(0)
-            }
-        });
-    }
 
     const [quote, setQuote] = useState("")
     const [weather, setWeather] = useState()
