@@ -57,6 +57,7 @@ const profile = () => {
             { withCredentials: true }
         )
             .then((res) => {
+                console.log('MOODS', res.data)
                 let ratings = res.data.ratings
                 for (let i = 0; i < ratings.length; i++) {
                     if (ratings[i] === "Wow, today sucks!") {
