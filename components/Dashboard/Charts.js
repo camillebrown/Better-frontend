@@ -16,7 +16,6 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
-    console.log('THESE ARE THE CHARTS JS PROPS', props)
     const [sleepTime, setSleepTime] = useState(0)
 
     useEffect(() => {
@@ -61,16 +60,17 @@ const Charts = (props) => {
         let total = 0
         props.sleeps.forEach(sleep => {
             const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
+            console.log('HERE IS THE END TIME', time1)
             const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
             let hours = time1.diff(time2, 'hour')
             let sleepTime = hours + 24
-            sleeptimes.push(sleepTime)
-            console.log('HERE ARE ALL OF THE SLEEP TIMES', sleeptimes)
-            for (let i = 0; i < sleeptimes.length; i++) {
-                total += sleeptimes[i];
-            }
-            let avg = total / sleeptimes.length;
-            console.log('AVERAGE OF ALL SLEEP TIMES', avg)
+            // sleeptimes.push(sleepTime)
+            // console.log('HERE ARE ALL OF THE SLEEP TIMES', sleeptimes)
+            // for (let i = 0; i < sleeptimes.length; i++) {
+            //     total += sleeptimes[i];
+            // }
+            // let avg = total / sleeptimes.length;
+            // console.log('AVERAGE OF ALL SLEEP TIMES', avg)
         });
     }
 
