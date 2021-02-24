@@ -70,7 +70,7 @@ const setup = () => {
                         className="asterisk">*</span></Text>
                     <FormControl isRequired mb="20px">
                     <Select
-                            placeholder="How Active Are You?"
+                            placeholder="What is your primary goal?"
                             name="goal"
                             onChange={handleChange}>
                             <option value="0">Feel More Rested😴🌙(Sleep Focused)</option>

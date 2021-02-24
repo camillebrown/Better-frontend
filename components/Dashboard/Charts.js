@@ -17,8 +17,10 @@ import Router from "next/router";
 
 const Charts = (props) => {
     console.log('THESE ARE THE CHARTS JS PROPS', props)
+    const [sleepTime, setSleepTime] = useState(0)
 
     useEffect(() => {
+        getSleeptime()
         getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
         return () => clearTimeout(getTemp);
@@ -52,6 +54,38 @@ const Charts = (props) => {
                 console.log(err)
             })
     }
+
+    
+    const getSleeptime = () => {
+        let sleeptimes = []
+        console.log(props.sleeps)
+        props.sleeps.forEach(sleep => {
+            console.log(sleep)
+            // let date = dayjs(sleep.date).format('LL')
+            // if (date === now) {
+            //     const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
+            //     const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
+            //     let hours = time1.diff(time2, 'hour')
+            //     let sleepTime = hours + 24
+            //     setSleep(sleepTime)
+            // } else {
+            //     setSleep(null)
+            // }
+        });
+    }
+    setSleeps(res.data)
+                res.data.forEach(sleep => {
+                    let date = dayjs(sleep.date).format('LL')
+                    if (date === now) {
+                        const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
+                        const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
+                        let hours = time1.diff(time2, 'hour')
+                        let sleepTime = hours + 24
+                        setSleep(sleepTime)
+                    } else {
+                        setSleep(null)
+                    }
+                });
 
     const moodChart = {
         labels: ['Why?😫', 'Not Good😔', 'Meh🙂', 'Good😄', 'Amazing!🤩'],
@@ -209,7 +243,7 @@ const Charts = (props) => {
                                                         fontFamily="Boing" fontWeight="medium"
                                                         textAlign="center"
                                                         width="90%"
-                                                    >Looks like you're most active during the middle of the week. <br />Keep up the good work!
+                                                    >How's your fitness journey going? <br />Trying your best is all the matters. Keep up the good work!
                                                     </Text>
                                                 </Center>
                                             </Box>
@@ -264,7 +298,7 @@ const Charts = (props) => {
                                                         fontFamily="Boing" fontWeight="medium"
                                                         textAlign="center"
                                                         width="90%"
-                                                    >Based on the chart above, it seems like you haven't been feeling great. <br />Could more sleep help?
+                                                    >Based on the chart above, do your daily moods align with your goals? <br/> If not, keeping trying your best to improve each day 😊
                                                 </Text>
                                                 </Center>
                                             </Box>
@@ -476,7 +510,7 @@ const Charts = (props) => {
                                                                             textAlign="center"
                                                                             width="90%"
                                                                             fontSize="1.1vw"
-                                                                        >It looks like you sleep and average of<br /> <span className="cal-dot">6.5 hours </span> each night. <br />Try going to bed a little earlier to get a full 8 hours.
+                                                                        >It looks like you sleep and average of<br /> <span className="cal-dot">6.5 hours </span> each night. <br />Healthy adults need between 7 and 9 hours of sleep per night. How do you compare?
                                                                         </Text>
                                                                     </Center>
                                                                 </Box>
