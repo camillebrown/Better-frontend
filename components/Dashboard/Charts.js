@@ -72,6 +72,7 @@ const Charts = (props) => {
             //     setSleep(null)
             // }
         });
+    }
 
     const moodChart = {
         labels: ['Why?😫', 'Not Good😔', 'Meh🙂', 'Good😄', 'Amazing!🤩'],
