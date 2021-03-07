@@ -139,7 +139,7 @@ export const Daily = (props) => {
                                 icon={faRunning} />
                         </Box>
                         <Box px={4}>
-                            {!workouts[0] ? (
+                            {!workouts ? (
                                 <Box>
                                     <Text className="daily-text">
                                         You haven’t logged any workouts today
