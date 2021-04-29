@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Boing';
-    src: url('Boing.woff2') format('woff2'),
-        url('Boing.woff') format('woff');
+    src: url('./public/Boing-Medium.woff2') format('woff2'),
+        url('./public/Boing-Medium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'Boing';
-    src: url('Boing-Medium.woff2') format('woff2'),
-        url('Boing-Medium.woff') format('woff');
+    src: url('./public/Boing-Medium.woff2') format('woff2'),
+        url('./public/Boing-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -19,7 +19,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 
-.body{
+.body {
     min-height: 200vh;
     position: relative;
 }
@@ -32,39 +32,41 @@
     min-height: 100vh;
 }
 
-.logo{
-    font-size:30px;
-    font-weight:bolder;
+.logo {
+    font-size: 30px;
+    font-weight: bolder;
     text-decoration: none;
     font-family: 'Boing';
-    color:#1d0038;
+    color: #1d0038;
 }
 
-.logo-dot{
-    color:#EA7613;
-    font-weight:bolder;
-    font-size:30px;
+.logo-dot {
+    color: #EA7613;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
-.about-dot{
-    color:#EA7613;
-    font-weight:bolder;
-    font-size:30px;
-    margin-right:20px;
+.about-dot {
+    color: #EA7613;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-right: 20px;
 }
-.you-dot{
-    color:#EA7613;
-    font-weight:bolder;
-    font-size:20px;
-    margin-right:20px;
-    margin-left:5px;
+
+.you-dot {
+    color: #EA7613;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 5px;
 }
-.cal-dot{
-    color:#EA7613;
-    font-weight:bolder;
-    font-size:15px;
-    padding-left:3px;
-    padding-right:2px;
+
+.cal-dot {
+    color: #EA7613;
+    font-weight: bolder;
+    font-size: 15px;
+    padding-left: 3px;
+    padding-right: 2px;
 }
 
 .footer {
@@ -75,12 +77,12 @@
     margin-bottom: 10px;
 }
 
-#quote-text{
-    font-size:7px;
+#quote-text {
+    font-size: 7px;
     font-weight: bolder;
 }
 
-.home-grid{
+.home-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -88,46 +90,49 @@
     grid-row-gap: 20px;
     height: 500px;
     margin-top: 50px;
-    margin-bottom:150px
+    margin-bottom: 150px
 }
 
-.hg1 { 
-    grid-area: 1 / 1 / 6 / 3; 
-    border-radius:13px;
-    overflow:hidden;
+.hg1 {
+    grid-area: 1 / 1 / 6 / 3;
+    border-radius: 13px;
+    overflow: hidden;
     border: 2px solid #f85c4a
 }
-#hg1{
-    background-color:#f85c4a;
+
+#hg1 {
+    background-color: #f85c4a;
 }
 
-.hg2 { 
-    grid-area: 1 / 3 / 4 / 5; 
-    border-radius:13px;
-    overflow:hidden;
+.hg2 {
+    grid-area: 1 / 3 / 4 / 5;
+    border-radius: 13px;
+    overflow: hidden;
     border: 2px solid #76cdd8;
     position: relative;
 }
-#hg2{
-    background-color:#76cdd8;
+
+#hg2 {
+    background-color: #76cdd8;
 }
 
-.hg3 { 
+.hg3 {
     grid-area: 1 / 5 / 2 / 7;
-    border-radius:13px;
+    border-radius: 13px;
     border: 2px solid #36A2EB;
 }
 
-#hg3{
+#hg3 {
     color: black;
 }
 
-.hg4 { 
+.hg4 {
     grid-area: 6 / 1 / 7 / 3;
-    border-radius:13px;
+    border-radius: 13px;
     border: 2px solid #ffbe30;
 }
-#hg4{
+
+#hg4 {
     color: black;
     font-size: .8vw;
     word-wrap: break-word;
@@ -135,62 +140,65 @@
     line-height: 1.2;
 }
 
-.daily-info{
+.daily-info {
     font-size: .9vw;
     word-wrap: break-word;
     font-weight: 200;
     line-height: 1.2;
 }
 
-#quote-text{
-    font-size:12px;
+#quote-text {
+    font-size: 12px;
 }
 
-.hg5 { 
+.hg5 {
     grid-area: 4 / 3 / 7 / 5;
-    border-radius:13px;
+    border-radius: 13px;
     border: 2px solid #8A90DB;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-#hg5{
+#hg5 {
     background-color: #8A90DB;
 }
-.hg6 { 
+
+.hg6 {
     grid-area: 2 / 5 / 7 / 7;
-    border-radius:13px;
-    border: 2px solid  #FF9B20;
-    overflow:hidden;
+    border-radius: 13px;
+    border: 2px solid #FF9B20;
+    overflow: hidden;
 }
 
-#hg6{
+#hg6 {
     background-color: #FF9B20;
 }
 
-.hg-header{
-    height:50px;
-    overflow:hidden;
+.hg-header {
+    height: 50px;
+    overflow: hidden;
     position: relative;
 }
-.dc-header{
-    height:70px;
-    overflow:hidden;
+
+.dc-header {
+    height: 70px;
+    overflow: hidden;
 }
 
-.dc-title{
-    margin-top:10px;
+.dc-title {
+    margin-top: 10px;
     font-weight: 500;
     color: white;
-    font-size:40px;
+    font-size: 40px;
     font-family: 'Boing';
     text-align: center;
 }
-.hg-title{
-    margin-left:7%;
-    padding-top:3%;
+
+.hg-title {
+    margin-left: 7%;
+    padding-top: 3%;
     font-weight: 500;
     color: white;
-    font-size:18px;
+    font-size: 18px;
     font-family: 'Boing';
 }
 
@@ -204,94 +212,99 @@
     height: 700px;
     margin-top: 150px;
 }
-    
-.setup1 { 
+
+.setup1 {
     grid-area: 1 / 1 / 5 / 3;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 2px solid #f85c4a;
 }
-.setup2 { 
+
+.setup2 {
     grid-area: 1 / 3 / 3 / 4;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 2px solid rgb(216, 216, 216);
-    background:rgb(248, 248, 248)
+    background: rgb(248, 248, 248)
 }
 
-.setup-title{
-    margin-left:2%;
-    padding-top:2%;
-    padding-bottom:2%;
+.setup-title {
+    margin-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     font-weight: 500;
     color: white;
-    font-size:18px;
-    font-family: 'Boing';   
+    font-size: 18px;
+    font-family: 'Boing';
 }
 
-.setup-fields{
-    padding:30px;
+.setup-fields {
+    padding: 30px;
 }
 
-.asterisk{
-    padding-left:3px;
-    padding-top:3px;
-    color:red;
-    font-size:small;
+.asterisk {
+    padding-left: 3px;
+    padding-top: 3px;
+    color: red;
+    font-size: small;
 }
 
-.high-temp{
+.high-temp {
     color: #ffbe30;
     font-weight: bold;
 }
-.dw-high-temp{
+
+.dw-high-temp {
     color: #ffbe30;
     font-weight: bold;
-    font-size:2vw;
-}
-.dw-low-temp{
-    color: lightblue;
-    font-weight: bold;
-    font-size:2vw;
+    font-size: 2vw;
 }
 
-.low-temp{
+.dw-low-temp {
+    color: lightblue;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.low-temp {
     color: lightblue;
     font-weight: bold;
 }
 
-#wtext{
+#wtext {
     font-size: 1.0vw;
     word-wrap: break-word;
     font-weight: 900;
-    margin-top:3px
+    margin-top: 3px
 }
 
-.sgrid{
+.sgrid {
     display: grid;
     grid-template-columns: 1fr 0.1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    
+
 }
 
-.sg1 { 
-    grid-area: 1 / 1 / 4 / 2; 
+.sg1 {
+    grid-area: 1 / 1 / 4 / 2;
     margin: 20px;
 
 }
-.sg2 { 
+
+.sg2 {
     grid-area: 1 / 2 / 4 / 3;
     margin: auto;
 }
-.sg3 { 
+
+.sg3 {
     grid-area: 1 / 3 / 4 / 4;
     margin: auto;
     margin-left: 5%;
 }
 
-.dash-grid{
+.dash-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(12, 1fr);
@@ -300,98 +313,105 @@
     height: 1000px;
     margin-top: 50px;
     margin-bottom: 150px;
-    width:90%;
+    width: 90%;
 }
 
-.dg1 { 
+.dg1 {
     grid-area: 1 / 1 / 5 / 3;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #76cdd8
 }
-.dg2 { grid-area: 5 / 1 / 9 / 3;
-    border-radius:13px;
-    overflow:hidden;
+
+.dg2 {
+    grid-area: 5 / 1 / 9 / 3;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #FF9B20;
 }
 
-#dc2{
+#dc2 {
     background-color: #FFCE56;
 }
 
-.dg3 { 
+.dg3 {
     grid-area: 9 / 1 / 11 / 3;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #d1d1d1
 }
 
-.dg4 { 
+.dg4 {
     grid-area: 11 / 1 / 13 / 3;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #36A2EB
 }
 
-#dg4{
-    background-color:#36A2EB
+#dg4 {
+    background-color: #36A2EB
 }
 
-.dg5 { 
+.dg5 {
     grid-area: 1 / 3 / 7 / 5;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #f85c4a
 }
 
-.dg6 { 
+.dg6 {
     grid-area: 7 / 3 / 13 / 5;
-    border-radius:13px;
-    overflow:hidden;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #8A90DB
 }
 
-.daily-container{
+.daily-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr) .1fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin-top: 25px;
-    width:90%;
-    border-radius:13px;
-    overflow:hidden;
+    width: 90%;
+    border-radius: 13px;
+    overflow: hidden;
     border: 1px solid #FFCE56;
-    height:225px;
+    height: 225px;
 }
 
-.dc1{
+.dc1 {
     grid-area: 1 / 1 / 2 / 3;
 }
-.dc2{
+
+.dc2 {
     grid-area: 2 / 1 / 3 / 2;
-    
+
 }
-.dc3{
+
+.dc3 {
     grid-area: 2 / 2 / 3 / 3;
-    
+
 }
-.dc4{
+
+.dc4 {
     grid-area: 4 / 1 / 5 / 2;
-    
+
 }
-.dc5{
+
+.dc5 {
     grid-area: 4 / 2 / 5 / 3;
-    
+
 }
-.dc6{
+
+.dc6 {
     grid-area: 2 / 1 / 3 / 3;
     width: 90%;
     margin: auto;
     margin-top: 70px;
 }
 
-.meal-container{
+.meal-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr .1fr 1fr;
@@ -399,16 +419,22 @@
     grid-row-gap: 0px;
 }
 
-.m1, .s1{
+.m1,
+.s1 {
     grid-area: 1 / 1 / 2 / 2;
 }
-.m2, .s2{
+
+.m2,
+.s2 {
     grid-area: 1 / 2 / 2 / 3;
 }
-.m3, .s3{
+
+.m3,
+.s3 {
     grid-area: 1 / 3 / 2 / 4;
 }
-.m4{
+
+.m4 {
     grid-area: 2 / 1 / 3 / 4;
     color: black;
     width: 90%;
@@ -416,27 +442,29 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.m5{
+
+.m5 {
     grid-area: 3 / 1 / 4 / 4;
 }
 
-.dash-quote{
+.dash-quote {
     font-size: 1vw;
     word-wrap: break-word;
     line-height: 1.2;
 }
 
-.dq-title{
+.dq-title {
     font-family: 'Boing';
     font-weight: bolder;
 }
-.dw-title{
+
+.dw-title {
     font-family: 'Boing';
     font-weight: bolder;
     font-size: 1.75vw;
 }
 
-.s-container{
+.s-container {
     display: grid;
     grid-template-columns: 1fr .1fr 1fr;
     grid-template-rows: 1fr;
@@ -445,73 +473,76 @@
     margin: auto;
 }
 
-.icons{
-    color:#adadad;
+.icons {
+    color: #adadad;
     font-size: 40px;
 }
 
-#bed-icon{
+#bed-icon {
     font-size: 35px;
 }
-#run-icon{
+
+#run-icon {
     font-size: 45px;
 }
 
-.daily-text{
+.daily-text {
     font-family: "Boing";
     font-weight: 500;
-    font-size:15px; 
-    line-height: 1.2;  
+    font-size: 15px;
+    line-height: 1.2;
 }
 
-.loading{
-    margin:0 auto;
-    text-align:center;
+.loading {
+    margin: 0 auto;
+    text-align: center;
 }
 
-.welcome{
-    text-align:center;
-    margin-top:30px;
+.welcome {
+    text-align: center;
+    margin-top: 30px;
 }
 
-#welcome-title{
+#welcome-title {
     padding-right: 10px;
 }
 
-.info-icon{
-    color:white;
+.info-icon {
+    color: white;
     font-size: 23px;
     font-weight: bold;
 }
 
-.add-icon{
-    color:white;
+.add-icon {
+    color: white;
     font-size: 25px;
     font-weight: bold;
 }
 
-.add-icon:hover, .info-icon:hover{
+.add-icon:hover,
+.info-icon:hover {
     cursor: pointer;
     color: gray;
     box-shadow: "lg"
 }
 
-.dash-title{
+.dash-title {
     font-weight: 500;
     color: white;
-    font-size:18px;
+    font-size: 18px;
     font-family: 'Boing';
-    margin-top:1.5%
+    margin-top: 1.5%
 }
 
-.img-meal{
+.img-meal {
     background-image: url('pages/meals/diet.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     height: 40vh;
 }
-.img-fit{
+
+.img-fit {
     background-image: url('pages/workouts/fitness.png');
     background-size: 100%;
     background-repeat: no-repeat;
@@ -519,22 +550,24 @@
     height: 40vh;
 }
 
-.main-img{
+.main-img {
     background-image: url('header.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     height: 40vh;
 }
-.img-mood{
+
+.img-mood {
     background-image: url('pages/moods/mood.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     height: 40vh;
-    margin-top:0;
+    margin-top: 0;
 }
-.img-sleep{
+
+.img-sleep {
     background-image: url('pages/sleep/sleep.png');
     background-size: 100%;
     background-repeat: no-repeat;
@@ -542,25 +575,26 @@
     height: 40vh;
 }
 
-.divs{
-    margin-left:10px;
-    margin-bottom:10px;
+.divs {
+    margin-left: 10px;
+    margin-bottom: 10px;
     padding: 15px;
     border: 1px solid #d1d1d1;
-    border-radius:13px;
+    border-radius: 13px;
     width: 350px;
     height: 350px;
     text-align: center;
 }
 
-.div-box{
+.div-box {
     margin-top: 30px;
 }
 
-.div-title{
+.div-title {
     margin-bottom: 50px;
 }
-.fit-title{
+
+.fit-title {
     margin-bottom: 25px;
 }
 
@@ -571,87 +605,91 @@ hr.rounded {
     margin: 5px auto;
 }
 
-.sleep-rounded{
+.sleep-rounded {
     border-top: 4px solid #abaaea;
     border-radius: 5px;
     width: 80%;
     margin: 5px auto;
 }
 
-.fit-rounded{
+.fit-rounded {
     border-top: 4px solid#94c2ca;
     border-radius: 5px;
     width: 80%;
     margin: 5px auto;
 }
-.mood-rounded{
+
+.mood-rounded {
     border-top: 4px solid#f29837;
     border-radius: 5px;
     width: 80%;
     margin: 5px auto;
 }
 
-.work-divs{
-    margin-left:5px;
-    margin-bottom:10px;
+.work-divs {
+    margin-left: 5px;
+    margin-bottom: 10px;
     padding: 15px;
     border: 1px solid #d1d1d1;
-    border-radius:13px;
+    border-radius: 13px;
     width: 400px;
     height: 325px;
     text-align: center;
 }
 
-.fit-logo{
-    font-size:30px;
-    font-weight:bolder;
+.fit-logo {
+    font-size: 30px;
+    font-weight: bolder;
     text-decoration: none;
     font-family: 'Boing';
-    color:#EA7613;
+    color: #EA7613;
 }
 
-.mood-logo{
-    font-size:60px;
-    font-weight:bolder;
+.mood-logo {
+    font-size: 60px;
+    font-weight: bolder;
     text-decoration: none;
     font-family: 'Boing';
-    color:#EA7613
+    color: #EA7613
 }
 
-.about{
-    font-size:20px;
-    font-weight:bold;
+.about {
+    font-size: 20px;
+    font-weight: bold;
     text-decoration: none;
     font-family: 'Boing';
 }
 
-.mood-form{
-    width:650px;
-    height:450px;
+.mood-form {
+    width: 650px;
+    height: 450px;
     padding: 20px;
     border: 1px solid #FF9B20;
     margin: auto;
     margin-top: 30px;
 }
-.meal-form{
-    width:650px;
-    height:550px;
+
+.meal-form {
+    width: 650px;
+    height: 550px;
     padding: 20px;
     border: 1px solid #f85c4a;
     margin: auto;
     margin-top: 30px;
 }
-.fit-form{
-    width:650px;
-    height:600px;
+
+.fit-form {
+    width: 650px;
+    height: 600px;
     padding: 20px;
     border: 1px solid #76cdd8;
     margin: auto;
     margin-top: 30px;
 }
-.sleep-form{
-    width:650px;
-    height:450px;
+
+.sleep-form {
+    width: 650px;
+    height: 450px;
     padding: 20px;
     border: 1px solid #8A90DB;
     margin: auto;
