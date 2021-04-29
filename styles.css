@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Boing';
-    src: url('./public/Boing-Medium.woff2') format('woff2'),
-        url('./public/Boing-Medium.woff') format('woff');
+    src: url('./Boing.woff2') format('woff2'),
+        url('./Boing.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'Boing';
-    src: url('./public/Boing-Medium.woff2') format('woff2'),
-        url('./public/Boing-Medium.woff') format('woff');
+    src: url('./Boing-Medium.woff2') format('woff2'),
+        url('./Boing-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
