@@ -3,6 +3,24 @@ import { Grid, GridItem, Box, Text } from "@chakra-ui/react"
 
 const setup = () => {
 
+    const [settings, setSettings] = useState([])
+
+    const getUserInfo = () => {
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
+            { withCredentials: true }
+        )
+            .then((res) => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        getUserInfo()
+    }, [])
+
     return (
         <>
             <div>
