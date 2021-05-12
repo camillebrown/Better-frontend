@@ -8,7 +8,7 @@ const setup = () => {
     const [settings, setSettings] = useState([])
 
     const getUserInfo = () => {
-        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/profile`,
             { withCredentials: true }
         )
             .then((res) => {

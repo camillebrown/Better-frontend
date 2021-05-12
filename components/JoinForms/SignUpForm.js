@@ -39,7 +39,7 @@ const SignUpForm = () => {
       }
       else if (data.data.status.code === 201) {
         setTimeout(() => {
-          window.location.replace("/profile")
+          window.location.replace("/setup")
         }, 500);
       }
     }).catch((err) => {

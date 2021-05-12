@@ -66,6 +66,8 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
   const [user, setUser] = useState()
+  console.log(user)
+
 
   const getUserInfo = () => {
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
