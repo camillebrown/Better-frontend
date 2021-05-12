@@ -12,7 +12,7 @@ const setup = () => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log(res.data)
+                console.log("TRYING TO GET USER ON FRONTEND SETUP PAGE", res.data)
             })
             .catch(err => {
                 console.log(err)

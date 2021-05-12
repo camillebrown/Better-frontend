@@ -27,3 +27,6 @@ export const login = (email, password) => {
 export const logout = () => {
     return axios.get(API_URL + '/api/v1/users/logout', { withCredentials: true })
 }
+
+axios.get(
+  process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/users/logout`, { withCredentials: true })

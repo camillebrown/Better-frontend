@@ -66,15 +66,15 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
   const [user, setUser] = useState()
-  
-  
+
+
   const getUserInfo = () => {
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
-    { withCredentials: true }
+      { withCredentials: true }
     )
-    .then((res) => {
-      setUser(res.data.data)
-      console.log('MY USER SHOULD BE SET HERE! FRONTEND', user)
+      .then((res) => {
+        setUser(res.data.data)
+        console.log('MY USER SHOULD BE SET HERE! FRONTEND', user)
       })
       .catch(err => {
         console.log(err)
@@ -86,7 +86,8 @@ const MenuLinks = ({ isOpen }) => {
   }, [])
 
   const logOut = () => {
-    logout()
+    axios.get(
+      process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/users/logout`, { withCredentials: true })
       .then((data) => {
         console.log(data);
       })
@@ -129,22 +130,22 @@ const MenuLinks = ({ isOpen }) => {
             </Button>
           </>
         ) : (
-            <>
-              <MenuItem to="/join" isLast>
-                <Button
-                  size="sm"
-                  rounded="md"
-                  color="white"
-                  bg="blue"
-                  _hover={{
-                    bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                  }}
-                >
-                  Join Now!
+          <>
+            <MenuItem to="/join" isLast>
+              <Button
+                size="sm"
+                rounded="md"
+                color="white"
+                bg="blue"
+                _hover={{
+                  bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
+                }}
+              >
+                Join Now!
           </Button>
-              </MenuItem>
-            </>
-          )}
+            </MenuItem>
+          </>
+        )}
       </Stack>
     </Box>
   );
