@@ -98,10 +98,6 @@ const MenuLinks = ({ isOpen }) => {
     }, 500);
   }
 
-  if (user) {
-    console.log('MY USER SHOULD BE SET HERE! FRONTEND', user)
-  }
-
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}

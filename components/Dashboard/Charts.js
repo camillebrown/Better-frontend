@@ -31,6 +31,7 @@ const Charts = (props) => {
     const [highFahrenheit, setHighFahrenheit] = useState()
     const [lowFahrenheit, setLowFahrenheit] = useState()
     const getWeather = () => {
+      console.log(props.settings)
         axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${props.settings.zip_code},us&appid=f4a5477638ec2bad03e7ef91172e8f5d`)
             .then((res) => {
                 setWeather(res.data)
