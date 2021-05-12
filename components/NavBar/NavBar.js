@@ -74,7 +74,6 @@ const MenuLinks = ({ isOpen }) => {
     )
       .then((res) => {
         setUser(res.data.data)
-        console.log('MY USER SHOULD BE SET HERE! FRONTEND', user)
       })
       .catch(err => {
         console.log(err)
@@ -99,6 +98,8 @@ const MenuLinks = ({ isOpen }) => {
     }, 500);
   }
 
+  console.log('MY USER SHOULD BE SET HERE! FRONTEND', user)
+  
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
