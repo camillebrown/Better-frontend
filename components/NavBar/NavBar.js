@@ -66,15 +66,15 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
   const [user, setUser] = useState()
-  console.log(user)
-
-
+  
+  
   const getUserInfo = () => {
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/`,
-      { withCredentials: true }
+    { withCredentials: true }
     )
-      .then((res) => {
-        setUser(res.data.data)
+    .then((res) => {
+      setUser(res.data.data)
+      console.log('MY USER SHOULD BE SET HERE! FRONTEND', user)
       })
       .catch(err => {
         console.log(err)
