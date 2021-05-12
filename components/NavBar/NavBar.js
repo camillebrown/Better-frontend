@@ -73,7 +73,7 @@ const MenuLinks = ({ isOpen }) => {
       { withCredentials: true }
     )
       .then((res) => {
-        setUser(res.data.data)
+        setUser(res.data.data[0])
       })
       .catch(err => {
         console.log(err)
