@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { login } from '../../services/users.service'
 import {
   Stack,
@@ -25,18 +26,34 @@ const LoginForm = () => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value })
   }
 
-
   const loginUser = (e) => {
     e.preventDefault();
-    login(loginData.email, loginData.password)
+    // login(loginData.email, loginData.password)
+    axios
+      .post(
+        process.env.NEXT_PUBLIC_BACKEND_URL + '/api/v1/users/login',
+        {
+          email: loginData.email,
+          password: loginData.password
+        },
+        { withCredentials: true }
+      )
       .then((data) => {
-        let userData = data.data.data;
-        window.location.replace('/profile')
+        if (data.data.status.code === 401) {
+          console.log('UNABLE TO DO STUFF WITH THIS USER AFTER LOGGING IN')
+        }
+        else if (data.data.status.code === 200) {
+          setTimeout(() => {
+            window.location.replace('/profile')
+          }, 2000);
+
+        }
       })
       .catch((err) => {
         console.log("error logging in user", err);
       });
   };
+
   return (
     <form action="submit" onSubmit={loginUser}>
       <Stack spacing={4}>
