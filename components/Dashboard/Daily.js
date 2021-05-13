@@ -90,19 +90,17 @@ export const Daily = (props) => {
     )
       .then((res) => {
         let array = res.data.data
-        console.log(array)
         var total = 0;
         for (var i = 0; i < res.data.data.length; i++) {
           total += res.data.data[i].calories;
         }
-        console.log(total)
         var avg = total / res.data.data.length;
-        console.log(avg)
         setAvgCalories(avg)
+        let workouts = []
+        console.log('THIS IS THE WORKOUTS ARRAY!!!', workouts)
         array.forEach(workout => {
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
-            let workouts = []
             console.log(workouts)
             workouts.push(workout)
             setWorkouts(workouts)

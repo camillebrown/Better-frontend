@@ -192,7 +192,7 @@ const profile = () => {
                             </span>
                         </h1>
                         <Text>
-                            Checkout your dashboard below to see your daily insights and your overall stats for meals, workouts, sleep logs, and moods.
+                            Check out your dashboard below to see your daily insights and your overall stats for meals, workouts, sleep logs, and moods.
                         </Text>
                     </Box>
                     {!todayMacros ? (
