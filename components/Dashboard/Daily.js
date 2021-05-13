@@ -118,7 +118,7 @@ export const Daily = (props) => {
     getTodayStats()
   }, [])
 
-  console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+  console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'moods', mood, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
 
   return (
     <Center>
