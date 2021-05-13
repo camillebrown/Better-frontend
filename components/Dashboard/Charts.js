@@ -16,12 +16,10 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
-  console.log(props)
-    const [sleepTime, setSleepTime] = useState(0)
 
     useEffect(() => {
         getSleeptime()
-        // getQuote()
+        getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
         return () => clearTimeout(getTemp);
 
@@ -46,15 +44,15 @@ const Charts = (props) => {
             })
     }
 
-    // const getQuote = () => {
-    //     axios.get('https://zenquotes.io/api/random')
-    //         .then((data) => {
-    //             setQuote(data.data[0])
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }
+    const getQuote = () => {
+        axios.get('https://zenquotes.io/api/random')
+            .then((data) => {
+                setQuote(data.data[0])
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const getSleeptime = () => {
         let sleeptimes = []
@@ -178,6 +176,9 @@ const Charts = (props) => {
     const addMeals = () => {
         Router.push("/meals/add")
     }
+
+    console.log('CHART COMPONENT!!!!!!!!!!!!!!!!', 'USER', user, 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+
 
     return (
 

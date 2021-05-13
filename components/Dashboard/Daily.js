@@ -96,17 +96,13 @@ export const Daily = (props) => {
         }
         var avg = total / res.data.data.length;
         setAvgCalories(avg)
-        console.log('ORIGINAL ARRAY!!!', array)
         array.forEach(workout => {
           let workouts = []
-          console.log('ORIGINAL WORKOUTS TEMP!!!', workouts)
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
             workouts.push(workout)
-            console.log('SETTING THE WORKOUTS', workouts)
             setWorkouts(workouts)
             setNumWork(workouts.length)
-            console.log('THIS IS THE NUM OF WORKOUTS', workouts)
           } else {
             setWorkouts(null)
           }
@@ -121,6 +117,9 @@ export const Daily = (props) => {
   useEffect(() => {
     getTodayStats()
   }, [])
+
+  console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'USER', user, 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+
 
   return (
     <Center>
