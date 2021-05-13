@@ -103,8 +103,8 @@ export const Daily = (props) => {
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
             workouts.push(workout)
-            setWorkouts(workouts)
             console.log('SETTING THE WORKOUTS', workouts)
+            setWorkouts(workouts)
             setNumWork(workouts.length)
             console.log('THIS IS THE NUM OF WORKOUTS', workouts)
           } else {

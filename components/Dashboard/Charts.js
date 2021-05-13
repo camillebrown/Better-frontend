@@ -48,6 +48,7 @@ const Charts = (props) => {
     const getQuote = () => {
         axios.get('https://zenquotes.io/api/random')
             .then((data) => {
+              console.log('IS THIS WHERE THE ISSUE IS? QUOTE', data.data[0])
                 setQuote(data.data[0])
             })
             .catch(err => {
