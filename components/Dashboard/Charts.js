@@ -177,7 +177,7 @@ const Charts = (props) => {
         Router.push("/meals/add")
     }
 
-    console.log('CHART COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+    console.log('CHART COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', props.avgCalories, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
 
 
     return (

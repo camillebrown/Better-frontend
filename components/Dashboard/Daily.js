@@ -120,7 +120,6 @@ export const Daily = (props) => {
 
   console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
 
-
   return (
     <Center>
       <Grid className="daily-container ">
