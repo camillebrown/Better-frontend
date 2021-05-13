@@ -80,7 +80,6 @@ const profile = () => {
       { withCredentials: true }
     )
       .then((res) => {
-        console.log('LOGGING THE MEAL RESPONSE', res.data)
         if (res.data.calories.length === 0) {
           setAvgCalories(0)
           setMeals([])

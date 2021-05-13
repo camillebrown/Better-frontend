@@ -10,6 +10,8 @@ dayjs.extend(localizedFormat)
 import axios from 'axios'
 
 export const Daily = (props) => {
+
+  console.log("WE GOT MACROS IN HERE??!", props.todayMacros)
   // setTodayMacros([TCL, TF, TCB, TP])
   var now = dayjs().format('LL')
   var fNow = dayjs().format('ddd, DD MMM YYYY')
@@ -54,8 +56,6 @@ export const Daily = (props) => {
             let meals = []
             meals.push(meal)
             setMeals(meals)
-          } else {
-            setMeals(null)
           }
         });
       })
@@ -196,7 +196,7 @@ export const Daily = (props) => {
                 icon={faHamburger} />
             </Box>
             <Box px={4}>
-              {!meals || !props.todayMacros ? (
+              {meals.length === 0 || !props.todayMacros ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t logged any meals today
