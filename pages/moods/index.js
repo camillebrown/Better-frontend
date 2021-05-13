@@ -45,7 +45,7 @@ const moods = () => {
             </div>
             <Button onClick={addMood}>Add Mood Log</Button>
             <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4} />Go Back</Button>
-            {moods[0] == null ? (
+            {moods.length === 0  ? (
                 <div className="loading">
                     <p>You don't have any mood logs added yet. Let's get one added!</p>
                 </div>

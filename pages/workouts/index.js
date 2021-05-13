@@ -42,7 +42,7 @@ const workouts = () => {
             </div>
             <Button onClick={addWorkout}>Add Workout</Button>
             <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4} />Go Back</Button>
-            {workouts[0] == null ? (
+            {workouts.length === 0 ? (
                 <div>
                     <p>You don't have any workouts added yet. Let's get one added!</p>
                 </div>

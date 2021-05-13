@@ -41,7 +41,7 @@ const sleep = () => {
             </div>
             <Button onClick={addSleep}>Add Sleep Log</Button>
             <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4}/>Go Back</Button>
-            {sleeps[0] == null ? (
+            {sleeps.length === 0 ? (
                 <div>
                     <p>You don't have any sleep logs yet. Let's get some added!</p>
                 </div>

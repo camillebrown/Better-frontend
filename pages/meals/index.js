@@ -43,7 +43,7 @@ const meals = () => {
             </div>
             <Button onClick={addMeal}>Add More Meals</Button>
             <Button onClick={back} mx={4}><IoMdArrowRoundBack px={4} />Go Back</Button>
-            {meals[0] == null ? (
+            {meals.length === 0 ? (
                 <div className="loading">
                     <p>You don't have any meals added yet. Let's get one added!</p>
                 </div>
