@@ -38,8 +38,6 @@ export const Daily = (props) => {
           if (date === nowFormat) {
             setMood(mood.rating + 1)
             setRating(ratings[i])
-          } else {
-            setMood(null)
           }
         });
       })
@@ -91,23 +89,22 @@ export const Daily = (props) => {
       .then((res) => {
         let array = res.data.data
         var total = 0;
-        console.log('#111111 HERE IS THE FIRST LEN. TRYING TO READ WORKOUTS')
         for (var i = 0; i < res.data.data.length; i++) {
           total += res.data.data[i].calories;
         }
-        console.log('#222222 HERE IS THE SECOND LEN. TRYING TO READ AVERAGE CALORIES')
         var avg = total / res.data.data.length;
         setAvgCalories(avg)
         array.forEach(workout => {
-          let workouts = []
+          console.log('IS THERE A WORKOUT BECAUSE THERE SHOULD BE', array)
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
-            workouts.push(workout)
-            setWorkouts(workouts)
+            console.log(date)
+            console.log(fNow)
+            let finalWorkouts = []
+            finalWorkouts.push(workout)
+            setWorkouts(finalWorkouts)
             console.log('#3333 HERE IS THE THIRD LEN. TRYING TO READ NUM OF WORKOUTS')
-            setNumWork(workouts.length)
-          } else {
-            setWorkouts(null)
+            setNumWork(finalWorkouts.length)
           }
 
         });
