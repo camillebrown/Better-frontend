@@ -81,54 +81,57 @@ const profile = () => {
     )
       .then((res) => {
         console.log('LOGGING THE MEAL RESPONSE', res.data)
-        var fatTotal = 0;
-        var carbTotal = 0;
-        var proteinTotal = 0;
-        var calTotal = 0;
-        for (var i = 0; i < res.data.fats.length; i++) {
-          fatTotal += res.data.fats[i];
-        }
-        var avgFats = Math.round((fatTotal / res.data.fats.length) * 10) / 10;
-        avgMacros[2] = avgFats
-        // ======================================= //
-        for (var i = 0; i < res.data.proteins.length; i++) {
-          proteinTotal += res.data.proteins[i];
-        }
-        var avgProtein = Math.round((proteinTotal / res.data.proteins.length) * 10) / 10;
-        avgMacros[0] = avgProtein
-        // ======================================= //
-        for (var i = 0; i < res.data.carbs.length; i++) {
-          carbTotal += res.data.carbs[i];
-        }
-        var avgCarbs = Math.round((carbTotal / res.data.carbs.length) * 10) / 10;
-        avgMacros[1] = avgCarbs
-        // ======================================= //
-        for (var i = 0; i < res.data.calories.length; i++) {
-          calTotal += res.data.calories[i];
-        }
-        var avgCals = Math.round((calTotal / res.data.calories.length) * 10) / 10;
-        console.log('AVG CALS', avgCals)
-        console.log('AVG MACROS', avgMacros)
-        setAvgCalories(avgCals)
-        setMeals(avgMacros)
-
-        res.data.data.forEach(meal => {
-          let date = (meal.created_at).substring(0, 16)
-          if (date === fNow) {
-            todayCals.push(meal.total_calories)
-            todayFats.push(meal.fat)
-            todayCarbs.push(meal.carbs)
-            todayProtein.push(meal.protein)
-
-            let TCL = todayCals.reduce((a, b) => a + b, 0)
-            let TF = todayFats.reduce((a, b) => a + b, 0)
-            let TCB = todayCarbs.reduce((a, b) => a + b, 0)
-            let TP = todayProtein.reduce((a, b) => a + b, 0)
-            setTodayMacros([TCL, TF, TCB, TP])
-          } else {
-            setTodayMacros(null)
+        if (res.data.calories.length === 0) {
+          setAvgCalories(0)
+          setMeals(0)
+        } else {
+          var fatTotal = 0;
+          var carbTotal = 0;
+          var proteinTotal = 0;
+          var calTotal = 0;
+          for (var i = 0; i < res.data.fats.length; i++) {
+            fatTotal += res.data.fats[i];
           }
-        })
+          var avgFats = Math.round((fatTotal / res.data.fats.length) * 10) / 10;
+          avgMacros[2] = avgFats
+          // ======================================= //
+          for (var i = 0; i < res.data.proteins.length; i++) {
+            proteinTotal += res.data.proteins[i];
+          }
+          var avgProtein = Math.round((proteinTotal / res.data.proteins.length) * 10) / 10;
+          avgMacros[0] = avgProtein
+          // ======================================= //
+          for (var i = 0; i < res.data.carbs.length; i++) {
+            carbTotal += res.data.carbs[i];
+          }
+          var avgCarbs = Math.round((carbTotal / res.data.carbs.length) * 10) / 10;
+          avgMacros[1] = avgCarbs
+          // ======================================= //
+          for (var i = 0; i < res.data.calories.length; i++) {
+            calTotal += res.data.calories[i];
+          }
+          var avgCals = Math.round((calTotal / res.data.calories.length) * 10) / 10;
+          setAvgCalories(avgCals)
+          setMeals(avgMacros)
+
+          res.data.data.forEach(meal => {
+            let date = (meal.created_at).substring(0, 16)
+            if (date === fNow) {
+              todayCals.push(meal.total_calories)
+              todayFats.push(meal.fat)
+              todayCarbs.push(meal.carbs)
+              todayProtein.push(meal.protein)
+
+              let TCL = todayCals.reduce((a, b) => a + b, 0)
+              let TF = todayFats.reduce((a, b) => a + b, 0)
+              let TCB = todayCarbs.reduce((a, b) => a + b, 0)
+              let TP = todayProtein.reduce((a, b) => a + b, 0)
+              setTodayMacros([TCL, TF, TCB, TP])
+            } else {
+              setTodayMacros(null)
+            }
+          })
+        }
       })
       .catch(err => {
         console.log(err)
