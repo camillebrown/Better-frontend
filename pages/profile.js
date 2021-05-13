@@ -167,6 +167,8 @@ const profile = () => {
     getUserInfo()
   }, [])
 
+  console.log('GOT TO THE BOTTOM OF PROFILE. READY TO PASS DOWN INFO')
+
   return (
     <>
       {loading &&

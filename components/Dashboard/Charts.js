@@ -370,7 +370,7 @@ const Charts = (props) => {
                                         </Box>
                                     </HStack>
                                 </Box>
-                                {props.meals.length === 0 ? (
+                                {props.meals.length === 0 ? console.log('CHART #11111 HERE IS THE FIRST LEN. TRYING TO PRINT OUT MEALS')(
                                     <Center>
                                         <Box
                                             height="28vh"
@@ -452,7 +452,7 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        {props.sleeps.length === 0 ? (
+                                        {props.sleeps.length === 0 ? console.log('CHART #22222 HERE IS THE SECOND LEN. TRYING TO PRINT OUT SLEEPS')(
                                             <Center>
                                                 <Box
                                                     height="28vh"
