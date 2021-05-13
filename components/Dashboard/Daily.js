@@ -144,7 +144,7 @@ export const Daily = (props) => {
                 icon={faRunning} />
             </Box>
             <Box px={4}>
-              {workouts.length === 0 ? console.log('#44444 HERE IS THE FOURTH LEN. TRYING TO PRINT OUT WORKOUTS')(
+              {workouts.length === 0 ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t logged any workouts today
@@ -175,7 +175,7 @@ export const Daily = (props) => {
                 icon={faBed} />
             </Box>
             <Box px={4}>
-              {sleeps.length === 0 ? console.log('#55555 HERE IS THE FIFTH LEN. TRYING TO PRINT OUT SLEEPS')(
+              {sleeps.length === 0 ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t added a sleep log today
