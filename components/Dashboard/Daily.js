@@ -100,10 +100,11 @@ export const Daily = (props) => {
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
             let workouts = []
-            console.log(workouts)
             workouts.push(workout)
             setWorkouts(workouts)
+            console.log('SETTING THE WORKOUTS', workouts)
             setNumWork(workouts.length)
+            console.log('THIS IS THE NUM OF WORKOUTS', workouts)
           } else {
             setWorkouts(null)
           }
@@ -141,7 +142,7 @@ export const Daily = (props) => {
                 icon={faRunning} />
             </Box>
             <Box px={4}>
-              {workouts === [] ? (
+              {workouts[0] === null ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t logged any workouts today
