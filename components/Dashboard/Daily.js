@@ -118,7 +118,7 @@ export const Daily = (props) => {
     getTodayStats()
   }, [])
 
-  console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'USER', user, 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+  console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
 
 
   return (
@@ -142,7 +142,7 @@ export const Daily = (props) => {
                 icon={faRunning} />
             </Box>
             <Box px={4}>
-              {workouts[0] === undefined ? (
+              {workouts.length === 0 ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t logged any workouts today
@@ -173,7 +173,7 @@ export const Daily = (props) => {
                 icon={faBed} />
             </Box>
             <Box px={4}>
-              {!sleeps[0] ? (
+              {sleeps.length === 0 ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t added a sleep log today

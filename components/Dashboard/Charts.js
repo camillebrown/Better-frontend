@@ -177,7 +177,7 @@ const Charts = (props) => {
         Router.push("/meals/add")
     }
 
-    console.log('CHART COMPONENT!!!!!!!!!!!!!!!!', 'USER', user, 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+    console.log('CHART COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
 
 
     return (
@@ -452,7 +452,7 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        {props.sleeps[0] == null ? (
+                                        {props.sleeps.length === 0 ? (
                                             <Center>
                                                 <Box
                                                     height="28vh"
