@@ -11,8 +11,6 @@ import axios from 'axios'
 
 export const Daily = (props) => {
 
-  console.log("WE GOT MACROS IN HERE??!", props.todayMacros)
-  // setTodayMacros([TCL, TF, TCB, TP])
   var now = dayjs().format('LL')
   var fNow = dayjs().format('ddd, DD MMM YYYY')
 

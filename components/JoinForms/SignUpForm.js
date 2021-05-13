@@ -35,7 +35,7 @@ const SignUpForm = () => {
       }, { withCredentials: true }
     ).then((data) => {
       if (data.data.status.code === 401) {
-        console.log('UNABLE TO DO STUFF WITH THIS NEW USER AFTER REGISTERING')
+        console.log('unable to register user')
       }
       else if (data.data.status.code === 201) {
         setTimeout(() => {

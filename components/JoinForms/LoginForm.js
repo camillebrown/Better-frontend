@@ -40,7 +40,6 @@ const LoginForm = () => {
       )
       .then((data) => {
         if (data.data.status.code === 401) {
-          console.log('UNABLE TO DO STUFF WITH THIS USER AFTER LOGGING IN')
         }
         else if (data.data.status.code === 200) {
           setTimeout(() => {

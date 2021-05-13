@@ -16,10 +16,8 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
-  console.log('LOGGING PROPS FROM CHART TO SEE MEALS', props)
 
     useEffect(() => {
-        getSleeptime()
         getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
         return () => clearTimeout(getTemp);
@@ -31,7 +29,6 @@ const Charts = (props) => {
     const [highFahrenheit, setHighFahrenheit] = useState()
     const [lowFahrenheit, setLowFahrenheit] = useState()
     const getWeather = () => {
-      console.log(props.settings)
         axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${props.settings.zip_code},us&appid=f4a5477638ec2bad03e7ef91172e8f5d`)
             .then((res) => {
                 setWeather(res.data)
@@ -53,25 +50,6 @@ const Charts = (props) => {
             .catch(err => {
                 console.log(err)
             })
-    }
-
-    const getSleeptime = () => {
-        let sleeptimes = []
-        let total = 0
-        props.sleeps.forEach(sleep => {
-            const time1 = dayjs().hour(sleep.end_time.substring(0, 2))
-            console.log('HERE IS THE END TIME', time1)
-            const time2 = dayjs().hour(sleep.start_time.substring(0, 2))
-            let hours = time1.diff(time2, 'hour')
-            let sleepTime = hours + 24
-            // sleeptimes.push(sleepTime)
-            // console.log('HERE ARE ALL OF THE SLEEP TIMES', sleeptimes)
-            // for (let i = 0; i < sleeptimes.length; i++) {
-            //     total += sleeptimes[i];
-            // }
-            // let avg = total / sleeptimes.length;
-            // console.log('AVERAGE OF ALL SLEEP TIMES', avg)
-        });
     }
 
     const moodChart = {
