@@ -91,9 +91,11 @@ export const Daily = (props) => {
       .then((res) => {
         let array = res.data.data
         var total = 0;
+        console.log('#111111 HERE IS THE FIRST LEN. TRYING TO READ WORKOUTS')
         for (var i = 0; i < res.data.data.length; i++) {
           total += res.data.data[i].calories;
         }
+        console.log('#222222 HERE IS THE SECOND LEN. TRYING TO READ AVERAGE CALORIES')
         var avg = total / res.data.data.length;
         setAvgCalories(avg)
         array.forEach(workout => {
@@ -102,6 +104,7 @@ export const Daily = (props) => {
           if (date === fNow) {
             workouts.push(workout)
             setWorkouts(workouts)
+            console.log('#3333 HERE IS THE THIRD LEN. TRYING TO READ NUM OF WORKOUTS')
             setNumWork(workouts.length)
           } else {
             setWorkouts(null)
@@ -141,7 +144,7 @@ export const Daily = (props) => {
                 icon={faRunning} />
             </Box>
             <Box px={4}>
-              {workouts.length === 0 ? (
+              {workouts.length === 0 ? console.log('#44444 HERE IS THE FOURTH LEN. TRYING TO PRINT OUT WORKOUTS')(
                 <Box>
                   <Text className="daily-text">
                     You haven’t logged any workouts today
@@ -172,7 +175,7 @@ export const Daily = (props) => {
                 icon={faBed} />
             </Box>
             <Box px={4}>
-              {sleeps.length === 0 ? (
+              {sleeps.length === 0 ? console.log('#55555 HERE IS THE FIFTH LEN. TRYING TO PRINT OUT SLEEPS')(
                 <Box>
                   <Text className="daily-text">
                     You haven’t added a sleep log today
