@@ -17,7 +17,7 @@ const profile = () => {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState([])
   const [settings, setSettings] = useState([])
-  const [moods, setMoods] = useState()
+  const [moods, setMoods] = useState([])
   const [meals, setMeals] = useState([])
   const [todayMacros, setTodayMacros] = useState([])
   const [sleeps, setSleeps] = useState([])
