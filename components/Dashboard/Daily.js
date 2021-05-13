@@ -14,9 +14,9 @@ export const Daily = (props) => {
   var now = dayjs().format('LL')
   var fNow = dayjs().format('ddd, DD MMM YYYY')
 
-  const [mood, setMood] = useState()
+  const [mood, setMood] = useState(null)
   const [rating, setRating] = useState()
-  const [meals, setMeals] = useState()
+  const [meals, setMeals] = useState([])
   const [sleep, setSleep] = useState([])
   const [sleeps, setSleeps] = useState([])
   const [avgCalories, setAvgCalories] = useState("")
@@ -57,7 +57,7 @@ export const Daily = (props) => {
             meals.push(meal)
             setMeals(meals)
           } else {
-            setMeals([])
+            setMeals(null)
           }
         });
       })
