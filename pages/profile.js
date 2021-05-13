@@ -83,7 +83,7 @@ const profile = () => {
         console.log('LOGGING THE MEAL RESPONSE', res.data)
         if (res.data.calories.length === 0) {
           setAvgCalories(0)
-          setMeals(0)
+          setMeals([])
         } else {
           var fatTotal = 0;
           var carbTotal = 0;

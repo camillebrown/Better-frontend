@@ -415,7 +415,7 @@ const Charts = (props) => {
                                                                 width="90%"
                                                             >You have an average of <span
                                                                 className="cal-dot"
-                                                            >{props.avgCalories} </span>with each meal. <br />You might need a few more to hit your goals.
+                                                            >{props.avgCalories}calories </span>with each meal. <br />You might need a few more to hit your goals.
                                                              </Text>
                                                         </Center>
                                                     </GridItem>
