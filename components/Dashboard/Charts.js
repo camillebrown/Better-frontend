@@ -159,7 +159,7 @@ const Charts = (props) => {
             )
         }
     }
-    
+
     console.log('GOT TO SLEEP CHART')
 
     const seeMoods = () => {
@@ -459,7 +459,7 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        {props.sleeps[0] == null ? (
+                                        {props.sleeps[0] === null ? (
                                             <Center>
                                                 <Box
                                                     height="28vh"

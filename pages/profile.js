@@ -44,8 +44,6 @@ const profile = () => {
       .catch(err => {
         console.log(err)
       })
-
-    console.log('GOT USER INFO')
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/`,
       { withCredentials: true }
     )
@@ -55,7 +53,6 @@ const profile = () => {
       .catch(err => {
         console.log(err)
       })
-    console.log('GOT SETTING INFO')
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/moods/`,
       { withCredentials: true }
     )
@@ -79,7 +76,6 @@ const profile = () => {
       .catch(err => {
         console.log(err)
       })
-      console.log('GOT MOOD INFO')
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/meals/`,
       { withCredentials: true }
     )
@@ -134,7 +130,6 @@ const profile = () => {
       .catch(err => {
         console.log(err)
       })
-      console.log('GOT MEAL INFO')
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sleeps/`,
       { withCredentials: true }
     )
@@ -152,7 +147,6 @@ const profile = () => {
       .catch(err => {
         console.log(err)
       })
-      console.log('GOT SLEEP INFO')
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/workouts/`,
       { withCredentials: true }
     )
@@ -160,7 +154,6 @@ const profile = () => {
         let calArray = [0, 0]
         res.data.data.forEach(workout => {
           let calories = workout.calories
-          console.log('THESE ARE THE CALORIES FROM THE WORKOUT', calories)
           calArray.push(calories)
         });
         setWorkouts(calArray)
@@ -168,7 +161,6 @@ const profile = () => {
       .catch(err => {
         console.log(err)
       })
-      console.log('GOT WORKOUT INFO')
   }
 
   useEffect(() => {

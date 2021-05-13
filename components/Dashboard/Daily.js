@@ -122,9 +122,6 @@ export const Daily = (props) => {
     getTodayStats()
   }, [])
 
-  console.log('GOT TO THE BOTTOM OF DAILYYYYYY')
-
-
   return (
     <Center>
       <Grid className="daily-container ">
