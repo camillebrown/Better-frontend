@@ -57,7 +57,7 @@ export const Daily = (props) => {
             meals.push(meal)
             setMeals(meals)
           } else {
-            setMeals(null)
+            setMeals([])
           }
         });
       })
