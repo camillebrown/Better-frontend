@@ -167,6 +167,8 @@ const profile = () => {
     getUserInfo()
   }, [])
 
+  console.log('USER', user, 'avgCalories', avgCalories, 'settings', settings, 'moods', moods, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
+
   return (
     <>
       {loading &&

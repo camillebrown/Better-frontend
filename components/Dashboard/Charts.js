@@ -21,7 +21,7 @@ const Charts = (props) => {
 
     useEffect(() => {
         getSleeptime()
-        getQuote()
+        // getQuote()
         const getTemp = setTimeout(() => getWeather(), 3000);
         return () => clearTimeout(getTemp);
 
@@ -46,15 +46,15 @@ const Charts = (props) => {
             })
     }
 
-    const getQuote = () => {
-        axios.get('https://zenquotes.io/api/random')
-            .then((data) => {
-                setQuote(data.data[0])
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
+    // const getQuote = () => {
+    //     axios.get('https://zenquotes.io/api/random')
+    //         .then((data) => {
+    //             setQuote(data.data[0])
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }
 
     const getSleeptime = () => {
         let sleeptimes = []
