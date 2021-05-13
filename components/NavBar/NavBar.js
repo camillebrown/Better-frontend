@@ -87,12 +87,6 @@ const MenuLinks = ({ isOpen }) => {
   const logOut = () => {
     axios.get(
       process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/users/logout`, { withCredentials: true })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     setTimeout(() => {
       window.location.replace("/")
     }, 500);

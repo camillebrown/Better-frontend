@@ -97,7 +97,6 @@ export const Daily = (props) => {
         var avg = total / res.data.data.length;
         setAvgCalories(avg)
         let workouts = []
-        console.log('THIS IS THE WORKOUTS ARRAY!!!', workouts)
         array.forEach(workout => {
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
@@ -142,7 +141,7 @@ export const Daily = (props) => {
                 icon={faRunning} />
             </Box>
             <Box px={4}>
-              {!workouts ? (
+              {workouts === [] ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t logged any workouts today
