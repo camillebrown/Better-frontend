@@ -97,9 +97,9 @@ export const Daily = (props) => {
         array.forEach(workout => {
           console.log('IS THERE A WORKOUT BECAUSE THERE SHOULD BE', array)
           let date = workout.created_at.substring(0, 16)
+          console.log(date)
+          console.log(fNow)
           if (date === fNow) {
-            console.log(date)
-            console.log(fNow)
             let finalWorkouts = []
             finalWorkouts.push(workout)
             setWorkouts(finalWorkouts)
