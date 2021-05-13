@@ -48,13 +48,13 @@ const Charts = (props) => {
     const getQuote = () => {
         axios.get('https://zenquotes.io/api/random')
             .then((data) => {
-              console.log('IS THIS WHERE THE ISSUE IS? QUOTE', data.data[0])
                 setQuote(data.data[0])
             })
             .catch(err => {
                 console.log(err)
             })
     }
+    console.log('GOT TO QUOTE CHART')
 
 
     const getSleeptime = () => {
@@ -75,6 +75,7 @@ const Charts = (props) => {
             // console.log('AVERAGE OF ALL SLEEP TIMES', avg)
         });
     }
+    
 
     const moodChart = {
         labels: ['Why?😫', 'Not Good😔', 'Meh🙂', 'Good😄', 'Amazing!🤩'],
@@ -93,6 +94,7 @@ const Charts = (props) => {
             }
         ]
     };
+    console.log('GOT TO MOOD CHART')
 
     const donutChart = {
         labels: [
@@ -114,6 +116,8 @@ const Charts = (props) => {
             ]
         }]
     };
+
+    console.log('GOT TO MEAL CHART')
 
     const fitData = {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -142,6 +146,8 @@ const Charts = (props) => {
         ]
     };
 
+    console.log('GOT TO WORKOUT CHART')
+
     const Sleeps = (props) => {
         for (let sleep in props.sleepData) {
             return (
@@ -153,6 +159,8 @@ const Charts = (props) => {
             )
         }
     }
+    
+    console.log('GOT TO SLEEP CHART')
 
     const seeMoods = () => {
         Router.push("/moods")
