@@ -96,10 +96,10 @@ export const Daily = (props) => {
         }
         var avg = total / res.data.data.length;
         setAvgCalories(avg)
-        let workouts = []
         array.forEach(workout => {
           let date = workout.created_at.substring(0, 16)
           if (date === fNow) {
+            let workouts = []
             console.log(workouts)
             workouts.push(workout)
             setWorkouts(workouts)
