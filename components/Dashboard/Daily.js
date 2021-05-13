@@ -226,7 +226,7 @@ export const Daily = (props) => {
                 icon={faLaughWink} />
             </Box>
             <Box px={4}>
-              {!mood ? (
+              {mood === null ? (
                 <Box>
                   <Text className="daily-text">
                     You haven’t added a mood log today
