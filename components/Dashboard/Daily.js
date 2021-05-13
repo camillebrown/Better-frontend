@@ -95,15 +95,11 @@ export const Daily = (props) => {
         var avg = total / res.data.data.length;
         setAvgCalories(avg)
         array.forEach(workout => {
-          console.log('IS THERE A WORKOUT BECAUSE THERE SHOULD BE', array)
           let date = workout.created_at.substring(0, 16)
-          console.log(date)
-          console.log(fNow)
           if (date === fNow) {
             let finalWorkouts = []
             finalWorkouts.push(workout)
             setWorkouts(finalWorkouts)
-            console.log('#3333 HERE IS THE THIRD LEN. TRYING TO READ NUM OF WORKOUTS')
             setNumWork(finalWorkouts.length)
           }
 
@@ -117,8 +113,6 @@ export const Daily = (props) => {
   useEffect(() => {
     getTodayStats()
   }, [])
-
-  console.log('DAILY COMPONENT!!!!!!!!!!!!!!!!', 'avgCalories', avgCalories, 'moods', mood, 'sleeps', sleeps, 'meals', meals, 'workouts', workouts)
 
   return (
     <Center>

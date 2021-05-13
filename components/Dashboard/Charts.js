@@ -16,6 +16,7 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
+  console.log('LOGGING PROPS FROM CHART TO SEE MEALS', props)
 
     useEffect(() => {
         getSleeptime()
