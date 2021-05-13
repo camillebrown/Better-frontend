@@ -16,6 +16,7 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
+  console.log(props.sleep)
     const [sleepTime, setSleepTime] = useState(0)
 
     useEffect(() => {
@@ -54,8 +55,6 @@ const Charts = (props) => {
                 console.log(err)
             })
     }
-    console.log('GOT TO QUOTE CHART')
-
 
     const getSleeptime = () => {
         let sleeptimes = []
@@ -94,7 +93,6 @@ const Charts = (props) => {
             }
         ]
     };
-    console.log('GOT TO MOOD CHART')
 
     const donutChart = {
         labels: [
@@ -116,8 +114,6 @@ const Charts = (props) => {
             ]
         }]
     };
-
-    console.log('GOT TO MEAL CHART')
 
     const fitData = {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -146,8 +142,6 @@ const Charts = (props) => {
         ]
     };
 
-    console.log('GOT TO WORKOUT CHART')
-
     const Sleeps = (props) => {
         for (let sleep in props.sleepData) {
             return (
@@ -159,8 +153,6 @@ const Charts = (props) => {
             )
         }
     }
-
-    console.log('GOT TO SLEEP CHART')
 
     const seeMoods = () => {
         Router.push("/moods")
@@ -459,7 +451,7 @@ const Charts = (props) => {
                                         </HStack>
                                     </Box>
                                     <Box px={4} py={4}>
-                                        {props.sleeps[0] === null ? (
+                                        {props.sleeps[0] == null ? (
                                             <Center>
                                                 <Box
                                                     height="28vh"
