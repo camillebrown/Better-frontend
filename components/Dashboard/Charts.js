@@ -16,7 +16,7 @@ dayjs.extend(localizedFormat)
 import Router from "next/router";
 
 const Charts = (props) => {
-  console.log(props.sleep)
+  console.log(props)
     const [sleepTime, setSleepTime] = useState(0)
 
     useEffect(() => {
@@ -74,7 +74,6 @@ const Charts = (props) => {
             // console.log('AVERAGE OF ALL SLEEP TIMES', avg)
         });
     }
-    
 
     const moodChart = {
         labels: ['Why?😫', 'Not Good😔', 'Meh🙂', 'Good😄', 'Amazing!🤩'],
@@ -152,7 +151,8 @@ const Charts = (props) => {
                 </Tr>
             )
         }
-    }
+    };
+    
 
     const seeMoods = () => {
         Router.push("/moods")
@@ -369,7 +369,7 @@ const Charts = (props) => {
                                         </Box>
                                     </HStack>
                                 </Box>
-                                {!props.meals[0] ? (
+                                {props.meals.length === 0 ? (
                                     <Center>
                                         <Box
                                             height="28vh"
