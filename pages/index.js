@@ -208,7 +208,7 @@ function Home() {
                     <h2 className="hg-title">Mood</h2>
                   </div>
                 </Box>
-                <Box>
+                <Box padding={3}>
                   <Box my={8}>
                     <HorizontalBar
                       data={moodData}
