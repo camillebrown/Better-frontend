@@ -101,7 +101,7 @@ function Home() {
   return (
 
     <>
-      <div>
+      <div id="home-container">
         <div className="main-img">
         </div>
         <Grid className="home-grid">

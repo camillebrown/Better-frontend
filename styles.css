@@ -32,6 +32,12 @@
     min-height: 100vh;
 }
 
+#home-container {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    width: 80%;
+}
+
 .logo {
     font-size: 30px;
     font-weight: bolder;
