@@ -137,9 +137,11 @@ function Home() {
               <Box overflow="hidden" backgroundColor="white">
                 <Box>
                   <Line
-                    // className="line-chart"
-                    height="175px"
-                    width="400px"
+                    height="165px"
+                    width="390px"
+                    my={2}
+                    mr={2}
+                    ml={3}
                     data={fitData}
                   />
                 </Box>
