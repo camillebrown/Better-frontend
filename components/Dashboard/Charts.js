@@ -364,7 +364,7 @@ const Charts = (props) => {
                       my={8}
                     >
                       <Doughnut
-                        height="45vh"
+                        height="135vh"
                         margin="auto"
                         data={donutChart}
                       />
