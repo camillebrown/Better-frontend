@@ -360,10 +360,10 @@ const Charts = (props) => {
                   </Center>
                 ) : (
                   <Box>
-                    <Box my={8}>
+                    <Box height="28vh"
+                      width="30vw"
+                      my={8}>
                       <Doughnut
-                        height="5vh"
-                        width="5vw"
                         data={donutChart}
                       />
                     </Box>
