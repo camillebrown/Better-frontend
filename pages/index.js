@@ -137,8 +137,7 @@ function Home() {
               <Box overflow="hidden" backgroundColor="white">
                 <Box>
                   <Line
-                    mx={3}
-                    my={3}
+                    className="line-chart"
                     data={fitData}
                   />
                 </Box>

@@ -300,9 +300,15 @@
 }
 
 .sleep-img{
-  /* width: 80%;
-  height: 80%; */
+  width: 80%;
+  height: 80%;
   padding: 20px;
+}
+
+.line-chart{
+  height: 175px; 
+  width: 400px;
+  margin: 5px 5px 5px 10px;
 }
 
 .dash-grid {
