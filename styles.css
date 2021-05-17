@@ -98,7 +98,6 @@
     border-radius: 13px;
     overflow: hidden;
     border: 2px solid #f85c4a;
-    padding: 10px;
 }
 
 #hg1 {
@@ -111,7 +110,6 @@
     overflow: hidden;
     border: 2px solid #76cdd8;
     position: relative;
-    padding: 10px;
 }
 
 #hg2 {

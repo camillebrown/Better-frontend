@@ -118,7 +118,7 @@ function Home() {
                     data={donutData}
                   />
                 </Box>
-                <Box>
+                <Box paddingBottom={3}>
                   <Divider width="80%" borderColor="#ee9288" margin="auto" />
                   <Text textAlign="center" my={3} mx={5} fontWeight="light">
                     Track your daily meals to manage your macronutrients and meet your fitness goals. We'll help you stay consistent!
@@ -134,8 +134,8 @@ function Home() {
                   <h2 className="hg-title">Fitness</h2>
                 </div>
               </Box>
-              <Box overflow="hidden" backgroundColor="white">
-                <Box paddingLeft={1} paddingRight={1} my={2}>
+              <Box overflow="hidden" backgroundColor="white" paddingBottom={3}>
+                <Box paddingLeft={1} paddingRight={1}>
                   <Line
                     data={fitData}
                   />
