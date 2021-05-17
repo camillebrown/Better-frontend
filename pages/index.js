@@ -135,7 +135,7 @@ function Home() {
                 </div>
               </Box>
               <Box overflow="hidden" backgroundColor="white">
-                <Box paddingLeft={1} paddingRight={1}>
+                <Box paddingLeft={2} paddingRight={2}>
                   <Line
                     data={fitData}
                   />
@@ -176,7 +176,7 @@ function Home() {
                   <h2 className="hg-title">Sleep</h2>
                 </div>
               </Box>
-              <Stack direction="row">
+              <Stack direction="row" padding={3}>
                 <Grid className="sgrid">
                   <GridItem className="sg1">
                     <Box>
@@ -209,7 +209,7 @@ function Home() {
                   </div>
                 </Box>
                 <Box>
-                  <Box my={4}>
+                  <Box my={4} mx={3}>
                     <HorizontalBar
                       data={moodData}
                     />
