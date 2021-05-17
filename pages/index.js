@@ -182,7 +182,7 @@ function Home() {
                 <Grid className="sgrid">
                   <GridItem className="sg1">
                     <Box>
-                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" className="sleep-img"/>
+                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep"/>
                     </Box>
                   </GridItem>
                   <GridItem className="sg2">

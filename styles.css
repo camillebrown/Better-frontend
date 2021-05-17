@@ -281,14 +281,11 @@
 .sgrid {
     display: grid;
     grid-template-columns: 1fr 0.1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
 }
 
 .sg1 {
     grid-area: 1 / 1 / 4 / 2;
-    margin: 20px;
+    margin: 0 15px 15px 15px;
 }
 
 .sg2 {
@@ -303,8 +300,9 @@
 }
 
 .sleep-img{
-  width: 80%;
-  height: 80%;
+  /* width: 80%;
+  height: 80%; */
+  padding: 20px;
 }
 
 .dash-grid {
