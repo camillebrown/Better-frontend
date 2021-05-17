@@ -197,8 +197,8 @@ const Charts = (props) => {
                       <Center>
                         <Box>
                           <Line
-                            height="150vh"
-                            width="170vw"
+                            height="200vh"
+                            width="250vw"
                             data={fitData}
                           />
                         </Box>
@@ -251,10 +251,10 @@ const Charts = (props) => {
                   ) : (
                     <Box>
                       <Center>
-                        <Box
-                          height="28vh"
-                          width="30vw">
+                        <Box>
                           <HorizontalBar
+                            height="200vh"
+                            width="250vw"
                             data={moodChart}
                           />
                         </Box>
@@ -359,6 +359,8 @@ const Charts = (props) => {
                   <Box>
                     <Box my={8}>
                       <Doughnut
+                        height="200vh"
+                        width="250vw"
                         data={donutChart}
                       />
                     </Box>
