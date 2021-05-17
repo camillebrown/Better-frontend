@@ -198,7 +198,7 @@ const Charts = (props) => {
                         <Box>
                           <Line
                             height="215vh"
-                            width="300vw"
+                            width="400vw"
                             data={fitData}
                           />
                         </Box>
@@ -210,6 +210,7 @@ const Charts = (props) => {
                           fontWeight="medium"
                           textAlign="center"
                           width="90%"
+                          mt={1}
                         >How's your fitness journey going? <br />Trying your best is all the matters. Keep up the good work!
                                                     </Text>
                       </Center>
@@ -254,7 +255,7 @@ const Charts = (props) => {
                         <Box>
                           <HorizontalBar
                             height="215vh"
-                            width="300vw"
+                            width="400vw"
                             data={moodChart}
                           />
                         </Box>
@@ -265,6 +266,7 @@ const Charts = (props) => {
                           fontFamily="Boing" fontWeight="medium"
                           textAlign="center"
                           width="90%"
+                          mt={1}
                         >Based on the chart above, do your daily moods align with your goals? <br /> If not, keep trying your best to improve each day 😊
                                                 </Text>
                       </Center>
@@ -278,6 +280,7 @@ const Charts = (props) => {
               {weather && (
 
                 <HStack
+                  ml={1}
                   divider={
                     <Center>
                       <StackDivider
