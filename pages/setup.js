@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios';
 import Setup from '../components/Setup'
 import { Grid, GridItem, Box, Text } from "@chakra-ui/react"
@@ -7,6 +7,15 @@ const setup = () => {
 
     const getUserInfo = () => {
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/profile`,
+            { withCredentials: true }
+        )
+            .then((res) => {
+                console.log("TRYING TO GET USER SETTINGS ON FRONTEND SETUP PAGE", res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users`,
             { withCredentials: true }
         )
             .then((res) => {
