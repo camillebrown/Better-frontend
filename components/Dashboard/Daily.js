@@ -200,7 +200,7 @@ export const Daily = (props) => {
                     You haven’t logged any meals today
                                     </Text>
                   <Text className="daily-info">
-                    Let's get some added to your diet tracker to see how it’s impacting your goals
+                    Let's get some meals added to your diet tracker to see how it’s impacting your goals
                             </Text>
                 </Box>
               ) : (

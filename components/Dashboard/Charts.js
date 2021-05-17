@@ -361,7 +361,9 @@ const Charts = (props) => {
                 ) : (
                   <Box>
                     <Box
-                      my={8}>
+                      my={8}
+                      height="305px"
+                    >
                       <Doughnut
                         height="255px"
                         margin="auto"
@@ -397,7 +399,7 @@ const Charts = (props) => {
                               width="90%"
                             >You have an average of <span
                               className="cal-dot"
-                            >{props.avgCalories}calories </span>with each meal. <br />You might need a few more to hit your goals.
+                            >{props.avgCalories} calories </span>with each meal. <br />You might need a few more to hit your goals.
                                                              </Text>
                           </Center>
                         </GridItem>
