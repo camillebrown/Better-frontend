@@ -135,7 +135,7 @@ function Home() {
                 </div>
               </Box>
               <Box overflow="hidden" backgroundColor="white">
-                <Box paddingLeft={2} paddingRight={1}>
+                <Box>
                   <Line
                     mx={3}
                     my={3}
@@ -182,7 +182,7 @@ function Home() {
                 <Grid className="sgrid">
                   <GridItem className="sg1">
                     <Box>
-                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" width={80%} height={80%}/>
+                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" border="0" className="sleep-img"/>
                     </Box>
                   </GridItem>
                   <GridItem className="sg2">

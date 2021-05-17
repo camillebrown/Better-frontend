@@ -302,6 +302,11 @@
     margin-left: 5%;
 }
 
+.sleep-img{
+  width: 80%;
+  height: 80%;
+}
+
 .dash-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
