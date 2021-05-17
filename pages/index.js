@@ -135,8 +135,10 @@ function Home() {
                 </div>
               </Box>
               <Box overflow="hidden" backgroundColor="white">
-                <Box paddingLeft={2} paddingRight={2}>
+                <Box paddingLeft={2} paddingRight={1}>
                   <Line
+                    mx={3}
+                    my={3}
                     data={fitData}
                   />
                 </Box>
