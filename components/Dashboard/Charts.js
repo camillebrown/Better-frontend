@@ -197,8 +197,8 @@ const Charts = (props) => {
                       <Center>
                         <Box>
                           <Line
-                            height="28vh"
-                            width="30vw"
+                            height="50vh"
+                            width="70vw"
                             data={fitData}
                           />
                         </Box>
