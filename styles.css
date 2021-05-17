@@ -20,13 +20,12 @@
 
 
 .body {
-    min-height: 200vh;
+    min-height: 165vh;
     position: relative;
 }
 
 .container {
     font-family: 'Poppins', sans-serif;
-    padding-top: 60px;
     margin: 0 auto;
     width: 80%;
 }

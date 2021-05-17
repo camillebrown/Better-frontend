@@ -137,8 +137,8 @@ function Home() {
               <Box overflow="hidden" backgroundColor="white">
                 <Box>
                   <Line
-                    height="165px"
-                    width="390px"
+                    height="155px"
+                    width="380px"
                     my={2}
                     mr={2}
                     ml={3}
