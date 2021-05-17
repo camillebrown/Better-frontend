@@ -237,7 +237,7 @@ function Home() {
         </h1>
         <Text fontFamily='Boing' className="about">Better Fitness<span className="about-dot">.</span>Better Diet<span className="about-dot">.</span>Better Sleep<span className="about-dot">.</span>Better Mood<span className="about-dot">.</span>Better<span className="you-dot">You.</span></Text>
         <Text fontWeight="light" mt={4} mb={4}>
-          The Better. App was created to help you manage your own personal goals and start improving the parts of your life that are a bit out of wack. Struggling to get enough nutrients each day? Track your meals to manage your calorie intake and hit those macros. Consistently have the Monday blues? Find activities that can improve your mood over time. Hitting the gym is already hard enough but maybe see how many calories you've burned will motivate you to keep going. And we all know at least 8 hours of sleep gets rid at least reduces your need for morning coffee from 3 to 2. Get started today to start feeling, well   ...   'better'.
+          The Better. App was created to help you manage your own personal goals and start improving the parts of your life that are a bit out of wack. Struggling to get enough nutrients each day? Track your meals to manage your calorie intake and hit those macros. Consistently have the Monday blues? Find activities that can improve your mood over time. Hitting the gym is already hard enough but seeing how many calories you've burned may motivate you to keep going. And at least 8 hours of sleep may reduce your need for morning coffee from 3 cups to 2. Get started today to start feeling, well   ...   'better'.
         </Text>
       </Box>
     </>
