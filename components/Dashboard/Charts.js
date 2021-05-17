@@ -194,7 +194,7 @@ const Charts = (props) => {
                                         </Center>
                                     ) : (
                                             <Box>
-                                                <Center>
+                                                {/* <Center> */}
                                                     <Box
                                                         height="28vh"
                                                         width="30vw">
@@ -202,8 +202,8 @@ const Charts = (props) => {
                                                             data={fitData}
                                                         />
                                                     </Box>
-                                                </Center>
-                                                <Center>
+                                                {/* </Center>
+                                                <Center> */}
                                                     <Text
                                                         fontSize="small"
                                                         fontFamily="Boing" fontWeight="medium"
@@ -211,7 +211,7 @@ const Charts = (props) => {
                                                         width="90%"
                                                     >How's your fitness journey going? <br />Trying your best is all the matters. Keep up the good work!
                                                     </Text>
-                                                </Center>
+                                                {/* </Center> */}
                                             </Box>
                                         )}
                                 </Box>
