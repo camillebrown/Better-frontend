@@ -120,7 +120,7 @@ function Home() {
                 </Box>
                 <Box>
                   <Divider width="80%" borderColor="#ee9288" margin="auto" />
-                  <Text textAlign="center" mx={5} fontWeight="light">
+                  <Text textAlign="center" mx={5} mt={2} fontWeight="light">
                     Track your daily meals to manage your macronutrients and meet your fitness goals. We'll help you stay consistent!
                   </Text>
                 </Box>
@@ -134,7 +134,7 @@ function Home() {
                   <h2 className="hg-title">Fitness</h2>
                 </div>
               </Box>
-              <Box overflow="hidden" backgroundColor="white" my={4}>
+              <Box overflow="hidden" backgroundColor="white">
                 <Box paddingLeft={1} paddingRight={1}>
                   <Line
                     data={fitData}
