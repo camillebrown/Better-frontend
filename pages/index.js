@@ -229,7 +229,7 @@ function Home() {
           </GridItem>
         </Grid>
       </div>
-      <Box mx={4} my={4} textAlign="center">
+      <Box mx={4} my={2} textAlign="center">
         <h1>
           <span className="logo" id="welcome-title">
             About Better <span className="about-dot">.</span>
