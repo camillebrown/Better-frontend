@@ -362,8 +362,8 @@ const Charts = (props) => {
                   <Box>
                     <Box my={8}>
                       <Doughnut
-                        height="50vh"
-                        width="50vw"
+                        height="5vh"
+                        width="5vw"
                         data={donutChart}
                       />
                     </Box>
