@@ -176,7 +176,7 @@ function Home() {
                   <h2 className="hg-title">Sleep</h2>
                 </div>
               </Box>
-              <Stack direction="row" padding={3}>
+              <Stack direction="row">
                 <Grid className="sgrid">
                   <GridItem className="sg1">
                     <Box>
