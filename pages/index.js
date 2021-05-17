@@ -176,7 +176,7 @@ function Home() {
                   <h2 className="hg-title">Sleep</h2>
                 </div>
               </Box>
-              <Stack direction="row" >
+              <Stack direction="row">
                 <Grid className="sgrid">
                   <GridItem className="sg1">
                     <Box>
@@ -208,8 +208,8 @@ function Home() {
                     <h2 className="hg-title">Mood</h2>
                   </div>
                 </Box>
-                <Box padding={3}>
-                  <Box my={8}>
+                <Box>
+                  <Box my={4}>
                     <HorizontalBar
                       data={moodData}
                     />
