@@ -197,8 +197,8 @@ const Charts = (props) => {
                       <Center>
                         <Box>
                           <Line
-                            height="200vh"
-                            width="250vw"
+                            height="215vh"
+                            width="300vw"
                             data={fitData}
                           />
                         </Box>
@@ -253,8 +253,8 @@ const Charts = (props) => {
                       <Center>
                         <Box>
                           <HorizontalBar
-                            height="200vh"
-                            width="250vw"
+                            height="215vh"
+                            width="300vw"
                             data={moodChart}
                           />
                         </Box>
@@ -265,7 +265,7 @@ const Charts = (props) => {
                           fontFamily="Boing" fontWeight="medium"
                           textAlign="center"
                           width="90%"
-                        >Based on the chart above, do your daily moods align with your goals? <br /> If not, keeping trying your best to improve each day 😊
+                        >Based on the chart above, do your daily moods align with your goals? <br /> If not, keep trying your best to improve each day 😊
                                                 </Text>
                       </Center>
                     </Box>
@@ -359,8 +359,8 @@ const Charts = (props) => {
                   <Box>
                     <Box my={8}>
                       <Doughnut
-                        height="200vh"
-                        width="250vw"
+                        height="100vh"
+                        width="100vw"
                         data={donutChart}
                       />
                     </Box>
