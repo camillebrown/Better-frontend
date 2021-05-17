@@ -137,7 +137,9 @@ function Home() {
               <Box overflow="hidden" backgroundColor="white">
                 <Box>
                   <Line
-                    className="line-chart"
+                    // className="line-chart"
+                    height="175px"
+                    width="400px"
                     data={fitData}
                   />
                 </Box>
@@ -147,7 +149,7 @@ function Home() {
           <GridItem className="hg4">
             <HStack mt={1} spacing="10px" verticalAlign="middle" divider={<StackDivider height="50px" borderColor="gray.200" />}>
               <Box m={3}>
-                <ImQuotesLeft fontSize="30px" />
+                <ImQuotesLeft fontSize="30px"/>
               </Box>
               <Box>
                 <div className="hg-header">
@@ -181,7 +183,7 @@ function Home() {
                 <Grid className="sgrid">
                   <GridItem className="sg1">
                     <Box>
-                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep"/>
+                      <img src="https://i.ibb.co/w70VrVc/sleep.png" alt="sleep" className="sleep-img"/>
                     </Box>
                   </GridItem>
                   <GridItem className="sg2">
