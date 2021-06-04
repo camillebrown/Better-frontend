@@ -93,8 +93,6 @@ const MenuLinks = ({ isOpen }) => {
   //   }, 500);
   // }
 
-  console.log(user)
-
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -111,7 +109,7 @@ const MenuLinks = ({ isOpen }) => {
       >
         {user ? (
           <>
-            <MenuItem to="/profile">{user.first_name}'s Dashboard</MenuItem>
+            <MenuItem to="/profile">{user[0].first_name}'s Dashboard</MenuItem>
             <Button
               size="sm"
               onClick={() => { logout() }}
