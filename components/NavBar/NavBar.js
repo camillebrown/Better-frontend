@@ -85,13 +85,13 @@ const MenuLinks = ({ isOpen }) => {
     getUserInfo()
   }, [])
 
-  const logOut = () => {
-    axios.get(
-      process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/users/logout`, { withCredentials: true })
-    setTimeout(() => {
-      window.location.replace("/")
-    }, 500);
-  }
+  // const logOut = () => {
+  //   axios.get(
+  //     process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/users/logout`, { withCredentials: true })
+  //   setTimeout(() => {
+  //     window.location.replace("/")
+  //   }, 500);
+  // }
 
   return (
     <Box
