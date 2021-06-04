@@ -25,7 +25,6 @@ export const login = (email, password) => {
 }
 // LOG OUT
 export const logout = () => {
-  console.log('Are we hitting this even without the click???')
   axios.get(API_URL + '/api/v1/users/logout', { withCredentials: true })
   setTimeout(() => {
     window.location.replace("/")

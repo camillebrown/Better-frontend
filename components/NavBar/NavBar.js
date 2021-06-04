@@ -73,7 +73,6 @@ const MenuLinks = ({ isOpen }) => {
       { withCredentials: true }
     )
       .then((res) => {
-        console.log('FRONTEND TRYING TO GET USER DATA', res.data.data)
         setUser(res.data.data)
       })
       .catch(err => {
