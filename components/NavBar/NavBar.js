@@ -112,7 +112,7 @@ const MenuLinks = ({ isOpen }) => {
             <MenuItem to="/profile">{user.first_name}'s Dashboard</MenuItem>
             <Button
               size="sm"
-              onClick={logout}
+              onClick={logout()}
               rounded="md"
               color="white"
               bg="blue"
