@@ -93,8 +93,7 @@ const MenuLinks = ({ isOpen }) => {
   //   }, 500);
   // }
 
-  console.log(user)
-  console.log(user.email)
+  console.log(user[0])
 
   return (
     <Box

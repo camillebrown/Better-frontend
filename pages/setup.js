@@ -10,7 +10,7 @@ const setup = () => {
   //     { withCredentials: true }
   //   )
   //     .then((res) => {
-  //       console.log("TRYING TO GET USER SETTINGS ON FRONTEND SETUP PAGE", res.data)
+  //       console.log(res.data)
   //     })
   //     .catch(err => {
   //       console.log(err)
@@ -19,7 +19,7 @@ const setup = () => {
   //     { withCredentials: true }
   //   )
   //     .then((res) => {
-  //       console.log("TRYING TO GET USER ON FRONTEND SETUP PAGE", res.data)
+  //       console.log(res.data)
   //     })
   //     .catch(err => {
   //       console.log(err)
