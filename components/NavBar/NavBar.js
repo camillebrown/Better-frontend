@@ -79,7 +79,6 @@ const MenuLinks = ({ isOpen }) => {
       .catch(err => {
         console.log(err)
       })
-    console.log(user)
   }
 
   useEffect(() => {
@@ -93,6 +92,9 @@ const MenuLinks = ({ isOpen }) => {
   //     window.location.replace("/")
   //   }, 500);
   // }
+
+  console.log(user)
+  console.log(user.email)
 
   return (
     <Box
@@ -113,7 +115,7 @@ const MenuLinks = ({ isOpen }) => {
             <MenuItem to="/profile">{user.first_name}'s Dashboard</MenuItem>
             <Button
               size="sm"
-              onClick={() => {logout()}}
+              onClick={() => { logout() }}
               rounded="md"
               color="white"
               bg="blue"
