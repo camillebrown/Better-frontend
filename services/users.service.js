@@ -1,5 +1,5 @@
 import axios from "axios";
-// https://get-better-app.herokuapp.com/
+// http://get-better-app.herokuapp.com/
 
 let API_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 
